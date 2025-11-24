@@ -2,7 +2,7 @@ import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'placeholder';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01';
 
@@ -16,6 +16,14 @@ export const client = createClient({
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source: SanityImageSource) {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    // Return a placeholder image URL when Sanity is not configured
+    return {
+      url: () => '/placeholder.png',
+      width: () => ({ url: () => '/placeholder.png' }),
+      height: () => ({ url: () => '/placeholder.png' }),
+    } as any;
+  }
   return builder.image(source);
 }
 

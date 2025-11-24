@@ -1,0 +1,39 @@
+{
+  "name": "nedesigns",
+  "version": "1.0.0",
+  "description": "Portfolio website for NE Designs - showcasing graphic design and web development work",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@portabletext/react": "^5.0.0",
+    "@sanity/client": "^7.13.0",
+    "@sanity/image-url": "^1.2.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
+    "next": "^16.0.3",
+    "next-sanity": "^11.6.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  }
+}

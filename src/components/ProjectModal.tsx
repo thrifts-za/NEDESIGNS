@@ -16,30 +16,20 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Combine main image with gallery images - needs to be safe for when project is null
+  const allImages = project ? [
+    project.mainImage,
+    ...(project.gallery || []),
+  ] : [];
+
   // Reset image index when project changes
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [project]);
 
-  if (!project) return null;
-
-  // Combine main image with gallery images
-  const allImages = [
-    project.mainImage,
-    ...(project.gallery || []),
-  ];
-
-  const goToNext = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  };
-
-  const goToPrevious = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
-
   // Handle keyboard navigation
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || !project || allImages.length === 0) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') {
@@ -51,7 +41,18 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, allImages.length]);
+  }, [isOpen, project, allImages.length]);
+
+  // Early return AFTER all hooks
+  if (!project) return null;
+
+  const goToNext = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {

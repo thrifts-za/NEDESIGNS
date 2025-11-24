@@ -2,11 +2,15 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import InfiniteSkillsScroll from './InfiniteSkillsScroll';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 pt-20">
-      <div className="container mx-auto max-w-6xl">
+    <section className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(0_0_0_/_0.05)_1px,_transparent_0)] [background-size:40px_40px]"></div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -17,9 +21,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-black"
           >
-            Nkosi Ndwandwe
+            NEDESIGNS
           </motion.h1>
 
           <motion.p
@@ -84,6 +88,11 @@ export default function Hero() {
             </svg>
           </Link>
         </motion.div>
+      </div>
+
+      {/* Infinite Skills Scroll Banner */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <InfiniteSkillsScroll />
       </div>
     </section>
   );

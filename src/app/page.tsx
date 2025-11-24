@@ -17,8 +17,28 @@ import {
   Client,
   Skill,
 } from '@/lib/sanity.types';
+import {
+  mockGraphicDesigns,
+  mockWebProjects,
+  mockClients,
+  mockSkills,
+} from '@/lib/mockData';
 
 async function getPortfolioData() {
+  // Check if Sanity is configured
+  const isSanityConfigured = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== 'placeholder';
+
+  if (!isSanityConfigured) {
+    console.log('Using mock data (Sanity not configured)');
+    return {
+      graphicDesigns: mockGraphicDesigns,
+      webProjects: mockWebProjects,
+      clients: mockClients,
+      skills: mockSkills,
+    };
+  }
+
   try {
     const [graphicDesigns, webProjects, clients, skills] = await Promise.all([
       client.fetch<GraphicDesign[]>(GRAPHIC_DESIGN_QUERY),
@@ -29,12 +49,12 @@ async function getPortfolioData() {
 
     return { graphicDesigns, webProjects, clients, skills };
   } catch (error) {
-    console.error('Error fetching portfolio data:', error);
+    console.error('Error fetching portfolio data, falling back to mock data:', error);
     return {
-      graphicDesigns: [],
-      webProjects: [],
-      clients: [],
-      skills: [],
+      graphicDesigns: mockGraphicDesigns,
+      webProjects: mockWebProjects,
+      clients: mockClients,
+      skills: mockSkills,
     };
   }
 }

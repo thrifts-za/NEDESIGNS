@@ -15,15 +15,26 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client);
 
-export function urlFor(source: SanityImageSource) {
-  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-    // Return a placeholder image URL when Sanity is not configured
+export function urlFor(source: SanityImageSource | string) {
+  // If source is a string (local path), return it directly
+  if (typeof source === 'string') {
+    return {
+      url: () => source,
+      width: () => ({ url: () => source }),
+      height: () => ({ url: () => source }),
+    } as any;
+  }
+
+  // If Sanity is not configured, return placeholder
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID === 'placeholder') {
     return {
       url: () => '/placeholder.png',
       width: () => ({ url: () => '/placeholder.png' }),
       height: () => ({ url: () => '/placeholder.png' }),
     } as any;
   }
+
+  // Use Sanity image builder
   return builder.image(source);
 }
 

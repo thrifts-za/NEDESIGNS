@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GraphicDesign } from '@/lib/sanity.types';
 import { urlFor } from '@/lib/sanity.client';
 import Section from './Section';
+import ProjectModal from './ProjectModal';
 
 interface GraphicDesignGalleryProps {
   projects: GraphicDesign[];
@@ -25,6 +26,31 @@ export default function GraphicDesignGallery({
   projects,
 }: GraphicDesignGalleryProps) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedProject, setSelectedProject] = useState<GraphicDesign | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        setIsModalOpen(false);
+        setSelectedProject(null);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isModalOpen]);
+
+  const handleProjectClick = (project: GraphicDesign) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300); // Wait for animation
+  };
 
   const filteredProjects =
     activeCategory === 'all'
@@ -67,6 +93,7 @@ export default function GraphicDesignGallery({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => handleProjectClick(project)}
               className="group relative overflow-hidden rounded-lg bg-gray-100 aspect-square cursor-pointer"
             >
               <Image
@@ -79,12 +106,15 @@ export default function GraphicDesignGallery({
                 <div className="text-white text-center">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   {project.description && (
-                    <p className="text-sm text-gray-200">
+                    <p className="text-sm text-gray-200 mb-3">
                       {project.description}
                     </p>
                   )}
+                  <p className="text-sm text-gray-300 font-medium">
+                    Click to view {project.gallery ? project.gallery.length + 1 : 1} image{project.gallery && project.gallery.length > 0 ? 's' : ''}
+                  </p>
                   {project.client && (
-                    <p className="text-sm text-gray-300 mt-2">
+                    <p className="text-xs text-gray-400 mt-2">
                       Client: {project.client}
                     </p>
                   )}
@@ -94,6 +124,13 @@ export default function GraphicDesignGallery({
           ))}
         </div>
       )}
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </Section>
   );
 }

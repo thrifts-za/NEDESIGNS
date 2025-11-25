@@ -2,10 +2,31 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/utils/cn';
 
-export default function Header() {
+interface HeaderProps {
+  siteTitle?: string;
+  menuItems?: Array<{ label: string; href: string }>;
+  ctaButtonText?: string;
+  ctaButtonLink?: string;
+}
+
+export default function Header({
+  siteTitle = 'NEDESIGNS',
+  menuItems = [
+    { label: 'Work', href: '/#work' },
+    { label: 'About', href: '/#about' },
+    { label: 'Contact', href: '/#contact' },
+  ],
+  ctaButtonText = 'Book a Call',
+  ctaButtonLink = 'https://calendly.com/nedesigns/nedesigns-intro',
+}: HeaderProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Check if we're on a project page (black background)
+  const isProjectPage = pathname?.includes('/graphic-design/') || pathname?.includes('/web-projects/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,17 +37,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Work', href: '#work' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
+        isScrolled || isProjectPage
           ? 'bg-white/90 backdrop-blur-md shadow-sm text-black'
           : 'bg-transparent text-black'
       )}
@@ -37,31 +52,31 @@ export default function Header() {
             href="/"
             className="text-2xl font-bold tracking-tight hover:opacity-70 transition-opacity"
           >
-            NEDESIGNS
+            {siteTitle}
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {menuItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.label}
                 href={item.href}
                 className="text-sm font-medium hover:opacity-70 transition-opacity"
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
             <Link
-              href="https://calendly.com/nedesigns/nedesigns-intro"
+              href={ctaButtonLink}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
                 "px-6 py-2 rounded-full text-sm font-medium transition-all",
-                isScrolled
+                isScrolled || isProjectPage
                   ? "bg-black text-white hover:bg-gray-800"
                   : "border-2 border-black bg-transparent text-black hover:bg-black hover:text-white"
               )}
             >
-              Book a Call
+              {ctaButtonText}
             </Link>
           </div>
         </div>

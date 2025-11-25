@@ -35,7 +35,16 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'vimeoUrl',
+      title: 'Vimeo Video URL',
+      type: 'url',
+      description: 'Optional Vimeo video demo of this project (e.g., https://vimeo.com/1140274315)',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
     }),
     defineField({
       name: 'gallery',
@@ -44,9 +53,19 @@ export default defineType({
       of: [
         {
           type: 'image',
+          name: 'image',
+          title: 'Image',
           options: {
             hotspot: true,
           },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessibility.',
+            },
+          ],
         },
       ],
     }),

@@ -43,6 +43,7 @@ export const GRAPHIC_DESIGN_QUERY = `*[_type == "graphicDesign"] | order(order a
   title,
   slug,
   mainImage,
+  vimeoUrl,
   gallery,
   category,
   description,
@@ -58,6 +59,7 @@ export const WEB_PROJECT_QUERY = `*[_type == "webProject"] | order(order asc, _c
   slug,
   description,
   mainImage,
+  vimeoUrl,
   gallery,
   liveUrl,
   githubUrl,
@@ -104,5 +106,57 @@ export const FEATURED_PROJECTS_QUERY = `{
     description,
     liveUrl,
     technologies
+  }
+}`;
+
+export const SHOWREEL_VIDEO_QUERY = `*[_type == "showreelVideo"] | order(order asc) {
+  _id,
+  title,
+  vimeoUrl,
+  order
+}`;
+
+export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
+  siteTitle,
+  navigation {
+    menuItems[] {
+      label,
+      href
+    },
+    ctaButtonText,
+    ctaButtonLink
+  },
+  sectionTitles {
+    graphicDesign {
+      title,
+      subtitle
+    },
+    webProjects {
+      title,
+      subtitle
+    },
+    clients {
+      title,
+      subtitle
+    },
+    contact {
+      title,
+      subtitle
+    }
+  },
+  footer {
+    description,
+    socialLinks[] {
+      platform,
+      url
+    }
+  },
+  sections {
+    showHero,
+    showGraphicDesign,
+    showWebProjects,
+    showClients,
+    showSkills,
+    showContact
   }
 }`;

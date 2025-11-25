@@ -115,13 +115,15 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             >
               {/* Main Image */}
               <div className="relative w-full aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <Image
-                  src={urlFor(allImages[currentImageIndex]).url()}
-                  alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                  fill
-                  className="object-contain"
-                  priority
-                />
+                {allImages[currentImageIndex] && (
+                  <Image
+                    src={urlFor(allImages[currentImageIndex]!).url()}
+                    alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                )}
               </div>
 
               {/* Navigation Arrows - Only show if more than 1 image */}
@@ -160,24 +162,27 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 transition={{ delay: 0.3 }}
                 className="mt-6 flex gap-3 justify-center overflow-x-auto pb-2"
               >
-                {allImages.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden transition-all ${
-                      currentImageIndex === index
-                        ? 'ring-4 ring-white scale-110'
-                        : 'opacity-50 hover:opacity-100'
-                    }`}
-                  >
-                    <Image
-                      src={urlFor(image).url()}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
+                {allImages.map((image, index) => {
+                  if (!image) return null;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden transition-all ${
+                        currentImageIndex === index
+                          ? 'ring-4 ring-white scale-110'
+                          : 'opacity-50 hover:opacity-100'
+                      }`}
+                    >
+                      <Image
+                        src={urlFor(image).url()}
+                        alt={`Thumbnail ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </button>
+                  );
+                })}
               </motion.div>
             )}
 

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const data = await resend.emails.send({
       from: 'NE Designs Portfolio <onboarding@resend.dev>',
-      to: ['your-email@example.com'], // Replace with your email
+      to: ['freelance.nkosi@gmail.com'],
       replyTo: email,
       subject: `Portfolio Contact: ${name}`,
       html: `

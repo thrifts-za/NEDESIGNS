@@ -43,7 +43,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
         <div className="space-y-16">
           {Object.entries(groupedSkills).map(([category, categorySkills]) => (
             <div key={category}>
-              <h3 className="text-2xl font-bold mb-8 text-center">
+              <h3 className="text-2xl font-bold mb-8 text-center text-black">
                 {categoryLabels[category] || category}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -60,7 +60,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                       <div className="relative w-16 h-16">
                         <Image
                           src={urlFor(skill.icon).url()}
-                          alt={skill.name}
+                          alt={skill.name || 'Skill icon'}
                           fill
                           className="object-contain"
                         />

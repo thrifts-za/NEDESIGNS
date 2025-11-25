@@ -1,12 +1,13 @@
-import { GraphicDesign, WebProject, Client, Skill } from './sanity.types';
+import { GraphicDesign, WebProject, Client, Skill, ShowreelVideo } from './sanity.types';
 
 // Mock Graphic Design Projects
-export const mockGraphicDesigns: GraphicDesign[] = [
+export const mockGraphicDesigns = [
   {
     _id: '1',
     title: 'Angama Assessment Project',
-    slug: { current: 'angama-assessment' },
+    slug: { current: 'angama-assessment', _type: 'slug' },
     mainImage: '/portfolio/graphic/Angama_Assessment_Nkosi/1.jpg' as any,
+    vimeoUrl: 'https://vimeo.com/1140274315',
     gallery: [
       '/portfolio/graphic/Angama_Assessment_Nkosi/2.jpg',
       '/portfolio/graphic/Angama_Assessment_Nkosi/3.jpg',
@@ -28,7 +29,7 @@ export const mockGraphicDesigns: GraphicDesign[] = [
   {
     _id: '2',
     title: 'Vertex Design Project',
-    slug: { current: 'vertex-design' },
+    slug: { current: 'vertex-design', _type: 'slug' },
     mainImage: '/portfolio/graphic/Vertex_Nkosi/1.jpg' as any,
     gallery: [
       '/portfolio/graphic/Vertex_Nkosi/2.jpg',
@@ -49,7 +50,7 @@ export const mockGraphicDesigns: GraphicDesign[] = [
   {
     _id: '3',
     title: 'My Soul Knows - Book Design',
-    slug: { current: 'my-soul-knows-book' },
+    slug: { current: 'my-soul-knows-book', _type: 'slug' },
     mainImage: '/portfolio/graphic/My Soul Knows Book/18.jpg' as any,
     gallery: [
       '/portfolio/graphic/My Soul Knows Book/19.jpg',
@@ -63,7 +64,7 @@ export const mockGraphicDesigns: GraphicDesign[] = [
   {
     _id: '4',
     title: 'Electrocom X Campaign',
-    slug: { current: 'electrocom-x' },
+    slug: { current: 'electrocom-x', _type: 'slug' },
     mainImage: '/portfolio/graphic/X Submission/Electrocom X/1.jpg' as any,
     gallery: [
       '/portfolio/graphic/X Submission/Electrocom X/2.jpg',
@@ -84,7 +85,7 @@ export const mockGraphicDesigns: GraphicDesign[] = [
   {
     _id: '5',
     title: 'X Submission Portfolio',
-    slug: { current: 'x-submission' },
+    slug: { current: 'x-submission', _type: 'slug' },
     mainImage: '/portfolio/graphic/X Submission/1.jpg' as any,
     gallery: [
       '/portfolio/graphic/X Submission/2.jpg',
@@ -106,11 +107,11 @@ export const mockGraphicDesigns: GraphicDesign[] = [
 ];
 
 // Mock Web Projects
-export const mockWebProjects: WebProject[] = [
+export const mockWebProjects = [
   {
     _id: 'web1',
     title: 'ProTenders South Africa',
-    slug: { current: 'protenders' },
+    slug: { current: 'protenders', _type: 'slug' },
     description: 'Comprehensive government tenders platform connecting businesses with over 48,000 tender opportunities across South Africa. Built with modern web technologies and optimized user experience.',
     mainImage: '/portfolio/website/ProTenders.co.za/Screenshot 2025-11-24 at 14-16-08 Government Tenders South Africa 48 000 Opportunities ProTenders.png' as any,
     gallery: [
@@ -128,7 +129,7 @@ export const mockWebProjects: WebProject[] = [
 ];
 
 // Mock Clients
-export const mockClients: Client[] = [
+export const mockClients = [
   {
     _id: 'client1',
     name: 'Angama',
@@ -159,7 +160,7 @@ export const mockClients: Client[] = [
 ];
 
 // Mock Skills
-export const mockSkills: Skill[] = [
+export const mockSkills = [
   {
     _id: 'skill1',
     name: 'WordPress',
@@ -232,6 +233,70 @@ export const mockSkills: Skill[] = [
     name: 'TypeScript',
     category: 'development',
     proficiency: 'advanced',
+    order: 10,
+  },
+];
+
+// Mock Showreel Videos
+export const mockShowreelVideos = [
+  {
+    _id: 'showreel1',
+    title: 'Angama Motion Reel',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 1,
+  },
+  {
+    _id: 'showreel2',
+    title: 'Brand Animation Showcase',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 2,
+  },
+  {
+    _id: 'showreel3',
+    title: 'Motion Graphics Portfolio',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 3,
+  },
+  {
+    _id: 'showreel4',
+    title: 'Commercial Work Reel',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 4,
+  },
+  {
+    _id: 'showreel5',
+    title: 'Logo Animation Collection',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 5,
+  },
+  {
+    _id: 'showreel6',
+    title: 'Product Visualization',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 6,
+  },
+  {
+    _id: 'showreel7',
+    title: 'Social Media Campaigns',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 7,
+  },
+  {
+    _id: 'showreel8',
+    title: 'UI/UX Interactions',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 8,
+  },
+  {
+    _id: 'showreel9',
+    title: 'Explainer Videos',
+    vimeoUrl: 'https://vimeo.com/1140274315',
+    order: 9,
+  },
+  {
+    _id: 'showreel10',
+    title: 'Creative Showreel 2024',
+    vimeoUrl: 'https://vimeo.com/1140274315',
     order: 10,
   },
 ];

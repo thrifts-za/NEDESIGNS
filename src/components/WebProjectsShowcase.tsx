@@ -7,97 +7,97 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { WebProject } from '@/lib/sanity.types';
 import { urlFor } from '@/lib/sanity.client';
 import Section from './Section';
+import VimeoPlayer from './VimeoPlayer';
 
 interface WebProjectsShowcaseProps {
   projects: WebProject[];
+  limit?: number;
+  showViewMore?: boolean;
+  title?: string;
+  subtitle?: string;
 }
 
 export default function WebProjectsShowcase({
   projects,
+  limit,
+  showViewMore = false,
+  title = 'Web Development',
+  subtitle = 'Websites and web applications I\'ve designed and developed',
 }: WebProjectsShowcaseProps) {
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
+
   return (
-    <Section
-      id="web-projects"
-      title="Web Development"
-      subtitle="Websites and web applications I've designed and developed"
-      className="bg-gray-50"
-    >
-      {projects.length === 0 ? (
-        <div className="text-center py-20">
-          <p className="text-gray-500">No web projects yet.</p>
+    <div id="web-projects" className="w-full py-24 bg-gray-50">
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">{title}</h2>
+          {subtitle && (
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">{subtitle}</p>
+          )}
         </div>
-      ) : (
-        <div className="space-y-20">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project._id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
-            >
-              <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
-                  <Image
-                    src={urlFor(project.mainImage).url()}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
 
-              <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-bold">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 text-lg">{project.description}</p>
+        {displayedProjects.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="text-gray-500">No web projects yet.</p>
+          </div>
+        ) : (
+          <>
+            {/* 3-column grid layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {displayedProjects.map((project, index) => (
+                <Link
+                  key={project._id}
+                  href={`/web-projects/${project.slug?.current || project._id}`}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className="group relative overflow-hidden bg-black cursor-pointer aspect-[16/10] rounded-2xl"
+                  >
+                  {project.vimeoUrl ? (
+                    <VimeoPlayer url={project.vimeoUrl} />
+                  ) : project.mainImage ? (
+                    <Image
+                      src={urlFor(project.mainImage).url()}
+                      alt={project.title || 'Project'}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  ) : null}
 
-                  {project.technologies && project.technologies.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Gradient overlay on hover - matches graphic design cards */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <h3 className="text-white text-xl md:text-2xl font-bold mb-2 uppercase">
+                        {project.title}
+                      </h3>
+                      {project.description && (
+                        <p className="text-white/80 text-sm line-clamp-2">
+                          {project.description}
+                        </p>
+                      )}
                     </div>
-                  )}
-
-                  <div className="flex gap-4 pt-4">
-                    {project.liveUrl && (
-                      <Link
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
-                      >
-                        <FaExternalLinkAlt className="w-4 h-4" />
-                        Visit Website
-                      </Link>
-                    )}
-                    {project.githubUrl && (
-                      <Link
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 border-2 border-black text-black rounded-full font-medium hover:bg-black hover:text-white transition-all"
-                      >
-                        <FaGithub className="w-4 h-4" />
-                        View Code
-                      </Link>
-                    )}
                   </div>
-                </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+
+            {showViewMore && projects.length > (limit || 0) && (
+              <div className="flex justify-center mt-12">
+                <Link
+                  href="/web-projects"
+                  className="px-10 py-4 bg-white text-black text-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105 rounded-full"
+                >
+                  View More Work
+                </Link>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
-    </Section>
+            )}
+          </>
+        )}
+      </div>
+    </div>
   );
 }

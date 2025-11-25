@@ -25,3 +25,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Placeholder text colors for better contrast */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: #d1d5db;
+}

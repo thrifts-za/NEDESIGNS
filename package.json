@@ -11,6 +11,7 @@
     "sanity:deploy": "sanity deploy",
     "sanity:build": "sanity build",
     "seed": "tsx scripts/seed-sanity.ts",
+    "seed:transformations": "tsx scripts/seedTransformations.ts",
     "fix-keys": "tsx scripts/fix-gallery-keys.ts"
   },
   "keywords": [],

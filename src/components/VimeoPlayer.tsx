@@ -38,12 +38,13 @@ export default function VimeoPlayer({ url, className = '', backgroundMode = true
   }
 
   // Background mode: autoplay, muted, loop, minimal controls
-  // Full mode: user controls, sound enabled, no autoplay
+  // Full mode: user controls, sound enabled, autoplay
   // dnt=1 disables tracking to avoid analytics errors
   // quality=auto allows adaptive streaming to prevent freezing
+  // playsinline=1 ensures smooth mobile playback
   const embedUrl = backgroundMode
-    ? `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=${isHovered ? '1' : '0'}&dnt=1&quality=auto`
-    : `https://player.vimeo.com/video/${videoId}?autopause=0&dnt=1&quality=auto&responsive=1`;
+    ? `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=${isHovered ? '1' : '0'}&dnt=1&quality=auto&playsinline=1`
+    : `https://player.vimeo.com/video/${videoId}?autoplay=1&autopause=0&dnt=1&quality=auto&responsive=1&playsinline=1`;
 
   return (
     <div

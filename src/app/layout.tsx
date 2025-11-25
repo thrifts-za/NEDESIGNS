@@ -34,13 +34,16 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const seo = settings?.seo;
 
+  const DEFAULT_TITLE = "NE Designs | Graphic Designer & Web Developer";
+  const DEFAULT_DESCRIPTION = "Portfolio of Nkosi Ndwandwe - Freelance Graphic Designer and Web Developer specializing in clean, modern design and full-stack development.";
+
   const defaultMetadata: Metadata = {
     metadataBase: new URL("https://nkosidesigns.com"),
     title: {
-      default: "NE Designs | Graphic Designer & Web Developer",
+      default: DEFAULT_TITLE,
       template: "%s | NE Designs",
     },
-    description: "Portfolio of Nkosi Ndwandwe - Freelance Graphic Designer and Web Developer specializing in clean, modern design and full-stack development.",
+    description: DEFAULT_DESCRIPTION,
     keywords: [
       "graphic design",
       "web design",
@@ -53,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Nkosi Ndwandwe" }],
     creator: "Nkosi Ndwandwe",
     openGraph: {
-      title: "NE Designs | Graphic Designer & Web Developer",
+      title: DEFAULT_TITLE,
       description: "Portfolio showcasing graphic design and web development projects",
       url: "https://nkosidesigns.com",
       siteName: "NE Designs",
@@ -62,7 +65,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "NE Designs | Graphic Designer & Web Developer",
+      title: DEFAULT_TITLE,
       description: "Portfolio showcasing graphic design and web development projects",
     },
     robots: {
@@ -89,16 +92,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL("https://nkosidesigns.com"),
     title: {
-      default: seo.metaTitle || defaultMetadata.title?.default || "NE Designs",
+      default: seo.metaTitle || DEFAULT_TITLE,
       template: "%s | NE Designs",
     },
-    description: seo.metaDescription || defaultMetadata.description,
+    description: seo.metaDescription || DEFAULT_DESCRIPTION,
     keywords: seo.keywords && seo.keywords.length > 0 ? seo.keywords : defaultMetadata.keywords,
     authors: [{ name: "Nkosi Ndwandwe" }],
     creator: "Nkosi Ndwandwe",
     openGraph: {
-      title: seo.metaTitle || defaultMetadata.openGraph?.title,
-      description: seo.metaDescription || defaultMetadata.openGraph?.description,
+      title: seo.metaTitle || DEFAULT_TITLE,
+      description: seo.metaDescription || "Portfolio showcasing graphic design and web development projects",
       url: "https://nkosidesigns.com",
       siteName: "NE Designs",
       type: "website",
@@ -107,8 +110,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: seo.metaTitle || defaultMetadata.twitter?.title,
-      description: seo.metaDescription || defaultMetadata.twitter?.description,
+      title: seo.metaTitle || DEFAULT_TITLE,
+      description: seo.metaDescription || "Portfolio showcasing graphic design and web development projects",
       creator: seo.twitterHandle ? `@${seo.twitterHandle}` : undefined,
       images: twitterImage ? [twitterImage] : undefined,
     },

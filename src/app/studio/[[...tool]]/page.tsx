@@ -9,8 +9,8 @@ import { schemaTypes } from '@/../sanity/schemas';
 const config = defineConfig({
   name: 'default',
   title: 'NE Designs Portfolio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'mrjxk0gk',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: 'mrjxk0gk',
+  dataset: 'production',
   basePath: '/studio',
   plugins: [structureTool(), visionTool()],
   schema: {

@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { WebProject } from '@/lib/sanity.types';
-import { urlFor } from '@/lib/sanity.client';
-import { mockWebProjects } from '@/lib/mockData';
+import { urlFor, client } from '@/lib/sanity.client';
 import VimeoPlayer from '@/components/VimeoPlayer';
 
 interface ProjectPageProps {
@@ -23,19 +22,50 @@ export default function WebProjectPage({ params }: ProjectPageProps) {
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Find the project by slug
-    const foundProject = mockWebProjects.find(
-      (p) => p.slug?.current === slug || p._id === slug
-    );
-    setProject(foundProject as any || null);
+    async function fetchProject() {
+      try {
+        // Fetch the project by slug
+        const foundProject = await client.fetch<WebProject>(
+          `*[_type == "webProject" && slug.current == $slug][0]{
+            _id,
+            title,
+            slug,
+            description,
+            mainImage,
+            vimeoUrl,
+            gallery,
+            technologies,
+            client,
+            year,
+            liveUrl,
+            githubUrl,
+            featured,
+            order
+          }`,
+          { slug }
+        );
+        setProject(foundProject);
 
-    // Get related projects (always show 2 if available)
-    if (foundProject) {
-      const related = mockWebProjects
-        .filter((p) => p._id !== foundProject._id)
-        .slice(0, 2);
-      setRelatedProjects(related as any);
+        // Fetch related projects
+        if (foundProject) {
+          const related = await client.fetch<WebProject[]>(
+            `*[_type == "webProject" && _id != $id] | order(order asc)[0...2]{
+              _id,
+              title,
+              slug,
+              mainImage,
+              description
+            }`,
+            { id: foundProject._id }
+          );
+          setRelatedProjects(related);
+        }
+      } catch (error) {
+        console.error('Error fetching project:', error);
+      }
     }
+
+    fetchProject();
   }, [slug]);
 
   // Handle ESC key to close fullscreen

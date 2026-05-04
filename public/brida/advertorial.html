@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Tried Mira for 30 Days — Here's What Happened to My Burning Feet | Health Today</title>
+<meta name="description" content="A 64-year-old retired nurse with diabetic neuropathy tries Mira lotion for 30 days. Day-by-day journal with photos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--green-deep:#0F3D2E;--green-cta:#76C257;--red:#C73E2D;--gold:#E8B23A;--line:#E8E8E8;--cream:#FBF7EE}
+body{font-family:'Lora',Georgia,serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.65;font-size:18px}
+
+/* Editorial header — looks like a news site */
+.pub-bar{background:#000;color:#fff;padding:8px 20px;display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.5px}
+.pub-bar .left{font-weight:800}
+.pub-bar .left b{color:var(--gold)}
+.pub-bar .right{opacity:.7}
+
+.masthead{border-bottom:2px solid #000;padding:18px 20px;text-align:center}
+.masthead .pub{font-family:'Inter',sans-serif;font-weight:900;font-size:34px;letter-spacing:-1px}
+.masthead .pub small{font-weight:500;color:var(--muted);font-size:13px;letter-spacing:3px;text-transform:uppercase;display:block;margin-top:4px}
+nav.cats{border-bottom:1px solid var(--line);font-family:'Inter',sans-serif;display:flex;justify-content:center;gap:28px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px;color:var(--muted)}
+nav.cats a{color:var(--muted);text-decoration:none}
+nav.cats a.active{color:var(--red)}
+
+/* Sponsored disclosure */
+.disclose{max-width:720px;margin:24px auto 0;padding:8px 20px;background:#FFF8E3;border-left:3px solid var(--gold);font-family:'Inter',sans-serif;font-size:12px;color:var(--muted)}
+
+/* Article */
+article{max-width:720px;margin:0 auto;padding:24px 20px 80px}
+.cat-tag{font-family:'Inter',sans-serif;color:var(--red);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;display:block}
+h1{font-size:48px;font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.dek{font-size:21px;color:var(--muted);font-style:italic;line-height:1.5;margin-bottom:22px}
+.byline{font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px;font-size:13px}
+.avatar{width:46px;height:46px;border-radius:50%;background:#F2EBDA url('/brida/Gallery/ugc-2.jpg') center/cover}
+.byline strong{display:block;font-weight:800;color:var(--ink);font-size:14px}
+.byline span{color:var(--muted)}
+.byline .share{margin-left:auto;color:var(--muted);font-size:12px}
+
+.hero-img{width:100%;aspect-ratio:16/10;background:#F2EBDA url('/brida/Gallery/ad-hero.jpg') center/cover;border-radius:8px;margin-bottom:14px}
+.caption{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);font-style:italic;margin-bottom:32px}
+
+article p{margin-bottom:20px}
+article p.lead::first-letter{font-size:64px;font-weight:600;float:left;line-height:.9;padding:6px 10px 0 0;color:var(--green-deep)}
+article h2{font-size:30px;font-weight:600;letter-spacing:-.5px;margin:36px 0 16px;color:var(--green-deep)}
+article h3{font-size:22px;font-weight:600;margin:24px 0 12px}
+article a.read{color:var(--red);font-weight:600}
+article blockquote{border-left:4px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-style:italic;font-size:22px;line-height:1.4;color:var(--green-deep)}
+article blockquote cite{display:block;font-size:13px;color:var(--muted);font-style:normal;font-family:'Inter',sans-serif;font-weight:700;margin-top:10px}
+
+article img.inline{width:100%;border-radius:8px;margin:18px 0 6px;background:#F2EBDA}
+
+/* Day journal cards */
+.day{background:var(--cream);border-left:4px solid var(--green-cta);padding:22px 24px;border-radius:0 10px 10px 0;margin:24px 0;font-family:'Inter',sans-serif}
+.day .num{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--green-cta);text-transform:uppercase;margin-bottom:6px}
+.day h4{font-size:20px;font-weight:800;color:var(--green-deep);letter-spacing:-.3px;margin-bottom:8px;font-family:'Inter',sans-serif}
+.day p{font-size:15px;line-height:1.6;color:var(--ink);margin-bottom:0;font-style:normal}
+
+/* Doctor quote box */
+.dr-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;margin:30px 0;display:flex;gap:18px;align-items:flex-start;font-family:'Inter',sans-serif}
+.dr-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0F3D2E,#76C257);display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;flex-shrink:0}
+.dr-box h5{font-size:14px;font-weight:800;margin-bottom:4px}
+.dr-box .credentials{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.dr-box p{font-size:14px;line-height:1.55;color:var(--ink);margin:0;font-style:italic}
+
+/* Inline CTA — appears at 30%, 60%, 90% scroll */
+.cta-inline{background:linear-gradient(180deg,#F4FBF0,#fff);border:2px solid var(--green-deep);border-radius:18px;padding:30px;margin:38px 0;text-align:center;font-family:'Inter',sans-serif}
+.cta-inline .flag{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border-radius:5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.cta-inline h3{font-size:22px;font-weight:900;color:var(--green-deep);letter-spacing:-.5px;margin-bottom:8px;font-family:'Inter',sans-serif}
+.cta-inline p{font-size:14px;color:var(--muted);margin-bottom:18px;font-style:normal}
+.cta-inline .btn{display:inline-flex;align-items:center;gap:10px;background:var(--green-cta);color:#fff;padding:14px 28px;border-radius:50px;font-weight:900;text-decoration:none;letter-spacing:.3px;box-shadow:0 10px 22px rgba(118,194,87,.3);font-size:15px}
+.cta-inline .btn:hover{background:#5FA844}
+.cta-inline .stars{color:var(--gold);letter-spacing:2px;margin-top:10px;font-size:13px}
+.cta-inline .stars span{color:var(--muted);margin-left:6px;font-weight:700}
+
+/* Final CTA — sticky band */
+.final-cta{background:var(--green-deep);color:#fff;border-radius:18px;padding:38px;text-align:center;margin:40px 0 0;font-family:'Inter',sans-serif}
+.final-cta h3{font-size:28px;font-weight:900;letter-spacing:-.8px;margin-bottom:10px}
+.final-cta p{color:#D8D2C2;margin-bottom:22px;font-style:normal}
+.final-cta .btn{display:inline-flex;align-items:center;gap:10px;background:var(--green-cta);color:#fff;padding:18px 38px;border-radius:50px;font-weight:900;text-decoration:none;font-size:17px;box-shadow:0 12px 30px rgba(118,194,87,.4)}
+.final-cta small{display:block;margin-top:14px;font-size:12px;color:#A8A89E}
+
+/* Sticky nav after scroll */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;box-shadow:0 -8px 22px rgba(0,0,0,.06);z-index:60;transform:translateY(100%);transition:transform .3s}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta b{color:var(--green-deep);font-weight:900}
+.sticky-cta a{background:var(--green-cta);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:900}
+
+@media(max-width:680px){
+  h1{font-size:34px}
+  .dek{font-size:18px}
+  article p,article{font-size:17px}
+  .cta-inline h3{font-size:19px}
+  .final-cta{padding:24px}
+  .final-cta h3{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="pub-bar">
+  <div class="left">HEALTH <b>TODAY</b></div>
+  <div class="right">May 5, 2026 · Trending: Diabetes, Sleep</div>
+</div>
+
+<div class="masthead">
+  <div class="pub">Health Today<small>Wellness Investigations</small></div>
+</div>
+
+<nav class="cats">
+  <a>Sleep</a><a class="active">Pain</a><a>Diabetes</a><a>Nutrition</a><a>Reviews</a><a>Newsletter</a>
+</nav>
+
+<div class="disclose">⚠ <b>Sponsored content</b> — This article contains affiliate links. Our editorial standards remain independent.</div>
+
+<article>
+  <span class="cat-tag">Pain · Long Read · 6 min</span>
+  <h1>I Tried This $79 Lotion For My Burning Feet For 30 Days. Here's the Honest Review.</h1>
+  <p class="dek">After 4 years of diabetic neuropathy, three failed prescriptions, and a Lyrica habit my liver was begging me to quit, I gave a magnesium-based lotion called Mira a chance. Day-by-day journal below.</p>
+
+  <div class="byline">
+    <div class="avatar"></div>
+    <div>
+      <strong>Eleanor R., RN (ret.)</strong>
+      <span>Updated May 4, 2026 · 8 min read</span>
+    </div>
+    <div class="share">Share</div>
+  </div>
+
+  <div class="hero-img"></div>
+  <div class="caption">My night-stand on Day 1 vs. Day 30. Same lighting. Same camera.</div>
+
+  <p class="lead">I'm a 64-year-old retired ICU nurse. I spent 38 years telling patients to "try the cream first before the pills." Then I got Type 2 diabetes in 2021, and by 2023 my own feet were burning so badly at 2am I'd cry into a pillow.</p>
+
+  <p>I tried everything my doctor offered. Capsaicin cream — burned worse. Lidocaine patches — fell off in my sleep. Lyrica — worked, sort of, but I was foggy and gained 12 pounds. I asked my endocrinologist about alternatives and she shrugged. "Not much else proven."</p>
+
+  <p>So when my daughter sent me a TikTok of a woman crying because her feet stopped burning after applying a green-jar lotion called <a class="read" href="/brida/pdp.html">Mira</a>, I rolled my eyes. Then I bought it. Here's what 30 days looked like.</p>
+
+  <h2>What Mira actually is</h2>
+  <p>Before I get to the journal, the basics: Mira is a magnesium-chloride and arnica-based topical lotion made by a small company called <a class="read" href="/brida/pdp.html">Brida</a>. It's $79 a jar (and considerably less in their bundle). The active ingredients are magnesium chloride, arnica montana, menthol, ginger root, and wintergreen. No CBD. No prescription.</p>
+
+  <p>Magnesium absorbed through the skin is well-documented to calm peripheral nerve excitability. Arnica reduces local inflammation. Menthol is a counter-irritant. None of this is exotic — what's interesting is the combination and concentration.</p>
+
+  <div class="dr-box">
+    <div class="dr-avatar">Dr<br>K</div>
+    <div>
+      <h5>Dr. Sarah Kim, MD</h5>
+      <div class="credentials">Board-Certified Internal Medicine · 14 yrs</div>
+      <p>"Topical magnesium has growing evidence for symptomatic relief in peripheral neuropathy. The arnica-menthol combination addresses both the inflammatory and sensory components. I recommend it to patients who can't tolerate gabapentin or pregabalin side effects."</p>
+    </div>
+  </div>
+
+  <!-- CTA #1 — at ~30% scroll -->
+  <div class="cta-inline">
+    <span class="flag">★ Reader Discount</span>
+    <h3>Try Mira at $39.50/jar (50% off bundle)</h3>
+    <p>Health Today readers get the 2-pack at the price of one. 90-day money-back guarantee.</p>
+    <a href="/brida/pdp.html" class="btn">See the Reader Offer →</a>
+    <div class="stars">★★★★★ <span>4.9 · 17,432 reviews</span></div>
+  </div>
+
+  <h2>The 30-day journal</h2>
+
+  <div class="day">
+    <div class="num">Day 1</div>
+    <h4>Cool, weirdly. Skeptical.</h4>
+    <p>Applied a thick layer to both feet at 9pm. The menthol cooled fast — like icy-hot but lighter. Burning sensation softened within 4–5 minutes. Slept until 3am, then the burning came back. Better than nothing.</p>
+  </div>
+
+  <div class="day">
+    <div class="num">Day 7</div>
+    <h4>Slept till 5am. First time since 2023.</h4>
+    <p>Twice-daily application — once after my morning shower, once before bed. Today I slept till 5am without waking. Cried in the kitchen.</p>
+  </div>
+
+  <div class="day">
+    <div class="num">Day 14</div>
+    <h4>Walked the dog. A whole mile.</h4>
+    <p>I haven't taken Buddy on a real walk since 2024. Today I walked him to the park and back. My feet didn't burn. They felt like feet.</p>
+  </div>
+
+  <div class="day">
+    <div class="num">Day 21</div>
+    <h4>Halved my Lyrica with my doctor's OK.</h4>
+    <p>Saw my endocrinologist. Showed her the journal. She said "let's try cutting the Lyrica in half and see how you feel." A week later — fine. Better, even. The brain fog is lifting.</p>
+  </div>
+
+  <div class="day">
+    <div class="num">Day 30</div>
+    <h4>I bought 3 more jars.</h4>
+    <p>The 3-pack is $30/jar. I bought it. I'm not going back to where I was.</p>
+  </div>
+
+  <blockquote>
+    "I'm not a paid spokesperson. I paid $79 with my own credit card. Then I paid $90 again. That's the only review that matters."
+    <cite>— Eleanor R.</cite>
+  </blockquote>
+
+  <h2>The honest cons</h2>
+  <p>It's not magic. Three things to know:</p>
+  <p><b>1. It works while you use it.</b> Stop applying for 4–5 days and the burning creeps back. This is symptomatic relief, not a cure. (My doctor says no topical is a cure.)</p>
+  <p><b>2. The first jar is $79.</b> That's not cheap. The 3-pack at $90 is what makes it actually affordable long-term.</p>
+  <p><b>3. The smell.</b> It's herbal — arnica plus menthol plus something earthy. My husband likes it. My grandkids do not. Apply it before they hug you.</p>
+
+  <img class="inline" src="/brida/Gallery/ad-inline.jpg" alt="Mira jar on nightstand" style="aspect-ratio:16/10;object-fit:cover">
+  <div class="caption">My jar at Day 30. About a third left. The 8oz size lasts longer than I expected.</div>
+
+  <h2>Should you try it?</h2>
+  <p>If you have diabetic neuropathy, post-chemo nerve pain, sciatica that wakes you up, or chronic burning in your feet/hands — and your doctor's options haven't worked or have side effects you can't tolerate — yes. The 90-day money-back guarantee means you can use the entire jar and still send it back.</p>
+
+  <p>I'm a retired nurse who paid full price twice. I don't say that lightly.</p>
+
+  <!-- CTA #2 — at ~75% scroll -->
+  <div class="cta-inline">
+    <span class="flag">90-Day Refund</span>
+    <h3>Get the same bundle Eleanor bought</h3>
+    <p>2-pack at $79 (save $79). 3-pack at $90 (save $147). Free US shipping. Same risk-free guarantee.</p>
+    <a href="/brida/pdp.html" class="btn">See the Bundles →</a>
+    <div class="stars">★★★★★ <span>4.9 · 17,432 reviews</span></div>
+  </div>
+
+  <p style="font-size:14px;color:var(--muted);font-style:italic;margin-top:30px">Editor's note: Eleanor R. is a real reader who agreed to journal her experience for Health Today. She received no compensation from Brida. Her reorder was paid out of pocket. This article contains affiliate links to Brida that support our independent reporting.</p>
+
+  <div class="final-cta">
+    <h3>Ready to try the same lotion Eleanor used?</h3>
+    <p>Health Today readers save up to 62% on bundles · 90-day money-back · Free US shipping</p>
+    <a href="/brida/pdp.html" class="btn">Stop the Burning Tonight →</a>
+    <small>Independent affiliate disclosure: We earn a small commission if you order. The price is the same to you.</small>
+  </div>
+
+</article>
+
+<div class="sticky-cta" id="sticky">
+  <span>Eleanor's bundle: <b>2-pack $79</b> (save $79) · 90-day refund</span>
+  <a href="/brida/pdp.html">Get Reader Offer →</a>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const s=document.getElementById('sticky');
+  if(window.scrollY>900) s.classList.add('show'); else s.classList.remove('show');
+});
+</script>
+</body>
+</html>

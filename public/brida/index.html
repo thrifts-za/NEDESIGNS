@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brida Spec Build by Nkosi</title>
+  <meta name="description" content="A spec funnel build for Brida's Mira lotion: PDP, advertorial, listicle, Checkout Champ checkout, post-purchase upsell, and an Intelligems variant. Built by Nkosi Ndwandwe.">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=recoleta@500,600,700&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Satoshi','Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#F5EFE3;color:#171717;-webkit-font-smoothing:antialiased;line-height:1.5}
+    .wrap{max-width:1100px;margin:0 auto;padding:64px 24px 96px}
+    header{text-align:center;margin-bottom:64px}
+    .logo{font-family:'Recoleta',serif;font-size:38px;font-weight:700;color:#0F3D2E;letter-spacing:-0.8px;margin-bottom:32px;display:block}
+    .eyebrow{font-size:13px;color:#1B5E3F;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+    h1{font-family:'Recoleta',serif;font-size:54px;font-weight:600;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;color:#0F3D2E}
+    .lede{font-size:19px;color:#3A3A3A;max-width:680px;margin:0 auto 32px;line-height:1.55}
+    .meta{display:inline-flex;gap:24px;flex-wrap:wrap;justify-content:center;font-size:13px;color:#6B6B6B;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+    .meta span::before{content:"●";color:#1B5E3F;margin-right:8px}
+    section{margin-bottom:72px}
+    .section-title{font-size:14px;color:#1B5E3F;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:8px;text-align:center}
+    .section-sub{font-family:'Recoleta',serif;text-align:center;font-size:32px;font-weight:600;margin-bottom:40px;letter-spacing:-0.6px;color:#0F3D2E}
+
+    /* Gallery marquee */
+    .build-gallery{margin:0 0 38px}
+    .build-gallery-marquee{
+      --gallery-gap:18px;
+      overflow:hidden;
+      padding:12px 0;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+      mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+    }
+    .build-gallery-track{
+      display:flex;
+      gap:var(--gallery-gap);
+      width:max-content;
+      animation:gallery-scroll 50s linear infinite;
+    }
+    .build-gallery:hover .build-gallery-track{animation-play-state:paused}
+    .gallery-card{
+      flex:0 0 clamp(240px,30vw,340px);
+      background:#fff;
+      border:1px solid #EBE2D0;
+      border-radius:18px;
+      padding:9px;
+      box-shadow:0 14px 32px rgba(15,61,46,.07);
+    }
+    .gallery-card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+      border-radius:13px;
+      background:#F5EFE3;
+    }
+    @keyframes gallery-scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - var(--gallery-gap)/2))}
+    }
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .card{background:#fff;border:1px solid #D9CDB4;border-radius:18px;padding:30px;text-decoration:none;color:inherit;transition:all .2s;display:flex;flex-direction:column}
+    .card:hover{border-color:#1B5E3F;transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,61,46,.1)}
+    .card-tag{font-size:11px;color:#1B5E3F;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+    .card h3{font-family:'Recoleta',serif;font-size:24px;font-weight:600;margin-bottom:10px;letter-spacing:-0.4px;color:#0F3D2E}
+    .card p{font-size:15px;color:#5A5A5A;margin-bottom:20px;flex:1;line-height:1.6}
+    .card-stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+    .chip{background:#EBE2D0;font-size:11px;font-weight:600;padding:5px 11px;border-radius:50px;color:#0F3D2E}
+    .card-cta{font-size:13px;font-weight:700;color:#1B5E3F;text-transform:uppercase;letter-spacing:1px}
+    .card-cta::after{content:" →"}
+
+    /* CC callout row (analog of Kion's liquid-row) */
+    .cc-row{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #D9CDB4;border-radius:16px;padding:24px 32px;margin-top:24px}
+    .cc-row .cc-icon{font-size:30px}
+    .cc-row .cc-text{flex:1}
+    .cc-row .cc-text strong{display:block;font-family:'Recoleta',serif;font-size:18px;margin-bottom:4px;color:#0F3D2E;font-weight:600}
+    .cc-row .cc-text span{font-size:13px;color:#6B6B6B;line-height:1.5}
+    .cc-row a{font-size:12px;font-weight:700;color:#1B5E3F;text-transform:uppercase;letter-spacing:1px;border:2px solid #1B5E3F;padding:10px 18px;border-radius:8px;text-decoration:none;transition:all .2s;flex-shrink:0}
+    .cc-row a:hover{background:#1B5E3F;color:#fff}
+
+    /* Pitch dark band */
+    .pitch{background:#0F3D2E;color:#fff;border-radius:22px;padding:60px 56px;text-align:center;background-image:radial-gradient(circle at 80% -20%,rgba(232,178,58,.16),transparent 50%),radial-gradient(circle at 0% 100%,rgba(118,194,87,.18),transparent 50%)}
+    .pitch h2{font-family:'Recoleta',serif;font-size:40px;font-weight:600;letter-spacing:-1px;margin-bottom:18px;line-height:1.1;color:#fff}
+    .pitch p{font-size:17px;color:#D8D2C2;max-width:660px;margin:0 auto 32px;line-height:1.6}
+    .pitch-features{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;text-align:left}
+    .feat-num{font-family:'Recoleta',serif;color:#E8B23A;font-size:34px;font-weight:700;margin-bottom:8px;line-height:1}
+    .feat h4{font-size:15px;font-weight:700;margin-bottom:6px;color:#fff}
+    .feat p{font-size:14px;color:#A8A89E;margin:0;line-height:1.55}
+
+    footer{text-align:center;font-size:13px;color:#6B6B6B;padding-top:48px;border-top:1px solid #D9CDB4}
+    footer a{color:#1B5E3F;text-decoration:none;font-weight:600}
+
+    @media (prefers-reduced-motion:reduce){
+      .build-gallery-marquee{-webkit-mask-image:none;mask-image:none;overflow-x:auto;padding-bottom:4px}
+      .build-gallery-track{animation:none}
+    }
+    @media(max-width:768px){
+      h1{font-size:38px;letter-spacing:-1.2px}
+      .grid,.pitch-features{grid-template-columns:1fr}
+      .gallery-card{flex-basis:260px}
+      .gallery-card img{height:210px}
+      .pitch{padding:42px 26px}
+      .pitch h2{font-size:30px}
+      .section-sub{font-size:24px}
+      .cc-row{flex-direction:column;text-align:center;align-items:flex-start}
+      .cc-row a{align-self:stretch;text-align:center}
+      .wrap{padding:42px 20px 64px}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">brida</div>
+    <div class="eyebrow">Spec Build · Senior Checkout Champ Developer Application</div>
+    <h1>I built seven surfaces for Brida before applying.</h1>
+    <p class="lede">I wanted to send more than a resume. So I built actual Checkout Champ + Shopify funnel work in your brand: a champ-pattern PDP, a pain-led Intelligems variant, a hyper-optimized single-page checkout, a 1-click post-purchase upsell, an advertorial, and a listicle. See what I ship before we ever talk.</p>
+    <div class="meta">
+      <span>Checkout Champ</span>
+      <span>Shopify storefront</span>
+      <span>Intelligems A/B</span>
+      <span>Mobile-first</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="build-gallery" aria-label="Mira UGC and product imagery">
+      <div class="build-gallery-marquee">
+        <div class="build-gallery-track">
+          <div class="gallery-card"><img src="/brida/Gallery/ugc-1.jpg" alt="Customer at her kitchen table"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/ugc-2.jpg" alt="Customer in bed, soft morning light"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/jar-hero.png" alt="Customer holding the Mira jar"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/jar-lifestyle.png" alt="Mira applied at home"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/ugc-3.jpg" alt="Customer on a park bench"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/threepack.png" alt="Mira three-pack unboxing"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/listicle-hero.jpg" alt="Customer in the garden"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/v2-hero-lifestyle.jpg" alt="Customer applying Mira at the bedside"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/jar-back.png" alt="Mira jar held in hand"></div>
+          <div class="gallery-card"><img src="/brida/Gallery/couple-couch.jpg" alt="Customer applying Mira to her husband"></div>
+          <!-- duplicates for seamless scroll -->
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/ugc-1.jpg" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/ugc-2.jpg" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/jar-hero.png" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/jar-lifestyle.png" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/ugc-3.jpg" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/threepack.png" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/listicle-hero.jpg" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/v2-hero-lifestyle.jpg" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/jar-back.png" alt=""></div>
+          <div class="gallery-card" aria-hidden="true"><img src="/brida/Gallery/couple-couch.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:48px">The build</div>
+    <div class="section-sub">Seven conversion-focused surfaces</div>
+
+    <div class="section-title" style="margin-top:24px;text-align:left;font-size:12px">① Top of funnel — paid traffic creatives</div>
+    <div class="grid" style="margin-bottom:20px">
+
+      <a class="card" href="/brida/advertorial.html">
+        <div class="card-tag">Checkout Champ · Advertorial</div>
+        <h3>"I tried this $79 lotion for 30 days"</h3>
+        <p>Native-style health editorial that reads like a real wellness column. Sponsored disclosure, doctor quote box, day-by-day journal, 2 inline CTAs at 30%/75% scroll, sticky bottom-bar CTA after 900px scroll.</p>
+        <div class="card-stack">
+          <span class="chip">Cold Meta</span>
+          <span class="chip">Day journal</span>
+          <span class="chip">Doctor quote</span>
+        </div>
+        <div class="card-cta">Read advertorial</div>
+      </a>
+
+      <a class="card" href="/brida/listicle.html">
+        <div class="card-tag">Checkout Champ · Listicle</div>
+        <h3>7 things that actually help neuropathy</h3>
+        <p>Doctor-reviewed listicle with Mira at #1, score grids per entry, pros/cons verdict boxes, at-a-glance compare table, FAQ accordion, two winner CTAs. Reads as independent journalism with affiliate disclosure.</p>
+        <div class="card-stack">
+          <span class="chip">Doctor-reviewed</span>
+          <span class="chip">Compare table</span>
+          <span class="chip">FAQ</span>
+        </div>
+        <div class="card-cta">Read listicle</div>
+      </a>
+
+    </div>
+
+    <div class="section-title" style="margin-top:30px;text-align:left;font-size:12px">② PDP — control & Intelligems variant</div>
+    <div class="grid" style="margin-bottom:20px">
+
+      <a class="card" href="/brida/pdp.html">
+        <div class="card-tag">Shopify · PDP (Variant A · Control)</div>
+        <h3>Mira PDP — full champ build</h3>
+        <p>Hero + thumb gallery, bundle ladder with inline save flags, progressive gift visualization, auto-marquee FB review wall, inline SVG trust strip, helps-with icon row, comparison block, slide-out cart drawer with $50 free-ship progress bar.</p>
+        <div class="card-stack">
+          <span class="chip">Bundle ladder</span>
+          <span class="chip">Cart drawer</span>
+          <span class="chip">Marquee reviews</span>
+        </div>
+        <div class="card-cta">View PDP</div>
+      </a>
+
+      <a class="card" href="/brida/landing-v2.html">
+        <div class="card-tag">Intelligems · Variant B</div>
+        <h3>PDP — pain-led variant</h3>
+        <p><strong>Hypothesis:</strong> A red-accent pain-symptom hero ("The pain that wakes you up at 2am — finally has an off switch") identifies harder than the cooling-relief control. Symptom-tap selector, condition-filtered reviews, big guarantee block.</p>
+        <div class="card-stack">
+          <span class="chip">A/B test</span>
+          <span class="chip">Pain-led</span>
+          <span class="chip">Symptom selector</span>
+        </div>
+        <div class="card-cta">View Variant B</div>
+      </a>
+
+    </div>
+
+    <div class="section-title" style="margin-top:30px;text-align:left;font-size:12px">③ Checkout & post-purchase</div>
+    <div class="grid" style="margin-bottom:20px">
+
+      <a class="card" href="/brida/checkout.html">
+        <div class="card-tag">Checkout Champ · Single-page</div>
+        <h3>Hyper-optimized checkout</h3>
+        <p>Express row · live social-proof ticker · countdown urgency band · 5-step flow on one screen · order bump in step 4 (bundle upgrade, not fab SKU) · real SVG payment wordmarks · risk-reversal block · FAQ above CTA · sticky mobile pay bar.</p>
+        <div class="card-stack">
+          <span class="chip">Single-page</span>
+          <span class="chip">Bundle bump</span>
+          <span class="chip">Sticky mobile</span>
+        </div>
+        <div class="card-cta">View checkout</div>
+      </a>
+
+      <a class="card" href="/brida/upsell.html">
+        <div class="card-tag">Checkout Champ · Post-purchase</div>
+        <h3>1-click upsell — Mira 3-Pack</h3>
+        <p>Order-confirmed strip → countdown urgency → "60% off, no card re-entry" headline → value stack with strikethrough retail → big YES button → weak-link decline ("No thanks, I'll pass on saving $147"). Before/after + 3-pack reviews below.</p>
+        <div class="card-stack">
+          <span class="chip">1-click</span>
+          <span class="chip">Value stack</span>
+          <span class="chip">Weak-link decline</span>
+        </div>
+        <div class="card-cta">View upsell</div>
+      </a>
+
+    </div>
+
+
+    <div class="cc-row">
+      <div class="cc-icon">⚙️</div>
+      <div class="cc-text">
+        <strong>Built in your stack</strong>
+        <span>Checkout Champ for funnels, checkout, bumps, and post-purchase upsells. Shopify for product catalog. Intelligems for A/B tests. No app dependencies on the front-end pages.</span>
+      </div>
+      <a href="/brida/pdp.html">Open the PDP</a>
+    </div>
+  </section>
+
+  <section class="pitch">
+    <h2>Why this instead of a CV?</h2>
+    <p>The role asks for someone who owns Checkout Champ end-to-end and ships clean Shopify and Intelligems work. Talking about it is cheap, so I built the work in your brand, with your products and your tone, and put it on a public URL before the application closed.</p>
+    <div class="pitch-features">
+      <div class="feat">
+        <div class="feat-num">01</div>
+        <h4>Working CC funnels, not just HTML</h4>
+        <p>Advertorial, listicle, single-page checkout with bump, and 1-click post-purchase upsell. The shape of the funnel I'd own on day one.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">02</div>
+        <h4>Built for AOV and conversion</h4>
+        <p>Real offer ladder, savings stamps, pre-checked bump, real Intelligems A/B variant with a stated hypothesis. Each surface is a lever the team can pull.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">03</div>
+        <h4>In Brida's brand</h4>
+        <p>Cream and deep-green palette, Mira's real claims and pricing, the same 90-day guarantee, real UGC photography. Reads like Brida, not a template.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built by Nkosi Ndwandwe · <a href="mailto:freelance.nkosi@gmail.com">freelance.nkosi@gmail.com</a> · Spec work for the <a href="https://apply.workable.com/jobrack/j/1DA62A6F93/" target="_blank">Brida Senior Checkout Champ Developer role</a>
+  </footer>
+
+</div>
+</body>
+</html>

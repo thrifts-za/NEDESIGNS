@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mira Pain Relief — Variant B (Pain-Led) | Intelligems Test</title>
+<meta name="description" content="Variant B: pain-symptom hero. A/B testing variant against control PDP via Intelligems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF7EE;--cream-2:#F2EBDA;--ink:#0E1411;--muted:#5F6962;
+  --green-deep:#0F3D2E;--green-cta:#76C257;--green-cta-2:#5FA844;
+  --red:#C73E2D;--red-soft:#FCE8E5;--gold:#E8B23A;--line:#E5DCC6;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+
+/* Variant flag */
+.variant-flag{position:fixed;top:10px;right:10px;background:#000;color:#fff;font-size:11px;font-weight:800;padding:6px 10px;border-radius:6px;letter-spacing:1px;z-index:200;font-family:monospace}
+.variant-flag b{color:var(--gold)}
+
+/* Top bar — RED for pain variant */
+.top{background:var(--red);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;letter-spacing:.3px}
+.top b{font-weight:900}
+
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 28px}
+.logo{font-size:24px;font-weight:900;color:var(--green-deep);letter-spacing:-1px;text-decoration:none}
+.logo span{color:var(--green-cta)}
+nav{display:flex;gap:26px;font-size:14px;font-weight:600}
+nav a{color:var(--ink);text-decoration:none}
+.head-r{display:flex;align-items:center;gap:18px;font-size:13px;color:var(--muted)}
+
+/* HERO — pain-led */
+.hero{padding:48px 28px 28px;text-align:center;max-width:920px;margin:0 auto}
+.pain-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--red);font-size:13px;font-weight:800;padding:7px 14px;border-radius:50px;letter-spacing:.4px;margin-bottom:20px;border:1px solid #F4C5BD}
+.pain-eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--red);animation:p 1.5s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.4}50%{opacity:1}}
+h1{font-size:62px;font-weight:900;color:var(--green-deep);letter-spacing:-2px;line-height:1;margin-bottom:18px}
+h1 em{font-style:normal;color:var(--red);font-weight:900}
+.h1-sub{font-size:20px;color:var(--muted);max-width:640px;margin:0 auto 26px;line-height:1.5}
+.h1-sub b{color:var(--ink);font-weight:700}
+
+.hero-stars{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:32px;font-size:13px;color:var(--muted)}
+.hero-stars .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
+.hero-stars b{color:var(--ink);font-weight:800}
+
+/* Pain symptoms grid — clickable */
+.symptoms{max-width:920px;margin:0 auto 40px;padding:0 28px}
+.symptoms h3{text-align:center;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.sym-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sym{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 12px;text-align:center;cursor:pointer;transition:all .15s}
+.sym:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:0 10px 22px rgba(199,62,45,.1)}
+.sym.active{border-color:var(--red);background:var(--red-soft)}
+.sym svg{width:30px;height:30px;color:var(--red);margin-bottom:8px}
+.sym strong{display:block;font-size:13px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.sym span{font-size:11px;color:var(--muted)}
+
+/* Buy box */
+.buy{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:30px 28px;background:#fff;border-radius:24px;border:1px solid var(--line);margin-bottom:60px;box-shadow:0 14px 40px rgba(15,61,46,.06)}
+.gallery{padding:24px}
+.main-img{width:100%;aspect-ratio:1/1;background:var(--cream-2) center/contain no-repeat;background-image:url('/brida/Gallery/jar-hero.png');border-radius:16px;border:1px solid var(--line)}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.thumbs div{aspect-ratio:1/1;background:var(--cream-2) center/cover no-repeat;border-radius:10px;border:1px solid var(--line);cursor:pointer}
+.thumbs div:nth-child(1){background-image:url('/brida/Gallery/jar-hero.png');background-size:contain}
+.thumbs div:nth-child(2){background-image:url('/brida/Gallery/ugc-1.jpg')}
+.thumbs div:nth-child(3){background-image:url('/brida/Gallery/ugc-2.jpg')}
+.thumbs div:nth-child(4){background-image:url('/brida/Gallery/ugc-3.jpg')}
+
+.box{padding:26px 0}
+.flag{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;font-size:12px;font-weight:900;padding:5px 12px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
+.box h2{font-size:32px;font-weight:900;color:var(--green-deep);letter-spacing:-1px;line-height:1.05;margin-bottom:8px}
+.box .stars{color:var(--gold);letter-spacing:2px;font-size:14px;margin-bottom:14px}
+.box .stars span{color:var(--muted);font-size:13px;margin-left:8px;font-weight:600;letter-spacing:0}
+.box p.lead{font-size:15px;color:var(--muted);margin-bottom:20px;line-height:1.55}
+.box p.lead b{color:var(--ink);font-weight:700}
+
+/* Bundle ladder */
+.tiers{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.tier{display:grid;grid-template-columns:24px 1fr auto auto;gap:14px;align-items:center;padding:14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:#fff;position:relative}
+.tier.active{border-color:var(--red);background:var(--red-soft)}
+.tier .radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);position:relative}
+.tier.active .radio{border-color:var(--red)}
+.tier.active .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--red)}
+.tier-info strong{display:block;font-size:14px;font-weight:800}
+.tier-info span{font-size:12px;color:var(--muted)}
+.tier .save{background:var(--red);color:#fff;font-size:10px;font-weight:900;padding:3px 7px;border-radius:4px;letter-spacing:.5px}
+.tier-price{text-align:right}
+.tier-price .now{font-size:17px;font-weight:900;color:var(--green-deep)}
+.tier-price .was{font-size:12px;color:var(--muted);text-decoration:line-through;display:block}
+
+.cta{width:100%;background:var(--green-deep);color:#fff;border:none;padding:18px;border-radius:12px;font-size:16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.3px;font-family:inherit}
+.cta:hover{background:#0a2c21}
+.cta .pp{background:var(--green-cta);color:#fff;padding:3px 10px;border-radius:5px;font-size:13px;font-weight:900}
+.cta svg{width:18px;height:18px}
+
+.trust-mini{display:flex;justify-content:space-around;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);text-align:center;font-weight:700;letter-spacing:.5px}
+.trust-mini div{display:flex;flex-direction:column;align-items:center;gap:5px}
+.trust-mini svg{width:18px;height:18px;color:var(--green-cta-2)}
+
+/* Pain stories — condition-specific */
+.stories{max-width:1100px;margin:0 auto 60px;padding:0 28px}
+.stories h2{text-align:center;font-size:32px;font-weight:900;color:var(--green-deep);letter-spacing:-1px;margin-bottom:8px}
+.stories .sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:30px}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.story{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.story .cond{display:inline-block;background:var(--red-soft);color:var(--red);font-size:11px;font-weight:900;padding:3px 9px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.story .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px;font-size:13px}
+.story h4{font-size:15px;font-weight:800;color:var(--green-deep);margin-bottom:6px}
+.story p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+.story cite{font-size:12px;color:var(--ink);font-style:normal;font-weight:700}
+.story cite small{color:var(--muted);font-weight:500;display:block;margin-top:2px}
+
+/* Pain → Relief comparison */
+.compare{max-width:1100px;margin:0 auto 60px;padding:38px 28px;background:linear-gradient(180deg,var(--red-soft),#fff);border-radius:24px}
+.compare h2{text-align:center;font-size:32px;font-weight:900;color:var(--green-deep);letter-spacing:-1px;margin-bottom:30px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:780px;margin:0 auto}
+.col{background:#fff;border-radius:16px;padding:24px;border:1px solid var(--line)}
+.col.pain{border-top:4px solid var(--red)}
+.col.relief{border-top:4px solid var(--green-cta-2)}
+.col h3{font-size:18px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.col.pain h3{color:var(--red)}
+.col.relief h3{color:var(--green-cta-2)}
+.col ul{list-style:none}
+.col li{padding:9px 0;font-size:14px;display:flex;gap:10px;border-bottom:1px solid var(--line)}
+.col li:last-child{border-bottom:0}
+.col.pain li::before{content:"✕";color:var(--red);font-weight:900}
+.col.relief li::before{content:"✓";color:var(--green-cta-2);font-weight:900}
+
+/* Big guarantee block */
+.guarantee{max-width:1100px;margin:0 auto 60px;padding:0 28px}
+.guarantee-card{background:var(--green-deep);color:#fff;border-radius:24px;padding:48px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.gseal{width:120px;height:120px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:14px;font-weight:900;line-height:1.1;text-align:center;color:var(--green-deep);box-shadow:0 8px 0 #C99425}
+.guarantee-card h3{font-size:30px;font-weight:900;letter-spacing:-.8px;margin-bottom:10px}
+.guarantee-card p{color:#D8D2C2;font-size:15px;line-height:1.6;max-width:560px}
+
+footer{background:var(--green-deep);color:#A8A89E;padding:40px 28px;text-align:center;font-size:13px}
+footer a{color:var(--green-cta);text-decoration:none;font-weight:700;margin:0 8px}
+
+@media(max-width:840px){
+  h1{font-size:38px;letter-spacing:-1.2px}
+  .sym-grid{grid-template-columns:repeat(2,1fr)}
+  .buy{grid-template-columns:1fr;padding:18px}
+  .story-grid{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .guarantee-card{grid-template-columns:1fr;text-align:center;padding:30px}
+  .gseal{margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="variant-flag">VARIANT <b>B</b> · Intelligems</div>
+
+<div class="top">⚡ <b>Black Friday Sale</b> — Up to 60% off + free US shipping over $50 · 90-day money-back</div>
+
+<header>
+  <div class="head-in">
+    <a href="/brida/pdp.html" class="logo">brida<span>.</span></a>
+    <nav><a href="/brida/pdp.html">Shop</a><a href="/brida/about.html">Our Story</a><a href="#">Reviews</a><a href="/brida/listicle.html">Science</a></nav>
+    <div class="head-r">17,432 ★★★★★</div>
+  </div>
+</header>
+
+<!-- HERO PAIN-LED -->
+<div class="hero">
+  <div class="pain-eyebrow"><span class="pulse"></span> Burning, Tingling, Numbness?</div>
+  <h1>The pain that wakes you up at 2am — <em>finally has an off switch.</em></h1>
+  <p class="h1-sub">Mira's magnesium-arnica formula calms nerve-fire skin in <b>under 60 seconds</b>. No prescription. No drowsy side effects. <b>Used twice daily by 17,000+ people</b> who couldn't sleep through the night.</p>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <b>4.9</b> · 17,432 verified reviews
+  </div>
+</div>
+
+<!-- SYMPTOM SELECTOR -->
+<div class="symptoms">
+  <h3>Tap your worst symptom</h3>
+  <div class="sym-grid">
+    <div class="sym active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 8 10 12 14s4 8 0 8"/><path d="M16 6c-2 2-2 4 0 6"/></svg><strong>Burning</strong><span>Most common</span></div>
+    <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h2M8 12h2M12 12h2M16 12h2M20 12h2"/><path d="M6 8v8M14 8v8"/></svg><strong>Tingling</strong><span>Pins & needles</span></div>
+    <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg><strong>Numbness</strong><span>Loss of feel</span></div>
+    <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><strong>Night Pain</strong><span>2am wakeups</span></div>
+    <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18s4-6 9-6 9 6 9 6"/><circle cx="12" cy="9" r="3"/></svg><strong>Cramping</strong><span>Calf & feet</span></div>
+  </div>
+</div>
+
+<!-- BUY BOX -->
+<div class="buy">
+  <div class="gallery">
+    <div class="main-img"></div>
+    <div class="thumbs"><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div class="box">
+    <span class="flag">⚡ Sale ends midnight</span>
+    <h2>Mira Pain Relief & Repair Lotion</h2>
+    <div class="stars">★★★★★ <span>4.9 (17,432 reviews)</span></div>
+    <p class="lead"><b>Magnesium chloride + arnica + menthol.</b> Doctor-formulated for diabetic neuropathy, peripheral nerve pain, and night cramps. Cools on contact. Repairs over time.</p>
+
+    <div class="tiers">
+      <label class="tier">
+        <span class="radio"></span>
+        <div class="tier-info"><strong>1 Jar</strong><span>$79 · 1 month supply</span></div>
+        <span></span>
+        <div class="tier-price"><span class="now">$79</span></div>
+      </label>
+      <label class="tier active">
+        <span class="radio"></span>
+        <div class="tier-info"><strong>2-Pack</strong><span>$39.50/jar · 2 month supply</span></div>
+        <span class="save">SAVE 50%</span>
+        <div class="tier-price"><span class="now">$79</span><span class="was">$158</span></div>
+      </label>
+      <label class="tier">
+        <span class="radio"></span>
+        <div class="tier-info"><strong>3-Pack <em style="color:var(--red);font-style:normal;font-weight:900">★ Best Value</em></strong><span>$30/jar · 3 month supply</span></div>
+        <span class="save">SAVE 62%</span>
+        <div class="tier-price"><span class="now">$90</span><span class="was">$237</span></div>
+      </label>
+    </div>
+
+    <button class="cta" onclick="window.location.href='/brida/checkout.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M5 6l1 14h12l1-14M9 10v6M15 10v6"/></svg>
+      Stop the Burning — Add to Cart
+      <span class="pp">$79</span>
+    </button>
+
+    <div class="trust-mini">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>90-Day Refund</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z"/><circle cx="12" cy="12" r="3"/></svg>Doctor-Formulated</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="1"/><path d="M16 10h4l2 3v5h-6"/></svg>Free US Shipping</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONDITION-SPECIFIC STORIES -->
+<div class="stories">
+  <h2>People with your exact pain — finding relief</h2>
+  <div class="sub">17,432 verified reviews · filterable by condition</div>
+  <div class="story-grid">
+    <div class="story">
+      <span class="cond">Diabetic Neuropathy</span>
+      <div class="stars">★★★★★</div>
+      <h4>"First night of real sleep in 2 years"</h4>
+      <p>"Type 2 diabetic. Feet burned every night since 2023. Applied Mira before bed and the burning stopped within 5 minutes. I cried."</p>
+      <cite>Margaret L.<small>Verified buyer · Tampa, FL</small></cite>
+    </div>
+    <div class="story">
+      <span class="cond">Chemo Neuropathy</span>
+      <div class="stars">★★★★★</div>
+      <h4>"My oncologist asked what I was using"</h4>
+      <p>"Post-chemo nerve pain in fingertips made me drop coffee cups. Two weeks of Mira and I'm holding things again."</p>
+      <cite>James W.<small>Verified buyer · Denver, CO</small></cite>
+    </div>
+    <div class="story">
+      <span class="cond">Sciatica</span>
+      <div class="stars">★★★★★</div>
+      <h4>"Replaced my 800mg ibuprofen routine"</h4>
+      <p>"Had been on prescription anti-inflammatories for 18 months. Off them in 3 weeks. My liver thanks Mira."</p>
+      <cite>Patricia D.<small>Verified buyer · Phoenix, AZ</small></cite>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN vs RELIEF -->
+<div class="compare">
+  <h2>Without Mira vs. With Mira</h2>
+  <div class="compare-grid">
+    <div class="col pain">
+      <h3>Without Mira</h3>
+      <ul>
+        <li>Wake up at 2am with burning feet</li>
+        <li>Can't wear shoes for more than an hour</li>
+        <li>Avoid walks, hikes, grandkids</li>
+        <li>$120/mo on Lyrica + side effects</li>
+        <li>Feel like a stranger in your body</li>
+      </ul>
+    </div>
+    <div class="col relief">
+      <h3>With Mira (Day 21)</h3>
+      <ul>
+        <li>Sleep through the night, every night</li>
+        <li>Wear shoes again. Walk the dog</li>
+        <li>Hike with the grandkids</li>
+        <li>$30/mo on subscribe & save</li>
+        <li>Body feels like yours again</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- BIG GUARANTEE -->
+<div class="guarantee">
+  <div class="guarantee-card">
+    <div class="gseal">90<br>DAY<br>MONEY<br>BACK</div>
+    <div>
+      <h3>If your skin still burns at 2am, we owe you a refund.</h3>
+      <p>Use the entire jar. Twice daily. For 90 days. If you don't feel relief, email refunds@bridarelief.com — we refund every penny, no return shipping required. We've honored 100% of refund requests since 2021. We'd rather lose a sale than lose your trust.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Brida · <a href="/brida/about.html">About</a> · <a href="/brida/listicle.html">Science</a> · <a href="#">Refunds</a> · <a href="#">Contact</a>
+  <div style="margin-top:14px;font-size:11px">Variant B served via Intelligems · Test ID: <code style="color:#fff">PDP-PAIN-V2-2026Q2</code></div>
+</footer>
+
+<script>
+// Symptom select
+document.querySelectorAll('.sym').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('.sym').forEach(x=>x.classList.remove('active'));
+  s.classList.add('active');
+}));
+// Tier select
+document.querySelectorAll('.tier').forEach(t=>t.addEventListener('click',e=>{
+  e.preventDefault();
+  document.querySelectorAll('.tier').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const price=t.querySelector('.now').textContent;
+  document.querySelector('.cta .pp').textContent=price;
+}));
+// Thumbs
+document.querySelectorAll('.thumbs div').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelector('.main-img').style.backgroundImage=t.style.backgroundImage||getComputedStyle(t).backgroundImage;
+}));
+</script>
+</body>
+</html>

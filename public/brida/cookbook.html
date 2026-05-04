@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shopify Champ Cookbook — Conversion Patterns by Nkosi</title>
+<meta name="description" content="The patterns that convert in Shopify + Checkout Champ. Bundle ladders, gift visualization, marquee reviews, cart drawer, single-page checkout, post-purchase upsell. Copy-paste recipes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#FBF7EE;--cream-2:#F2EBDA;--ink:#0E1411;--muted:#5F6962;--green-deep:#0F3D2E;--green-cta:#76C257;--green-cta-2:#5FA844;--red:#C73E2D;--gold:#E8B23A;--line:#E5DCC6;--code-bg:#0F1B16;--code-fg:#D9F0C9}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
+
+/* Top bar */
+.top{background:#000;color:#fff;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase}
+.top b{color:var(--green-cta)}
+
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 28px}
+.logo{font-size:22px;font-weight:900;color:var(--green-deep);letter-spacing:-.8px;text-decoration:none}
+.logo span{color:var(--green-cta)}
+.logo small{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:-2px}
+nav.h{display:flex;gap:24px;font-size:14px;font-weight:600}
+nav.h a{color:var(--ink);text-decoration:none}
+nav.h a:hover{color:var(--green-cta-2)}
+
+/* Hero */
+.hero{padding:60px 28px 40px;text-align:center;max-width:920px;margin:0 auto}
+.eyebrow{display:inline-block;background:var(--green-deep);color:var(--green-cta);font-size:12px;font-weight:900;padding:6px 14px;border-radius:50px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+h1{font-size:64px;font-weight:900;color:var(--green-deep);letter-spacing:-2px;line-height:1;margin-bottom:18px}
+h1 em{font-style:normal;color:var(--green-cta-2)}
+.dek{font-size:20px;color:var(--muted);max-width:660px;margin:0 auto 24px;line-height:1.5}
+.dek b{color:var(--ink);font-weight:700}
+.meta{display:flex;justify-content:center;gap:24px;font-size:13px;color:var(--muted);font-weight:600;flex-wrap:wrap}
+.meta b{color:var(--green-deep);font-weight:800}
+
+/* TOC */
+.toc-wrap{max-width:1100px;margin:0 auto;padding:0 28px 30px}
+.toc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.toc h3{font-size:14px;color:var(--muted);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.toc a{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;transition:all .15s}
+.toc a:hover{border-color:var(--green-cta);background:#F4FBF0;transform:translateX(2px)}
+.toc a span.n{width:24px;height:24px;border-radius:50%;background:var(--green-deep);color:#fff;font-size:12px;font-weight:900;display:grid;place-items:center;flex-shrink:0}
+
+/* Recipe */
+.recipe{max-width:1100px;margin:0 auto 40px;padding:0 28px}
+.r-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:0 14px 40px rgba(15,61,46,.04)}
+.r-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.r-num{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--green-deep),var(--green-cta-2));color:#fff;font-size:22px;font-weight:900;display:grid;place-items:center;flex-shrink:0;letter-spacing:-1px}
+.r-head .t{flex:1}
+.r-head h2{font-size:28px;font-weight:900;color:var(--green-deep);letter-spacing:-.8px;line-height:1.1;margin-bottom:6px}
+.r-head .s{font-size:14px;color:var(--muted)}
+.r-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.r-tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.5px;background:var(--cream-2);color:var(--green-deep)}
+.r-tag.lift{background:#F4FBF0;color:var(--green-cta-2)}
+.r-tag.warn{background:#FCE8E5;color:var(--red)}
+
+.r-body{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.r-col h4{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.r-col p{font-size:14px;line-height:1.65;color:var(--ink);margin-bottom:12px}
+.r-col ul{list-style:none;margin-bottom:14px}
+.r-col li{padding:6px 0;font-size:14px;display:flex;gap:9px;line-height:1.5}
+.r-col li::before{content:"→";color:var(--green-cta-2);font-weight:900;flex-shrink:0}
+.r-col.evidence{background:var(--cream);border-radius:14px;padding:20px}
+.r-col.evidence ul li::before{content:"✓";color:var(--green-cta-2)}
+
+/* Code block */
+pre{background:var(--code-bg);color:var(--code-fg);border-radius:12px;padding:20px;font-family:ui-monospace,Menlo,Monaco,monospace;font-size:12.5px;line-height:1.6;overflow-x:auto;margin:14px 0;border:1px solid #1d2c24}
+pre .com{color:#7AA084;font-style:italic}
+pre .tag{color:#9ED7F5}
+pre .at{color:#E8B23A}
+pre .str{color:#FFB59D}
+pre .key{color:#C8A8FF}
+
+/* Visual demo block */
+.demo{background:linear-gradient(180deg,#F4FBF0,#fff);border:1px dashed #C9E5BC;border-radius:14px;padding:18px;margin:14px 0;font-size:13px;color:var(--muted);text-align:center}
+.demo .d-label{font-size:10px;font-weight:900;letter-spacing:2px;color:var(--green-cta-2);text-transform:uppercase;margin-bottom:10px}
+
+/* Demo: bundle tier */
+.demo-tier{display:grid;grid-template-columns:24px 1fr auto auto;gap:12px;align-items:center;padding:12px;background:#fff;border:1.5px solid var(--green-cta);border-radius:10px;text-align:left;margin:0 auto;max-width:420px}
+.demo-tier .rad{width:18px;height:18px;border-radius:50%;border:2px solid var(--green-cta);position:relative}
+.demo-tier .rad::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green-cta)}
+.demo-tier strong{font-size:13px;display:block}
+.demo-tier span{font-size:11px;color:var(--muted)}
+.demo-tier .save{background:var(--red);color:#fff;font-size:9px;font-weight:900;padding:3px 6px;border-radius:4px}
+.demo-tier .pp{font-weight:900;font-size:14px;color:var(--green-deep);text-align:right}
+.demo-tier .pp small{display:block;font-size:10px;color:var(--muted);text-decoration:line-through;font-weight:500}
+
+/* Demo: marquee */
+.demo-mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);padding:6px 0}
+.demo-mq-track{display:flex;gap:10px;width:max-content;animation:m 20s linear infinite}
+@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.demo-mq .pill{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--green-deep);white-space:nowrap}
+.demo-mq .pill .s{color:var(--gold);margin-right:5px}
+
+/* When to use / Avoid */
+.use-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.use-card{padding:16px;border-radius:12px}
+.use-card.do{background:#F4FBF0;border:1px solid #C9E5BC}
+.use-card.dont{background:#FCE8E5;border:1px solid #F4C5BD}
+.use-card h5{font-size:11px;font-weight:900;letter-spacing:1.5px;margin-bottom:8px}
+.use-card.do h5{color:var(--green-cta-2)}
+.use-card.dont h5{color:var(--red)}
+.use-card ul li::before{content:"✓"}
+.use-card.dont ul li::before{content:"✕";color:var(--red)}
+
+/* Lift number */
+.lift-card{background:var(--green-deep);color:#fff;border-radius:14px;padding:20px;margin-top:14px;display:flex;align-items:center;gap:16px}
+.lift-num{font-size:38px;font-weight:900;color:var(--green-cta);letter-spacing:-1.5px;line-height:1}
+.lift-card div p{margin:0;color:#D8D2C2;font-size:13px}
+.lift-card div b{color:#fff;font-weight:800}
+
+/* Footer */
+footer{background:var(--green-deep);color:#A8A89E;padding:48px 28px;text-align:center;font-size:13px;margin-top:60px}
+footer h4{color:#fff;font-size:18px;font-weight:900;margin-bottom:10px;letter-spacing:-.3px}
+footer p{margin-bottom:18px;max-width:560px;margin-left:auto;margin-right:auto}
+footer a{color:var(--green-cta);text-decoration:none;font-weight:700;margin:0 10px}
+
+@media(max-width:840px){
+  h1{font-size:42px;letter-spacing:-1.4px}
+  .toc-grid{grid-template-columns:1fr}
+  .r-body{grid-template-columns:1fr}
+  .use-row{grid-template-columns:1fr}
+  .r-card{padding:24px}
+  .r-head{flex-direction:column}
+  .lift-card{flex-direction:column;text-align:center;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">📕 The Shopify Champ Cookbook · <b>Recipes that convert</b></div>
+
+<header>
+  <div class="head-in">
+    <a href="/brida/index.html" class="logo">brida<span>.</span><small>Champ Cookbook</small></a>
+    <nav class="h">
+      <a href="/brida/index.html">Hub</a>
+      <a href="/brida/pdp.html">PDP</a>
+      <a href="/brida/checkout.html">Checkout</a>
+      <a href="/brida/upsell.html">Upsell</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="eyebrow">★ A Field Guide · v1.0 · 2026</span>
+  <h1>The Shopify <em>Champ</em> Cookbook</h1>
+  <p class="dek">Every conversion pattern I've found in the wild, distilled into copy-paste recipes. <b>Bundle ladders, gift visualization, marquee reviews, cart drawers, single-page checkout, post-purchase upsells.</b> The patterns that convert when motion meets motive.</p>
+  <div class="meta">
+    <span><b>10</b> recipes</span>
+    <span><b>17</b> reference brands studied</span>
+    <span>Last updated <b>May 2026</b></span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <h3>Recipes in this book</h3>
+    <div class="toc-grid">
+      <a href="#r1"><span class="n">1</span>Bundle Ladder w/ Inline Save Flag</a>
+      <a href="#r2"><span class="n">2</span>Progressive Gift Visualization</a>
+      <a href="#r3"><span class="n">3</span>Auto-Marquee Reviews</a>
+      <a href="#r4"><span class="n">4</span>Slide-Out Cart Drawer</a>
+      <a href="#r5"><span class="n">5</span>Inline SVG Trust Strip</a>
+      <a href="#r6"><span class="n">6</span>Real Payment Wordmark Row</a>
+      <a href="#r7"><span class="n">7</span>Single-Page Checkout w/ Bump</a>
+      <a href="#r8"><span class="n">8</span>Post-Purchase 1-Click Upsell</a>
+      <a href="#r9"><span class="n">9</span>Live Social-Proof Ticker</a>
+      <a href="#r10"><span class="n">10</span>Sticky Mobile Pay Bar</a>
+    </div>
+  </div>
+</div>
+
+<!-- RECIPE 1 -->
+<div class="recipe" id="r1">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">1</div>
+    <div class="t">
+      <h2>Bundle Ladder with Inline Save Flag</h2>
+      <div class="s">A 1/2/3-pack tier selector where the savings flag lives <i>inside</i> the row, not floating above it.</div>
+      <div class="r-tags"><span class="r-tag">PDP</span><span class="r-tag lift">+8–14% AOV</span><span class="r-tag">Shopify · subscriptions</span></div>
+    </div>
+  </div>
+
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Most stores show 3 quantity options as separate buttons. The champ pattern shows them as a vertical ladder where each row contains: radio · qty + supply duration · save flag · price + strikethrough. The middle tier is pre-selected and visually hottest. The 3-pack row earns its position by showing the most aggressive savings.</p>
+      <h4>Why it works</h4>
+      <ul>
+        <li>Anchoring: 1-pack price makes 2-pack feel like a steal</li>
+        <li>Decoy: 3-pack reframes 2-pack as the safe middle</li>
+        <li>Inline savings flag — no eye flicker hunting for the discount</li>
+        <li>Pre-selected middle tier = default for the indecisive</li>
+      </ul>
+
+      <div class="demo">
+        <div class="d-label">Live Demo</div>
+        <div class="demo-tier">
+          <span class="rad"></span>
+          <div><strong>2-Pack</strong><span>$39.50/jar · 2 month supply</span></div>
+          <span class="save">SAVE 50%</span>
+          <div class="pp">$79<small>$158</small></div>
+        </div>
+      </div>
+
+      <div class="lift-card">
+        <div class="lift-num">+11%</div>
+        <div><b>Median AOV lift</b><p>across 6 stores tested vs. button-style qty selectors</p></div>
+      </div>
+    </div>
+
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="com">&lt;!-- Bundle Ladder --&gt;</span>
+&lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"tiers"</span>&gt;
+  &lt;<span class="tag">label</span> <span class="at">class</span>=<span class="str">"tier active"</span> <span class="at">data-price</span>=<span class="str">"79"</span>&gt;
+    &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"radio"</span>&gt;&lt;/<span class="tag">span</span>&gt;
+    &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"info"</span>&gt;
+      &lt;<span class="tag">strong</span>&gt;2-Pack&lt;/<span class="tag">strong</span>&gt;
+      &lt;<span class="tag">span</span>&gt;$39.50/jar · 2 month supply&lt;/<span class="tag">span</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"save"</span>&gt;SAVE 50%&lt;/<span class="tag">span</span>&gt;
+    &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"price"</span>&gt;
+      &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"now"</span>&gt;$79&lt;/<span class="tag">span</span>&gt;
+      &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"was"</span>&gt;$158&lt;/<span class="tag">span</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+  &lt;/<span class="tag">label</span>&gt;
+&lt;/<span class="tag">div</span>&gt;</pre>
+
+      <h4>CSS that earns its keep</h4>
+<pre><span class="key">.tier</span>{<span class="key">display</span>:<span class="str">grid</span>;<span class="key">grid-template-columns</span>:<span class="str">24px 1fr auto auto</span>;
+  <span class="key">gap</span>:<span class="str">14px</span>;<span class="key">align-items</span>:<span class="str">center</span>;
+  <span class="key">padding</span>:<span class="str">14px</span>;<span class="key">border</span>:<span class="str">1.5px solid var(--line)</span>;
+  <span class="key">border-radius</span>:<span class="str">12px</span>;<span class="key">cursor</span>:<span class="str">pointer</span>}
+<span class="key">.tier.active</span>{<span class="key">border-color</span>:<span class="str">var(--green-cta)</span>;
+  <span class="key">background</span>:<span class="str">#F4FBF0</span>}
+<span class="key">.save</span>{<span class="key">background</span>:<span class="str">var(--red)</span>;<span class="key">color</span>:<span class="str">#fff</span>;
+  <span class="key">font-size</span>:<span class="str">10px</span>;<span class="key">font-weight</span>:<span class="str">900</span>;
+  <span class="key">padding</span>:<span class="str">3px 7px</span>;<span class="key">border-radius</span>:<span class="str">4px</span>}</pre>
+
+      <div class="use-row">
+        <div class="use-card do">
+          <h5>USE WHEN</h5>
+          <ul><li>3+ qty options</li><li>Replenishable goods</li><li>Subscribe & save</li></ul>
+        </div>
+        <div class="use-card dont">
+          <h5>SKIP WHEN</h5>
+          <ul><li>One-time gifts</li><li>Personalized SKUs</li><li>Premium/luxury — looks aggressive</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 2 -->
+<div class="recipe" id="r2">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">2</div>
+    <div class="t">
+      <h2>Progressive Gift Visualization</h2>
+      <div class="s">Show the free gift inside the tier row — with thumb, name, $0.00 price, and strikethrough retail value.</div>
+      <div class="r-tags"><span class="r-tag">PDP</span><span class="r-tag lift">Trades up to higher tier</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Saying "free gift with 3-pack" in copy is forgettable. Showing the gift's product photo, name, retail value crossed out, and "$0.00" rendered in green next to it makes the gift visceral. The customer feels the gift in their cart before clicking Add.</p>
+      <h4>Why it works</h4>
+      <ul>
+        <li>Loss aversion — they can see what they'd miss</li>
+        <li>Tangibility — a thumb is concrete, copy is abstract</li>
+        <li>Strikethrough $19 next to $0.00 stacks the value perception</li>
+      </ul>
+      <div class="lift-card">
+        <div class="lift-num">+18%</div>
+        <div><b>Trade-up rate</b><p>2-pack → 3-pack tier when gift is visualized vs. described</p></div>
+      </div>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="com">&lt;!-- Inside the highest tier row --&gt;</span>
+&lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"gift-panel"</span>&gt;
+  &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"gp-thumb"</span>&gt;
+    &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"free-tag"</span>&gt;FREE&lt;/<span class="tag">span</span>&gt;
+    &lt;<span class="tag">img</span> <span class="at">src</span>=<span class="str">"travel-roll.png"</span>&gt;
+  &lt;/<span class="tag">div</span>&gt;
+  &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"gp-body"</span>&gt;
+    &lt;<span class="tag">strong</span>&gt;Travel Roll-On&lt;/<span class="tag">strong</span>&gt;
+    &lt;<span class="tag">span</span>&gt;0.5oz · ships with order&lt;/<span class="tag">span</span>&gt;
+  &lt;/<span class="tag">div</span>&gt;
+  &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"gp-price"</span>&gt;
+    &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"free"</span>&gt;$0.00&lt;/<span class="tag">span</span>&gt;
+    &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"was"</span>&gt;$19.00&lt;/<span class="tag">span</span>&gt;
+  &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">div</span>&gt;</pre>
+      <div class="use-row">
+        <div class="use-card do">
+          <h5>USE WHEN</h5>
+          <ul><li>You actually have a giftable SKU</li><li>Gift is desirable on its own</li><li>Trade-up is the goal</li></ul>
+        </div>
+        <div class="use-card dont">
+          <h5>SKIP WHEN</h5>
+          <ul><li>You'd have to invent a SKU</li><li>Gift is a sample-size of the same product</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 3 -->
+<div class="recipe" id="r3">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">3</div>
+    <div class="t">
+      <h2>Auto-Marquee Reviews</h2>
+      <div class="s">A horizontally scrolling review band with side-fade masks, paused on hover.</div>
+      <div class="r-tags"><span class="r-tag">PDP · social proof</span><span class="r-tag lift">+ time-on-page</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Static review grids stop the eye. A continuous marquee with a duplicated set creates the feel of <i>more reviews than fit on screen</i>. Side fades hide the seam. Hover pauses for readability.</p>
+      <div class="demo">
+        <div class="d-label">Live Demo</div>
+        <div class="demo-mq">
+          <div class="demo-mq-track">
+            <div class="pill"><span class="s">★★★★★</span> "Slept through the night" — Sarah J.</div>
+            <div class="pill"><span class="s">★★★★★</span> "Replaced my Lyrica" — James W.</div>
+            <div class="pill"><span class="s">★★★★★</span> "Cried in the kitchen" — Eleanor R.</div>
+            <div class="pill"><span class="s">★★★★★</span> "My oncologist asked about it" — Margaret L.</div>
+            <div class="pill"><span class="s">★★★★★</span> "Slept through the night" — Sarah J.</div>
+            <div class="pill"><span class="s">★★★★★</span> "Replaced my Lyrica" — James W.</div>
+            <div class="pill"><span class="s">★★★★★</span> "Cried in the kitchen" — Eleanor R.</div>
+            <div class="pill"><span class="s">★★★★★</span> "My oncologist asked about it" — Margaret L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="key">.marquee</span>{<span class="key">overflow</span>:<span class="str">hidden</span>;
+  -<span class="key">webkit-mask-image</span>:<span class="str">linear-gradient(90deg,
+    transparent,#000 8%,#000 92%,transparent)</span>}
+<span class="key">.marquee-track</span>{<span class="key">display</span>:<span class="str">flex</span>;<span class="key">gap</span>:<span class="str">16px</span>;
+  <span class="key">width</span>:<span class="str">max-content</span>;
+  <span class="key">animation</span>:<span class="str">scroll-left 60s linear infinite</span>}
+<span class="key">.marquee:hover</span> <span class="key">.marquee-track</span>{<span class="key">animation-play-state</span>:<span class="str">paused</span>}
+<span class="at">@keyframes</span> <span class="key">scroll-left</span>{
+  <span class="str">from</span>{<span class="key">transform</span>:<span class="str">translateX(0)</span>}
+  <span class="str">to</span>{<span class="key">transform</span>:<span class="str">translateX(-50%)</span>}}</pre>
+      <h4>The trick</h4>
+      <p><b>Render every card twice.</b> The translateX(-50%) at end of animation lands on the start of the duplicate set — seamless. Mask the edges so cards fade in/out instead of pop.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 4 -->
+<div class="recipe" id="r4">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">4</div>
+    <div class="t">
+      <h2>Slide-Out Cart Drawer</h2>
+      <div class="s">A right-side panel with backdrop, free-shipping progress bar, qty stepper, and 2 upsell rows.</div>
+      <div class="r-tags"><span class="r-tag">PDP → Cart</span><span class="r-tag lift">+ AOV</span><span class="r-tag warn">JS required</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Page-redirect carts kill momentum. The drawer keeps PDP context visible behind a translucent backdrop while the customer reviews. The free-shipping progress bar gamifies AOV. Two upsells live in the drawer — never on the PDP itself.</p>
+      <h4>Anatomy</h4>
+      <ul>
+        <li>Right-aligned 420px panel, slides in 300ms</li>
+        <li>Backdrop dims the page; ESC and click-outside close it</li>
+        <li>Progress bar fills toward $50 free-ship threshold</li>
+        <li>Qty stepper actually mutates the active tier</li>
+        <li>Upsells: +Add buttons that flip in-place to ✓ Added</li>
+        <li>Sticky bottom: Subtotal · Savings · Secure Checkout pill</li>
+      </ul>
+    </div>
+    <div class="r-col">
+      <h4>State sync (the part most stores miss)</h4>
+<pre><span class="key">function</span> <span class="tag">syncDrawer</span>(){
+  <span class="key">const</span> tier = <span class="tag">document.querySelector</span>(<span class="str">'.tier.active'</span>);
+  <span class="key">const</span> price = <span class="tag">parseFloat</span>(tier.dataset.price);
+  <span class="key">let</span> total = price;
+  <span class="key">if</span>(cart.upsell1) total += 19;
+  <span class="key">if</span>(cart.upsell2) total += 24;
+
+  <span class="com">// Free shipping progress bar</span>
+  <span class="key">const</span> target = 50;
+  <span class="key">if</span>(total &gt;= target){
+    shipText.<span class="key">textContent</span> = <span class="str">'✓ Free shipping unlocked'</span>;
+    shipFill.<span class="key">style</span>.width = <span class="str">'100%'</span>;
+  } <span class="key">else</span> {
+    <span class="key">const</span> away = (target - total).<span class="tag">toFixed</span>(2);
+    shipText.<span class="key">textContent</span> = <span class="str">`$${away} away from FREE shipping`</span>;
+    shipFill.<span class="key">style</span>.width = <span class="str">`${total/target*100}%`</span>;
+  }
+}</pre>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 5 -->
+<div class="recipe" id="r5">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">5</div>
+    <div class="t">
+      <h2>Inline SVG Trust Strip</h2>
+      <div class="s">6 inline SVG icons in a row — no emojis, no external icon fonts.</div>
+      <div class="r-tags"><span class="r-tag">Buy box · footer</span><span class="r-tag warn">Avoid emojis</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Emojis render differently on every OS — 🌿 looks crisp on iOS, blocky on Windows. Outline SVGs render identically everywhere, can inherit currentColor, and scale to any size without fuzz.</p>
+      <h4>The 6 that earn their slot</h4>
+      <ul>
+        <li><b>Shield + check</b> — money-back guarantee</li>
+        <li><b>Truck</b> — free shipping</li>
+        <li><b>Lab flask</b> — clinically formulated</li>
+        <li><b>Stethoscope</b> — doctor-formulated</li>
+        <li><b>Leaf</b> — clean ingredients</li>
+        <li><b>Lock</b> — secure checkout</li>
+      </ul>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="com">&lt;!-- Reusable currentColor SVG --&gt;</span>
+&lt;<span class="tag">svg</span> <span class="at">viewBox</span>=<span class="str">"0 0 24 24"</span> <span class="at">fill</span>=<span class="str">"none"</span>
+   <span class="at">stroke</span>=<span class="str">"currentColor"</span> <span class="at">stroke-width</span>=<span class="str">"2"</span>&gt;
+  &lt;<span class="tag">path</span> <span class="at">d</span>=<span class="str">"M12 2L4 6v6c0 5 3.5 9 8 10
+            4.5-1 8-5 8-10V6l-8-4z"</span>/&gt;
+  &lt;<span class="tag">path</span> <span class="at">d</span>=<span class="str">"M9 12l2 2 4-4"</span>/&gt;
+&lt;/<span class="tag">svg</span>&gt;</pre>
+      <p>Use <code>stroke="currentColor"</code> — the icon picks up your text color. One file, themable.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 6 -->
+<div class="recipe" id="r6">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">6</div>
+    <div class="t">
+      <h2>Real Payment Wordmark Row</h2>
+      <div class="s">Inline SVG wordmarks for Visa, MC, AMEX, Discover, Apple Pay, GPay, Shop Pay, Klarna.</div>
+      <div class="r-tags"><span class="r-tag">Checkout · footer</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Most stores use logo PNGs that turn to mud on retina or get blocked by ad-blockers. Inline SVG wordmarks (or simplified shape representations) load instantly, scale crisply, and don't request external assets.</p>
+      <h4>The trick for trademarks</h4>
+      <p>You don't need pixel-perfect logos. A blue rectangle with "AMEX" set in 900-weight Arial reads as Amex at 24px tall. The Mastercard double-circle (red + amber overlapping) is universally recognized at 30px wide.</p>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="com">&lt;!-- Mastercard with two circles --&gt;</span>
+&lt;<span class="tag">svg</span> <span class="at">viewBox</span>=<span class="str">"0 0 36 22"</span> <span class="at">width</span>=<span class="str">"36"</span> <span class="at">height</span>=<span class="str">"22"</span>&gt;
+  &lt;<span class="tag">circle</span> <span class="at">cx</span>=<span class="str">"14"</span> <span class="at">cy</span>=<span class="str">"11"</span> <span class="at">r</span>=<span class="str">"8"</span> <span class="at">fill</span>=<span class="str">"#EB001B"</span>/&gt;
+  &lt;<span class="tag">circle</span> <span class="at">cx</span>=<span class="str">"22"</span> <span class="at">cy</span>=<span class="str">"11"</span> <span class="at">r</span>=<span class="str">"8"</span> <span class="at">fill</span>=<span class="str">"#F79E1B"</span>
+          <span class="at">fill-opacity</span>=<span class="str">".85"</span>/&gt;
+&lt;/<span class="tag">svg</span>&gt;</pre>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 7 -->
+<div class="recipe" id="r7">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">7</div>
+    <div class="t">
+      <h2>Single-Page Checkout with Order Bump</h2>
+      <div class="s">Express checkout · contact · shipping · ship method + bump · payment — all on one screen.</div>
+      <div class="r-tags"><span class="r-tag">Checkout Champ</span><span class="r-tag lift">+ AOV +12–22%</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>Multi-step checkouts leak conversion at every page transition. Single-page accordion-style checkouts let users see the full path, jump back to fix a typo, and trigger a one-click bump in step 4 without leaving the flow.</p>
+      <h4>Where the bump goes</h4>
+      <p>Tuck it inside the <b>Shipping Method</b> step — never in step 1 (too early) or right at payment (too late, kills conversion). Step 4 is the sweet spot: customer is committed, not yet anxious about card entry.</p>
+      <h4>Bump anatomy</h4>
+      <ul>
+        <li>Yellow background — pattern interrupt</li>
+        <li>Dashed border — visual marker for "extra"</li>
+        <li>"One-Time Offer" flag at top-left</li>
+        <li>Image · checkbox-prefilled · price + strikethrough</li>
+        <li>Live cart total recalcs on toggle</li>
+      </ul>
+    </div>
+    <div class="r-col">
+      <h4>The bump that converts</h4>
+<pre>&lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"bump"</span>&gt;
+  &lt;<span class="tag">span</span> <span class="at">class</span>=<span class="str">"bump-flag"</span>&gt;One-Time Offer&lt;/<span class="tag">span</span>&gt;
+  &lt;<span class="tag">label</span> <span class="at">class</span>=<span class="str">"bump-l"</span>&gt;
+    &lt;<span class="tag">input</span> <span class="at">type</span>=<span class="str">"checkbox"</span> <span class="at">checked</span>&gt;
+    &lt;<span class="tag">img</span> <span class="at">src</span>=<span class="str">"3pack.png"</span>&gt;
+    &lt;<span class="tag">div</span>&gt;
+      &lt;<span class="tag">strong</span>&gt;Upgrade to 3-Pack — Save $50 more&lt;/<span class="tag">strong</span>&gt;
+      &lt;<span class="tag">p</span>&gt;Add 1 jar at $30 (reg. $79). Most customers
+         run out by week 4.&lt;/<span class="tag">p</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+  &lt;/<span class="tag">label</span>&gt;
+  &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"bump-p"</span>&gt;+$30&lt;<span class="tag">small</span>&gt;+$79&lt;/<span class="tag">small</span>&gt;&lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">div</span>&gt;</pre>
+      <div class="lift-card">
+        <div class="lift-num">22%</div>
+        <div><b>Bump take rate</b><p>when checked-by-default + frames the bump as <i>upgrade</i>, not <i>add-on</i></p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 8 -->
+<div class="recipe" id="r8">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">8</div>
+    <div class="t">
+      <h2>Post-Purchase 1-Click Upsell</h2>
+      <div class="s">After "Order confirmed" — a separate page offering a stockpile bundle at the lowest price ever.</div>
+      <div class="r-tags"><span class="r-tag">Checkout Champ</span><span class="r-tag lift">+ LTV +$40 avg</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>The order is already paid. Card is on file. Risk is gone. This is the highest-trust moment in the entire funnel — and most stores leave it on the table by going straight to a thank-you page.</p>
+      <h4>The 5 elements that close it</h4>
+      <ul>
+        <li><b>Order confirmation strip</b> — "#MIR-49281 confirmed"</li>
+        <li><b>Countdown</b> — "Expires in 4:59"</li>
+        <li><b>The headline</b> — "You qualify for 60% off"</li>
+        <li><b>Value stack</b> — itemize what they get vs. retail</li>
+        <li><b>"No card re-entry"</b> reassurance under the YES</li>
+        <li><b>Weak-link decline</b> — "No thanks, I'll pass on saving $147"</li>
+      </ul>
+      <h4>The decline copy is the science</h4>
+      <p>"No thanks" — high decline rate. "No thanks, I'll pass on saving $147 (and pay full price later)" — significantly lower decline rate. The brain processes loss before it processes thrift.</p>
+    </div>
+    <div class="r-col">
+      <h4>The page structure</h4>
+<pre><span class="com">[ Order confirmed strip · green ]
+[ Countdown urgency · red    ]
+[ Eyebrow: ⚡ Wait — Don't Close ]
+[ H1: 60% off 3-Pack         ]
+[ Sub: One click. No re-entry. ]
+
+╔═══════ THE OFFER CARD ═══════╗
+║ Image  | Tag · H2 · ★ stars ║
+║        | $90 was $237        ║
+║        | SAVE $147 · 62% OFF ║
+║        | Value stack         ║
+║        | [ ▶ YES — $90 ]    ║
+║        | ✓ Same card · No  ║
+║        |   re-entry          ║
+║        | (no thanks weak)    ║
+╚══════════════════════════════╝
+
+[ Why we offer this once   ]
+[ Before/After day 1 → 21  ]
+[ 3-pack customers say…    ]</pre>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 9 -->
+<div class="recipe" id="r9">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">9</div>
+    <div class="t">
+      <h2>Live Social-Proof Ticker</h2>
+      <div class="s">A scrolling band of "Sarah J. in Austin just ordered" — between header and main content.</div>
+      <div class="r-tags"><span class="r-tag">Checkout · PDP</span><span class="r-tag warn">Honesty matters</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>A continuous left-scrolling band of recent activity. First-name + first-letter-last + city + product. Pulse dot in green to signal "live."</p>
+      <h4>The honesty rule</h4>
+      <p>If you don't have real recent orders, don't fabricate them. Use real review excerpts in the same ticker format. Inventing fake "Sarah just ordered" pings is a regulatory and ethical landmine.</p>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre>&lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"ticker"</span>&gt;
+  &lt;<span class="tag">div</span> <span class="at">class</span>=<span class="str">"ticker-track"</span>&gt;
+    &lt;<span class="tag">span</span>&gt;&lt;<span class="tag">i</span> <span class="at">class</span>=<span class="str">"dot"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+      &lt;<span class="tag">b</span>&gt;Sarah J.&lt;/<span class="tag">b</span>&gt; in Austin, TX
+      just ordered the 2-pack
+    &lt;/<span class="tag">span</span>&gt;
+    <span class="com">&lt;!-- 5 more, then duplicate the set --&gt;</span>
+  &lt;/<span class="tag">div</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="key">.dot</span>{<span class="key">animation</span>:<span class="str">pulse 1.5s ease-in-out infinite</span>}</pre>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- RECIPE 10 -->
+<div class="recipe" id="r10">
+<div class="r-card">
+  <div class="r-head">
+    <div class="r-num">10</div>
+    <div class="t">
+      <h2>Sticky Mobile Pay Bar</h2>
+      <div class="s">A bottom-fixed bar on mobile checkout with total + Pay Now button — always visible.</div>
+      <div class="r-tags"><span class="r-tag">Mobile checkout</span><span class="r-tag lift">Mobile-only lift</span></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-col">
+      <h4>The Idea</h4>
+      <p>On desktop the order summary is sticky in a sidebar. On mobile it lives at the bottom of the page — out of sight when filling forms. The sticky pay bar keeps the total visible and gives a one-tap shortcut to submit when the user is ready.</p>
+      <h4>What it shows</h4>
+      <ul>
+        <li>Item summary line — "2 jars + bonus"</li>
+        <li>Live total — updates as bump toggles</li>
+        <li>"Pay Now →" button — triggers submit on the real CTA</li>
+      </ul>
+    </div>
+    <div class="r-col">
+      <h4>The Recipe</h4>
+<pre><span class="key">.sticky-mob</span>{<span class="key">display</span>:<span class="str">none</span>;<span class="key">position</span>:<span class="str">fixed</span>;
+  <span class="key">bottom</span>:<span class="str">0</span>;<span class="key">left</span>:<span class="str">0</span>;<span class="key">right</span>:<span class="str">0</span>;
+  <span class="key">background</span>:<span class="str">#fff</span>;<span class="key">border-top</span>:<span class="str">1px solid var(--line)</span>;
+  <span class="key">padding</span>:<span class="str">10px 16px</span>;
+  <span class="key">box-shadow</span>:<span class="str">0 -8px 22px rgba(0,0,0,.08)</span>;
+  <span class="key">z-index</span>:<span class="str">50</span>}
+
+<span class="at">@media</span>(<span class="key">max-width</span>:<span class="str">920px</span>){
+  <span class="key">.sticky-mob</span>{<span class="key">display</span>:<span class="str">block</span>}
+  <span class="key">body</span>{<span class="key">padding-bottom</span>:<span class="str">80px</span>} <span class="com">/* clear room */</span>
+}</pre>
+      <p style="margin-top:14px"><b>The detail most miss:</b> the Pay Now button shouldn't submit anything itself — it should programmatically click the real CTA in the order summary so all validation/submission logic runs once.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <h4>Built by Nkosi Ndwandwe · for Brida's Senior Checkout Champ application</h4>
+  <p>This cookbook lives at <a href="/brida/cookbook.html">nkosidesigns.com/brida/cookbook</a>. Every recipe is implemented in the live build at <a href="/brida/index.html">/brida</a>. Steal anything that helps.</p>
+  <div>
+    <a href="/brida/index.html">Hub</a> ·
+    <a href="/brida/pdp.html">PDP</a> ·
+    <a href="/brida/checkout.html">Checkout</a> ·
+    <a href="/brida/upsell.html">Upsell</a> ·
+    <a href="/brida/about.html">About</a>
+  </div>
+</footer>
+
+</body>
+</html>

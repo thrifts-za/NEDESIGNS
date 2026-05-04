@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Checkout — Mira Pain Relief</title>
+<meta name="description" content="Single-page Checkout Champ checkout. 90-day money-back guarantee. Free US shipping over $50.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF7EE;--cream-2:#F2EBDA;--ink:#0E1411;--muted:#5F6962;
+  --green-deep:#0F3D2E;--green-cta:#76C257;--green-cta-2:#5FA844;
+  --red:#C73E2D;--gold:#E8B23A;--line:#E5DCC6;--bump:#FFF8E3;--bump-line:#E8C97B;
+}
+html,body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-size:15px}
+
+/* Top urgency bar with countdown */
+.urgency{background:var(--red);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:9px 16px;letter-spacing:.2px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.urgency .timer{background:rgba(255,255,255,.18);padding:3px 10px;border-radius:4px;font-variant-numeric:tabular-nums;font-weight:800}
+
+header{background:#fff;border-bottom:1px solid var(--line)}
+.head-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+.logo{font-size:24px;font-weight:900;color:var(--green-deep);letter-spacing:-1px;text-decoration:none}
+.logo-dot{color:var(--green-cta)}
+.head-trust{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600}
+.head-trust svg{width:16px;height:16px;color:var(--green-cta-2)}
+
+/* Live ticker */
+.ticker{background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow:hidden;font-size:13px;color:var(--muted)}
+.ticker-track{display:flex;gap:48px;width:max-content;animation:tk 38s linear infinite;padding-left:32px}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker b{color:var(--ink);font-weight:600}
+.ticker .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green-cta);margin-right:8px;vertical-align:middle}
+
+/* Grid */
+.grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:36px;padding:30px 28px 90px;align-items:start}
+
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px}
+.step-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sn{width:26px;height:26px;border-radius:50%;background:var(--green-deep);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center}
+.step-h h3{font-size:16px;font-weight:700;color:var(--green-deep);letter-spacing:-.2px}
+.step-h .small{font-size:12px;color:var(--muted);margin-left:auto;font-weight:500}
+
+/* Express */
+.express{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.express button{height:48px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.express .shop{background:#5A31F4;border-color:#5A31F4;color:#fff}
+.express .apay{background:#000;border-color:#000;color:#fff}
+.express .gpay{background:#fff}
+.or-div{text-align:center;font-size:11px;color:var(--muted);margin:16px 0 4px;letter-spacing:1.5px;text-transform:uppercase;position:relative;font-weight:700}
+.or-div::before,.or-div::after{content:"";position:absolute;top:50%;width:42%;height:1px;background:var(--line)}
+.or-div::before{left:0}.or-div::after{right:0}
+
+/* Fields */
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.field input,.field select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:15px;font-family:inherit}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green-deep);box-shadow:0 0 0 3px rgba(15,61,46,.08)}
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+.check{display:flex;align-items:flex-start;gap:9px;margin-top:8px;font-size:13px;color:var(--muted);cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--green-deep)}
+
+/* Ship */
+.ship{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;margin-bottom:8px}
+.ship.active{border-color:var(--green-cta-2);background:#F4FBF0}
+.ship input{margin:0;accent-color:var(--green-deep)}
+.ship-b{flex:1}
+.ship-b strong{display:block;font-size:14px}
+.ship-b span{font-size:12px;color:var(--muted)}
+.ship .price{font-weight:700;color:var(--green-deep)}
+.ship .price.free{color:var(--green-cta-2)}
+
+/* BUMP — bundle upgrade */
+.bump{background:var(--bump);border:2px dashed var(--bump-line);border-radius:14px;padding:18px;margin-top:14px;display:flex;gap:14px;align-items:center;position:relative}
+.bump-flag{position:absolute;top:-11px;left:14px;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.bump-l{display:flex;align-items:flex-start;gap:10px;flex:1;cursor:pointer}
+.bump-l input{margin-top:3px;width:18px;height:18px;cursor:pointer;accent-color:var(--green-deep)}
+.bump-img{width:60px;height:60px;border-radius:10px;background:#fff;flex-shrink:0;overflow:hidden;border:1px solid var(--line)}
+.bump-img img{width:100%;height:100%;object-fit:cover}
+.bump-b strong{display:block;font-size:14px;color:var(--green-deep);margin-bottom:3px;font-weight:800}
+.bump-b p{font-size:12px;color:var(--muted);line-height:1.4}
+.bump-p{font-weight:800;color:var(--green-deep);font-size:18px;flex-shrink:0;text-align:right}
+.bump-p small{font-size:11px;color:var(--muted);text-decoration:line-through;display:block;font-weight:500}
+
+/* Pay tabs */
+.pay-tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--cream-2);padding:4px;border-radius:10px}
+.pay-tab{flex:1;padding:10px;border-radius:8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted);border:none;background:transparent}
+.pay-tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cards{display:flex;gap:6px;margin-bottom:12px;align-items:center}
+.cards svg{height:22px;width:auto;border:1px solid var(--line);border-radius:4px;background:#fff;padding:2px 4px}
+
+/* Right summary */
+.sum-wrap{position:sticky;top:14px}
+.sum{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.sum h3{font-size:18px;color:var(--green-deep);margin-bottom:16px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;justify-content:space-between}
+.sum h3 .edit{font-size:12px;color:var(--green-cta-2);font-weight:700;cursor:pointer}
+.li{display:flex;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.li-img{width:60px;height:60px;border-radius:10px;background:var(--cream-2);overflow:hidden;flex-shrink:0;position:relative;border:1px solid var(--line)}
+.li-img img{width:100%;height:100%;object-fit:cover}
+.li-img .qty{position:absolute;top:-7px;right:-7px;background:var(--green-deep);color:#fff;font-size:11px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-weight:800}
+.li-b{flex:1}
+.li-b strong{display:block;font-size:14px;margin-bottom:2px;font-weight:700}
+.li-b span{font-size:12px;color:var(--muted)}
+.li-p{font-weight:800;font-size:15px;text-align:right}
+.li-p small{display:block;font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:500}
+
+/* Delivery date pill */
+.delivery{display:flex;align-items:center;gap:8px;background:#F4FBF0;border:1px solid #C9E5BC;border-radius:10px;padding:10px 12px;font-size:13px;color:var(--green-deep);font-weight:600;margin-bottom:14px}
+.delivery svg{width:16px;height:16px;flex-shrink:0;color:var(--green-cta-2)}
+.delivery b{font-weight:800}
+
+/* Discount */
+.disc-row{display:flex;gap:8px;margin-bottom:14px}
+.disc-row input{flex:1;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13px;font-family:inherit}
+.disc-row button{padding:0 16px;border:1.5px solid var(--green-deep);background:#fff;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;color:var(--green-deep)}
+.disc-on{background:#F4FBF0;border:1px dashed var(--green-cta-2);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--green-deep);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+
+.tot{margin-bottom:18px}
+.tr{display:flex;justify-content:space-between;font-size:14px;padding:6px 0}
+.tr.muted{color:var(--muted)}
+.tr.save{color:var(--green-cta-2);font-weight:700}
+.tr.grand{font-size:22px;color:var(--green-deep);font-weight:900;padding-top:12px;margin-top:6px;border-top:1px solid var(--line);letter-spacing:-.5px}
+.tr.grand small{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+
+/* Submit */
+.cta{width:100%;background:var(--green-cta);color:#fff;border:none;padding:18px;border-radius:12px;font-size:17px;font-weight:900;letter-spacing:.3px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 24px rgba(118,194,87,.34);transition:all .15s}
+.cta:hover{background:var(--green-cta-2);transform:translateY(-1px)}
+.cta svg{width:18px;height:18px}
+.cta .price-tag{background:rgba(255,255,255,.22);padding:3px 9px;border-radius:6px;font-size:14px;font-weight:800}
+
+.guard{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.guard div{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:4px}
+.guard svg{width:22px;height:22px;color:var(--green-cta-2)}
+
+/* Risk reversal */
+.risk{margin-top:18px;background:var(--cream-2);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.risk-icon{width:38px;height:38px;border-radius:50%;background:var(--green-deep);color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:13px;font-weight:900;line-height:1.1;text-align:center}
+.risk h4{font-size:14px;font-weight:800;color:var(--green-deep);margin-bottom:3px}
+.risk p{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* Live review */
+.rev-c{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.rev-stars{color:var(--gold);letter-spacing:2px;margin-bottom:6px;font-size:14px}
+.rev-c p{font-size:14px;line-height:1.5;margin-bottom:8px}
+.rev-c cite{font-size:12px;color:var(--muted);font-style:normal;font-weight:700;display:flex;align-items:center;gap:5px}
+.rev-c cite::before{content:"✓";color:var(--green-cta-2);font-weight:900}
+
+/* FAQ */
+.faq{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:14px}
+.faq h3{font-size:16px;font-weight:800;color:var(--green-deep);margin-bottom:12px}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq details:last-child{border-bottom:0;padding-bottom:0}
+.faq summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:18px;color:var(--green-cta-2);font-weight:900}
+.faq details[open] summary::after{content:"−"}
+.faq p{font-size:13px;color:var(--muted);line-height:1.55;padding-top:8px}
+
+/* Sticky mobile bar */
+.sticky-mob{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;box-shadow:0 -8px 22px rgba(0,0,0,.08);z-index:50}
+.sticky-mob .sm-inner{display:flex;gap:10px;align-items:center}
+.sticky-mob .sm-info{flex:1;font-size:12px;color:var(--muted)}
+.sticky-mob .sm-info b{display:block;font-size:16px;color:var(--green-deep);font-weight:900}
+.sticky-mob .sm-cta{background:var(--green-cta);color:#fff;border:none;padding:13px 18px;border-radius:10px;font-weight:900;font-size:14px;cursor:pointer}
+
+@media(max-width:920px){
+  .grid{grid-template-columns:1fr;padding:20px 16px 110px;gap:18px}
+  .sum-wrap{position:static}
+  .row-3{grid-template-columns:1fr 1fr 1fr}
+  .express{grid-template-columns:1fr}
+  .sticky-mob{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY -->
+<div class="urgency">
+  <span>🔥 Your bundle is reserved for</span>
+  <span class="timer" id="timer">09:48</span>
+  <span>· Free shipping unlocked · 90-day refund</span>
+</div>
+
+<header>
+  <div class="head-in">
+    <a href="/brida/pdp.html" class="logo">brida<span class="logo-dot">.</span></a>
+    <div class="head-trust">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      256-bit SSL · Stripe Secured
+    </div>
+  </div>
+</header>
+
+<!-- LIVE TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span class="dot"></span><b>Sarah J.</b> in Austin, TX just ordered the 2-pack</span>
+    <span><span class="dot"></span><b>Marcus T.</b> in Chicago, IL just ordered the 3-pack</span>
+    <span><span class="dot"></span><b>Linda K.</b> in Phoenix, AZ just upgraded to subscribe</span>
+    <span><span class="dot"></span><b>Rev.</b> "Skeptical at first. Now I won't sleep without it." — Eileen R.</span>
+    <span><span class="dot"></span><b>Diane P.</b> in Tampa, FL just ordered the 2-pack</span>
+    <span><span class="dot"></span><b>Robert S.</b> in Denver, CO just ordered the 3-pack</span>
+    <!-- duplicate -->
+    <span><span class="dot"></span><b>Sarah J.</b> in Austin, TX just ordered the 2-pack</span>
+    <span><span class="dot"></span><b>Marcus T.</b> in Chicago, IL just ordered the 3-pack</span>
+    <span><span class="dot"></span><b>Linda K.</b> in Phoenix, AZ just upgraded to subscribe</span>
+    <span><span class="dot"></span><b>Rev.</b> "Skeptical at first. Now I won't sleep without it." — Eileen R.</span>
+    <span><span class="dot"></span><b>Diane P.</b> in Tampa, FL just ordered the 2-pack</span>
+    <span><span class="dot"></span><b>Robert S.</b> in Denver, CO just ordered the 3-pack</span>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- LEFT -->
+  <div>
+
+    <!-- 1. Express -->
+    <div class="step">
+      <div class="step-h"><div class="sn">1</div><h3>Express checkout</h3><span class="small">Skip the form</span></div>
+      <div class="express">
+        <button class="shop">
+          <svg width="60" height="14" viewBox="0 0 60 14" fill="#fff"><text x="0" y="11" font-family="Inter" font-weight="800" font-size="12">shop</text><text x="26" y="11" font-family="Inter" font-weight="800" font-size="12">Pay</text></svg>
+        </button>
+        <button class="apay">
+           Pay
+        </button>
+        <button class="gpay">
+          <svg width="42" height="16" viewBox="0 0 42 16"><text x="0" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#4285F4">G</text><text x="9" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#EA4335">o</text><text x="18" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#FBBC04">o</text><text x="27" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#34A853">Pay</text></svg>
+        </button>
+      </div>
+      <div class="or-div">Or pay with card</div>
+    </div>
+
+    <!-- 2. Contact -->
+    <div class="step">
+      <div class="step-h"><div class="sn">2</div><h3>Contact</h3><span class="small">For order tracking</span></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" autocomplete="email" value=""></div>
+      <label class="check"><input type="checkbox" checked> Email me care tips and member-only offers</label>
+    </div>
+
+    <!-- 3. Shipping -->
+    <div class="step">
+      <div class="step-h"><div class="sn">3</div><h3>Shipping address</h3><span class="small">United States</span></div>
+      <div class="row-2">
+        <div class="field"><label>First name</label><input autocomplete="given-name"></div>
+        <div class="field"><label>Last name</label><input autocomplete="family-name"></div>
+      </div>
+      <div class="field"><label>Address</label><input placeholder="123 Main Street" autocomplete="address-line1"></div>
+      <div class="field"><label>Apt, suite, etc. (optional)</label><input autocomplete="address-line2"></div>
+      <div class="row-3">
+        <div class="field"><label>City</label><input autocomplete="address-level2"></div>
+        <div class="field"><label>State</label><select><option>State</option><option>AL</option><option>CA</option><option>FL</option><option>NY</option><option>TX</option></select></div>
+        <div class="field"><label>ZIP</label><input autocomplete="postal-code"></div>
+      </div>
+      <div class="field"><label>Phone (delivery only)</label><input type="tel" autocomplete="tel"></div>
+    </div>
+
+    <!-- 4. Ship method + BUMP -->
+    <div class="step">
+      <div class="step-h"><div class="sn">4</div><h3>Shipping method</h3></div>
+      <label class="ship active"><input type="radio" name="ship" checked><div class="ship-b"><strong>Free standard shipping</strong><span>Arrives in 3–5 business days</span></div><span class="price free">FREE</span></label>
+      <label class="ship"><input type="radio" name="ship"><div class="ship-b"><strong>Express shipping</strong><span>Arrives in 1–2 business days</span></div><span class="price">$9.95</span></label>
+
+      <!-- ORDER BUMP — BUNDLE UPGRADE not fab SKU -->
+      <div class="bump">
+        <span class="bump-flag">One-Time Offer</span>
+        <label class="bump-l">
+          <input type="checkbox" id="bumpCheck" checked>
+          <div class="bump-img"><img src="/brida/Gallery/threepack.png" alt="Mira 3-pack" onerror="this.style.display='none'"></div>
+          <div class="bump-b">
+            <strong>Upgrade to 3-Pack — Save $50 more</strong>
+            <p>Add 1 jar to your order at <b>$30/jar</b> (reg. $79). Most customers run out by week 4.</p>
+          </div>
+        </label>
+        <div class="bump-p">+$30<small>+$79</small></div>
+      </div>
+    </div>
+
+    <!-- 5. Payment -->
+    <div class="step">
+      <div class="step-h"><div class="sn">5</div><h3>Payment</h3><span class="small">All transactions encrypted</span></div>
+      <div class="pay-tabs">
+        <button class="pay-tab active">Credit card</button>
+        <button class="pay-tab">PayPal</button>
+        <button class="pay-tab">Klarna · 4 payments</button>
+      </div>
+      <div class="cards">
+        <svg viewBox="0 0 36 14" width="38" height="22"><text x="0" y="11" font-family="Arial" font-weight="900" font-size="11" fill="#1A1F71" font-style="italic">VISA</text></svg>
+        <svg viewBox="0 0 36 22" width="36" height="22"><circle cx="14" cy="11" r="8" fill="#EB001B"/><circle cx="22" cy="11" r="8" fill="#F79E1B" fill-opacity=".85"/></svg>
+        <svg viewBox="0 0 38 22" width="38" height="22"><rect width="38" height="22" rx="2" fill="#1F72CD"/><text x="3" y="14" font-family="Arial" font-weight="900" font-size="9" fill="#fff">AMEX</text></svg>
+        <svg viewBox="0 0 50 22" width="50" height="22"><text x="0" y="14" font-family="Arial" font-weight="800" font-size="10" fill="#FF6000">DISC</text><circle cx="40" cy="11" r="6" fill="#FF6000"/></svg>
+      </div>
+      <div class="field"><label>Card number</label><input placeholder="1234 1234 1234 1234"></div>
+      <div class="row-3">
+        <div class="field"><label>Name on card</label><input autocomplete="cc-name"></div>
+        <div class="field"><label>Expiry</label><input placeholder="MM/YY"></div>
+        <div class="field"><label>CVC</label><input placeholder="123"></div>
+      </div>
+      <label class="check"><input type="checkbox" checked> Billing same as shipping</label>
+    </div>
+
+    <!-- FAQ above CTA — kills last-minute objections -->
+    <div class="faq">
+      <h3>Quick answers before you order</h3>
+      <details open>
+        <summary>What if it doesn't work for me?</summary>
+        <p>Use it for 90 days. If you don't feel relief, email us — we refund the full amount, even if the jar is empty. No questions, no return shipping.</p>
+      </details>
+      <details>
+        <summary>How fast does it work?</summary>
+        <p>Most customers feel cooling within 60 seconds. Repair benefit (less burning, better sleep) typically shows by week 2–3 with twice-daily use.</p>
+      </details>
+      <details>
+        <summary>Is the subscription locked in?</summary>
+        <p>Cancel, pause, or skip anytime in your account. No call required, no minimum commitment.</p>
+      </details>
+      <details>
+        <summary>When will it ship?</summary>
+        <p>Orders placed before 2pm ET ship same day from our Texas warehouse. You'll get tracking within 24 hours.</p>
+      </details>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SUMMARY -->
+  <div class="sum-wrap">
+    <div class="sum">
+      <h3>Your order <span class="edit">Edit cart</span></h3>
+
+      <div class="li">
+        <div class="li-img"><img src="/brida/Gallery/jar-hero.png" alt="Mira" onerror="this.style.display='none'"><span class="qty">2</span></div>
+        <div class="li-b"><strong>Mira Pain Relief Lotion</strong><span>2-jar bundle · subscribe & save 15%</span></div>
+        <div class="li-p">$67.15<small>$158</small></div>
+      </div>
+
+      <div class="li" id="bumpLine">
+        <div class="li-img"><img src="/brida/Gallery/jar-back.png" alt="Mira jar" onerror="this.style.display='none'"><span class="qty">+1</span></div>
+        <div class="li-b"><strong>Add 3rd Jar — Bundle Upgrade</strong><span>One-time offer · save $49</span></div>
+        <div class="li-p">$30.00<small>$79</small></div>
+      </div>
+
+      <div class="delivery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="6" width="14" height="12" rx="1"/><path d="M16 10h4l2 3v5h-6"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+        Delivers <b>Sat, May 9 – Tue, May 12</b> · Free
+      </div>
+
+      <div class="disc-row">
+        <input placeholder="Discount code">
+        <button>Apply</button>
+      </div>
+      <div class="disc-on"><span><b>WELCOME15</b> applied</span><span>−$14.57</span></div>
+
+      <div class="tot">
+        <div class="tr"><span>Subtotal</span><span id="sub">$97.15</span></div>
+        <div class="tr save"><span>Bundle savings</span><span>−$110.85</span></div>
+        <div class="tr save"><span>WELCOME15</span><span>−$14.57</span></div>
+        <div class="tr muted"><span>Shipping</span><span>FREE</span></div>
+        <div class="tr muted"><span>Estimated tax</span><span>$5.59</span></div>
+        <div class="tr grand"><span>Total <small>USD</small></span><span id="grand">$88.17</span></div>
+      </div>
+
+      <button class="cta" id="payBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 11V7a7 7 0 0114 0v4"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+        Complete Secure Order
+        <span class="price-tag" id="payTag">$88.17</span>
+      </button>
+
+      <div class="guard">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 9l6-1z"/></svg>90-Day<br>Refund</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="1"/><path d="M16 10h4l2 3v5h-6"/></svg>Free<br>Shipping</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>SSL<br>Secured</div>
+      </div>
+
+      <!-- Risk reversal -->
+      <div class="risk">
+        <div class="risk-icon">90<br>DAY</div>
+        <div>
+          <h4>Try Mira risk-free</h4>
+          <p>Use the entire jar. If your skin still burns at 2am, email us — we refund every penny. We've honored 100% of refund requests since 2021.</p>
+        </div>
+      </div>
+
+      <!-- Live review -->
+      <div class="rev-c">
+        <div class="rev-stars">★★★★★</div>
+        <p>"My feet stopped burning at night for the first time in 3 years. Worth every penny."</p>
+        <cite>Harper C. — verified buyer (Mar 2026)</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky mobile -->
+<div class="sticky-mob">
+  <div class="sm-inner">
+    <div class="sm-info">Total · 2 jars + bonus<br><b id="smTot">$88.17</b></div>
+    <button class="sm-cta" onclick="document.getElementById('payBtn').click()">Pay Now →</button>
+  </div>
+</div>
+
+<script>
+// Countdown
+let mins=9, secs=48;
+const tEl=document.getElementById('timer');
+setInterval(()=>{
+  if(secs===0){if(mins===0){mins=9;secs=59}else{mins--;secs=59}}else secs--;
+  tEl.textContent=`${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+},1000);
+
+// Bump recalc
+const bumpCheck=document.getElementById('bumpCheck');
+const bumpLine=document.getElementById('bumpLine');
+const sub=document.getElementById('sub');
+const grand=document.getElementById('grand');
+const payTag=document.getElementById('payTag');
+const smTot=document.getElementById('smTot');
+function recalc(){
+  const base=67.15;
+  const bump=bumpCheck.checked?30:0;
+  const s=base+bump;
+  const disc=s*0.15;
+  const tax=(s-disc)*0.075;
+  const tot=s-disc+tax;
+  sub.textContent=`$${s.toFixed(2)}`;
+  grand.textContent=`$${tot.toFixed(2)}`;
+  payTag.textContent=`$${tot.toFixed(2)}`;
+  smTot.textContent=`$${tot.toFixed(2)}`;
+  bumpLine.style.display=bumpCheck.checked?'':'none';
+}
+bumpCheck.addEventListener('change',recalc);
+
+// Tabs
+document.querySelectorAll('.pay-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.pay-tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+}));
+
+// Ship select
+document.querySelectorAll('.ship').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('.ship').forEach(x=>x.classList.remove('active'));
+  s.classList.add('active');
+  s.querySelector('input').checked=true;
+}));
+
+// Submit
+document.getElementById('payBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  const b=e.currentTarget;
+  b.style.opacity='.7';
+  b.innerHTML='Processing your secure order…';
+  setTimeout(()=>window.location.href='/brida/upsell.html',900);
+});
+</script>
+</body>
+</html>

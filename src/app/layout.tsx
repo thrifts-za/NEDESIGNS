@@ -12,10 +12,32 @@ const inter = Inter({
   display: "swap",
 });
 
+type SiteSettingsWithSeo = SiteSettings & {
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+    ogImage?: any;
+    twitterImage?: any;
+    twitterHandle?: string;
+    favicon?: any;
+    appleTouchIcon?: any;
+  };
+  verification?: {
+    googleSiteVerification?: string;
+    bingSiteVerification?: string;
+    pinterestVerification?: string;
+  };
+  analytics?: {
+    customHeadScripts?: string;
+    customBodyScripts?: string;
+  };
+};
+
 // Fetch site settings for SEO
 async function getSiteSettings() {
   try {
-    const settings = await client.fetch<SiteSettings>(
+    const settings = await client.fetch<SiteSettingsWithSeo>(
       `*[_type == "siteSettings"][0]{
         seo,
         verification,

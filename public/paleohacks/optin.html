@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free: 3 paleo breakfasts you can make in 5 minutes | PaleoHacks</title>
+<meta name="description" content="Free PDF: 3 paleo breakfasts ready in 5 minutes. No credit card. Delivered to your inbox.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#63BD27;--green-2:#56A622;--orange:#FF9601;--navy:#222C49;--cream:#FBF8F1;--cream-2:#F2EBDB;--ink:#1A1F2E;--muted:#5C6478;--line:#E5DFCC;--gold:#F0B90B}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:#fff;-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;background-image:radial-gradient(circle at 80% 0%,rgba(99,189,39,.18),transparent 50%),radial-gradient(circle at 0% 100%,rgba(255,150,1,.14),transparent 50%)}
+.serif{font-family:'Source Serif 4',serif}
+
+.tiny-head{padding:18px 28px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#A8AEC2}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo-mark{width:34px;height:34px;background:var(--green);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:16px;font-family:'Source Serif 4',serif}
+.logo-text{font-weight:900;font-size:20px;letter-spacing:-.6px}
+.logo-text span{color:var(--green)}
+.head-r{display:flex;align-items:center;gap:8px}
+.head-r .stars{color:var(--gold);letter-spacing:1.5px}
+
+.wrap{max-width:1100px;margin:0 auto;padding:60px 28px;display:grid;grid-template-columns:1fr 460px;gap:50px;align-items:center}
+
+.left .eyebrow{display:inline-block;background:var(--orange);color:#fff;font-size:12px;font-weight:900;padding:5px 12px;border-radius:50px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+h1{font-family:'Source Serif 4',serif;font-size:58px;font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--green);background:linear-gradient(180deg,transparent 60%,rgba(99,189,39,.28) 60%);padding:0 4px}
+.lede{font-size:19px;color:#D8DCE5;margin-bottom:26px;line-height:1.55;max-width:560px}
+.lede b{color:#fff;font-weight:700}
+.proof-row{display:flex;align-items:center;gap:14px;margin-bottom:24px;font-size:13px;color:#A8AEC2;font-weight:600}
+.proof-row .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
+.proof-row b{color:#fff;font-weight:800}
+ul.benefits{list-style:none;margin-bottom:0}
+ul.benefits li{padding:9px 0;font-size:15px;color:#D8DCE5;display:flex;gap:12px;align-items:center}
+ul.benefits li::before{content:"";display:inline-block;width:22px;height:22px;border-radius:50%;background:var(--green);position:relative;flex-shrink:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><path d='M5 13l4 4L19 7'/></svg>");background-size:14px;background-position:center;background-repeat:no-repeat}
+
+/* Right: form card */
+.card{background:#fff;color:var(--ink);border-radius:18px;padding:34px;box-shadow:0 22px 60px rgba(0,0,0,.3)}
+.card-flag{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border-radius:5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.card h2{font-family:'Source Serif 4',serif;font-size:26px;color:var(--navy);font-weight:700;letter-spacing:-.6px;line-height:1.15;margin-bottom:8px}
+.card p.sub{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.pdf-mock{width:100%;aspect-ratio:4/3;background:var(--cream-2) center/cover no-repeat;background-image:url('/paleohacks/Gallery/recipe-pancakes.webp');border-radius:12px;border:1px solid var(--line);margin-bottom:18px;position:relative;overflow:hidden}
+.pdf-mock::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(34,44,73,.85));}
+.pdf-mock .pdf-label{position:absolute;bottom:14px;left:14px;right:14px;color:#fff;z-index:2;font-family:'Source Serif 4',serif}
+.pdf-mock .pdf-label small{display:block;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.pdf-mock .pdf-label strong{display:block;font-size:18px;font-weight:700;line-height:1.2}
+
+form .field{margin-bottom:12px}
+form input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
+form input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(99,189,39,.14)}
+.btn{width:100%;background:var(--green);color:#fff;border:none;padding:18px;border-radius:12px;font-size:16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;letter-spacing:.3px;box-shadow:0 10px 24px rgba(99,189,39,.3)}
+.btn:hover{background:var(--green-2)}
+.btn svg{width:18px;height:18px}
+.tiny{text-align:center;font-size:11px;color:var(--muted);margin-top:12px}
+.tiny svg{width:11px;height:11px;vertical-align:middle;color:var(--green-2)}
+
+footer{padding:30px 28px;text-align:center;font-size:12px;color:#6E748A}
+footer a{color:var(--green);text-decoration:none;font-weight:700;margin:0 8px}
+
+@media(max-width:920px){
+  .wrap{grid-template-columns:1fr;gap:30px;padding:40px 24px}
+  h1{font-size:36px;letter-spacing:-1.2px}
+  .card{order:-1}
+}
+</style>
+</head>
+<body>
+
+<div class="tiny-head">
+  <a href="/paleohacks/index.html" class="logo">
+    <img src="/paleohacks/Gallery/logo-white.png" alt="PaleoHacks" style="height:40px;width:auto;display:block;filter:brightness(1.1)">
+  </a>
+  <div class="head-r">
+    <span class="stars">★★★★★</span> 124,000+ readers
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="left">
+    <div class="eyebrow">★ Free download · No credit card</div>
+    <h1 class="serif">3 paleo breakfasts you can make in <em>5 minutes flat.</em></h1>
+    <p class="lede">Drop your email. We'll send you a 3-recipe PDF you can cook tomorrow morning. <b>No grain. No refined sugar. No credit card.</b> If you don't like the recipes, unsubscribe with one click.</p>
+
+    <div class="proof-row">
+      <span class="stars">★★★★★</span>
+      <b>124,000+</b> emails delivered · 4.9 average
+    </div>
+
+    <ul class="benefits">
+      <li>Almond-flour pancakes ready in 5 minutes</li>
+      <li>Strawberry-kiwi smoothie with steady-energy fats</li>
+      <li>Bacon-weave breakfast sandwich your kids will steal</li>
+      <li>Grocery list included so you can shop tomorrow</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="card-flag">★ Free PDF</span>
+    <h2 class="serif">Send my free recipes</h2>
+    <p class="sub">Delivered to your inbox in 30 seconds. Zero spam. Unsubscribe anytime.</p>
+    <div class="pdf-mock">
+      <div class="pdf-label">
+        <small>Free PDF · 12 pages</small>
+        <strong>3 fast paleo breakfasts</strong>
+      </div>
+    </div>
+    <form onsubmit="submit(event)">
+      <div class="field"><input type="text" placeholder="First name" required></div>
+      <div class="field"><input type="email" placeholder="Your best email" required></div>
+      <button class="btn" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
+        Send My Free Recipes →
+      </button>
+      <div class="tiny">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+        We never sell your email · Unsubscribe in one click
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  © 2026 PaleoHacks ·
+  <a href="/paleohacks/index.html">Hub</a> ·
+  <a href="/paleohacks/sales.html">Sales page</a>
+</footer>
+
+<script>
+function submit(e){
+  e.preventDefault();
+  const b=document.querySelector('.btn');
+  b.innerHTML='Sending…';
+  b.style.opacity='.7';
+  setTimeout(()=>window.location.href='/paleohacks/sales.html',800);
+}
+</script>
+</body>
+</html>

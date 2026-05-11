@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaleoHacks Spec Build by Nkosi Ndwandwe</title>
+<meta name="description" content="A spec funnel for PaleoHacks: PDP, sales letter, single-page Sticky.io checkout, two stacked OTOs, advertorial, listicle, optin, and thank-you. Built before applying.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#63BD27;--green-2:#56A622;--green-deep:#3F7D17;--orange:#FF9601;--navy:#222C49;--cream:#FBF8F1;--cream-2:#F2EBDB;--ink:#1A1F2E;--muted:#5C6478;--line:#E5DFCC;--gold:#F0B90B}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+.serif{font-family:'Source Serif 4',serif}
+
+.wrap{max-width:1100px;margin:0 auto;padding:60px 24px 90px}
+header{text-align:center;margin-bottom:60px}
+.logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:32px;text-decoration:none;color:var(--navy)}
+.logo-mark{width:48px;height:48px;background:var(--green);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:22px;font-family:'Source Serif 4',serif}
+.logo-text{font-weight:900;font-size:30px;letter-spacing:-1px}
+.logo-text span{color:var(--green)}
+.eyebrow{font-size:13px;color:var(--green-2);letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+h1{font-family:'Source Serif 4',serif;font-size:54px;font-weight:700;line-height:1.05;letter-spacing:-1.6px;margin-bottom:18px;color:var(--navy)}
+.lede{font-size:18px;color:var(--muted);max-width:680px;margin:0 auto 28px;line-height:1.55}
+.lede b{color:var(--ink);font-weight:700}
+.meta{display:inline-flex;gap:24px;flex-wrap:wrap;justify-content:center;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.meta span::before{content:"●";color:var(--green-2);margin-right:8px}
+
+/* Funnel preview marquee */
+.preview{margin:0 0 60px}
+.pv-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);padding:6px 0}
+.pv-track{display:flex;gap:14px;width:max-content;animation:pv 50s linear infinite}
+@keyframes pv{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.preview:hover .pv-track{animation-play-state:paused}
+.pv-card{flex:0 0 280px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 12px 28px rgba(34,44,73,.06)}
+.pv-card img{width:100%;height:200px;object-fit:cover;border-radius:10px;background:var(--cream-2)}
+
+/* Section title rule */
+.sec-title{font-size:12px;color:var(--green-2);letter-spacing:2px;text-transform:uppercase;font-weight:800;margin:30px 0 8px;text-align:left}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .2s}
+.card:hover{border-color:var(--green-2);transform:translateY(-3px);box-shadow:0 14px 32px rgba(99,189,39,.12)}
+.card-tag{font-size:11px;color:var(--green-2);letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin-bottom:10px}
+.card h3{font-family:'Source Serif 4',serif;font-size:22px;font-weight:700;margin-bottom:10px;letter-spacing:-.4px;color:var(--navy);line-height:1.15}
+.card p{font-size:14px;color:var(--muted);margin-bottom:18px;flex:1;line-height:1.6}
+.card-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.chip{background:var(--cream-2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:50px;color:var(--navy)}
+.card-cta{font-size:12px;font-weight:800;color:var(--green-2);text-transform:uppercase;letter-spacing:1px}
+.card-cta::after{content:" →"}
+
+.card.featured{border-color:var(--green);background:linear-gradient(180deg,#F4FBED,#fff)}
+.card.featured .card-tag{color:var(--navy)}
+
+/* Stack-range callout */
+.stack-row{background:var(--navy);color:#fff;border-radius:18px;padding:38px;margin:28px 0 60px;background-image:radial-gradient(circle at 90% 0%,rgba(99,189,39,.18),transparent 50%),radial-gradient(circle at 0% 100%,rgba(255,150,1,.14),transparent 50%)}
+.stack-row h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.stack-row p{color:#D8DCE5;font-size:14px;margin-bottom:24px;max-width:680px;line-height:1.6}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px}
+.sg-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--green);margin-bottom:6px}
+.sg h4{font-size:14px;font-weight:800;margin-bottom:4px;color:#fff}
+.sg p{font-size:12px;color:#A8AEC2;margin:0;line-height:1.5}
+
+/* Pitch */
+.pitch{background:#fff;border:1px solid var(--line);border-radius:22px;padding:48px;text-align:center;margin-bottom:40px}
+.pitch h2{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;letter-spacing:-.7px;margin-bottom:14px;color:var(--navy)}
+.pitch p{font-size:16px;color:var(--muted);max-width:660px;margin:0 auto 32px;line-height:1.6}
+.pitch-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;text-align:left}
+.feat-num{font-family:'Source Serif 4',serif;color:var(--orange);font-size:28px;font-weight:700;margin-bottom:6px;line-height:1}
+.feat h4{font-size:14px;font-weight:800;margin-bottom:6px;color:var(--navy)}
+.feat p{font-size:13px;color:var(--muted);margin:0;line-height:1.55}
+
+footer{text-align:center;font-size:13px;color:var(--muted);padding-top:32px;border-top:1px solid var(--line)}
+footer a{color:var(--green-2);text-decoration:none;font-weight:700}
+
+@media(max-width:768px){
+  h1{font-size:36px;letter-spacing:-1.2px}
+  .grid,.pitch-features,.stack-grid{grid-template-columns:1fr}
+  .pitch{padding:30px 22px}
+  .pitch h2{font-size:26px}
+  .stack-row{padding:26px}
+  .pv-card{flex-basis:240px}
+  .pv-card img{height:170px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="/paleohacks/index.html" class="logo">
+      <img src="/paleohacks/Gallery/logo-dark.png" alt="PaleoHacks" style="height:36px;width:auto;display:block">
+    </a>
+    <div class="eyebrow">Spec Build · Full-Stack eCommerce Developer Application</div>
+    <h1 class="serif">I built the funnel before sending the resume.</h1>
+    <p class="lede">A complete PaleoHacks-flavoured funnel built in your stack and your brand. <b>Real SKUs from your shop</b>: Paleo Breakfast Cookbook ($19.99), Paleo Recipe Collection ($97), Keto Fat Loss Accelerator. Sticky.io-style single-page checkout. Two stacked 1-click upsells. Squeeze, sales letter, advertorial, listicle, and a Next.js thank-you. Hand-coded, no plugins, no shortcuts.</p>
+    <div class="meta">
+      <span>Sticky.io</span>
+      <span>Shopify</span>
+      <span>Next.js</span>
+      <span>PHP-ready</span>
+      <span>AI-paired build</span>
+    </div>
+  </header>
+
+  <!-- Preview marquee -->
+  <section class="preview">
+    <div class="pv-marquee">
+      <div class="pv-track">
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-pancakes.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-smoothie.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/paleo-breakfast-hero.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-bacon.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-frittata.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-waffles.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/prc-bundle.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/kfla-bundle.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-strawberry.webp" alt=""></div>
+        <!-- duplicate -->
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-pancakes.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-smoothie.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/paleo-breakfast-hero.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-bacon.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-frittata.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-waffles.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/prc-bundle.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/kfla-bundle.webp" alt=""></div>
+        <div class="pv-card"><img src="/paleohacks/Gallery/recipe-strawberry.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Cold traffic -->
+  <div class="sec-title">① Cold paid traffic creatives</div>
+  <div class="grid">
+    <a class="card" href="/paleohacks/advertorial.html">
+      <div class="card-tag">Wellness Today · Advertorial</div>
+      <h3>"I tried paleo for 30 days as a tired mom of 3"</h3>
+      <p>Native-style sponsored editorial. Sponsored disclosure, doctor quote, day-by-day journal, two inline CTAs at 30 percent and 75 percent scroll, sticky bottom-bar after 900px scroll.</p>
+      <div class="card-stack"><span class="chip">Cold Meta</span><span class="chip">Day journal</span><span class="chip">Doctor quote</span></div>
+      <div class="card-cta">Read advertorial</div>
+    </a>
+    <a class="card" href="/paleohacks/listicle.html">
+      <div class="card-tag">Wellness Lab · Listicle</div>
+      <h3>9 foods crashing your energy after 40</h3>
+      <p>Doctor-reviewed listicle with the cookbook as the fix. Score grids per food, swap suggestions, at-a-glance compare table, FAQ accordion, two CTAs to sales page.</p>
+      <div class="card-stack"><span class="chip">Doctor-reviewed</span><span class="chip">Compare table</span><span class="chip">FAQ</span></div>
+      <div class="card-cta">Read listicle</div>
+    </a>
+  </div>
+
+  <!-- 2. Optin + sales -->
+  <div class="sec-title">② Squeeze and sales letter</div>
+  <div class="grid">
+    <a class="card" href="/paleohacks/optin.html">
+      <div class="card-tag">Squeeze page · Lead magnet</div>
+      <h3>Free 3 paleo breakfast PDF</h3>
+      <p>Single-purpose squeeze: bold promise, PDF-mock visual, name + email capture, no nav, no scroll-distraction. Designed for cold Meta direct traffic with a $0 entry point that warms the list before the sales letter.</p>
+      <div class="card-stack"><span class="chip">Lead magnet</span><span class="chip">Email capture</span><span class="chip">Distraction-free</span></div>
+      <div class="card-cta">View squeeze</div>
+    </a>
+    <a class="card" href="/paleohacks/sales.html">
+      <div class="card-tag">Long-form sales letter</div>
+      <h3>The 60 paleo breakfasts that replaced cereal</h3>
+      <p>Hook, story, mechanism, peek-grid, doctor quote, offer stack with itemized value, 60-day guarantee, urgency, two repeating buy boxes, P.S. close. Classic VSL/Stefan-Georgi shape, paleo flavour.</p>
+      <div class="card-stack"><span class="chip">VSL pattern</span><span class="chip">Offer stack</span><span class="chip">Day-30 journal</span></div>
+      <div class="card-cta">Read sales letter</div>
+    </a>
+  </div>
+
+  <!-- 3. PDP -->
+  <div class="sec-title">③ Shopify product detail page</div>
+  <div class="grid">
+    <a class="card featured" href="/paleohacks/pdp.html">
+      <div class="card-tag">★ Shopify · Champ-pattern PDP</div>
+      <h3>Mira-grade PDP for the breakfast cookbook</h3>
+      <p>Hero gallery with thumbnails, bundle ladder ($19.99 / $97 / $255) with inline save flags, gift visualization on the max tier, helps-with icon row, tabs accordion (inside / samples / philosophy / who), comparison block, auto-marquee reviews, big guarantee, slide-out cart drawer with $50 free-gift unlock and two upsells.</p>
+      <div class="card-stack"><span class="chip">Bundle ladder</span><span class="chip">Cart drawer</span><span class="chip">Marquee reviews</span><span class="chip">Helps-with strip</span></div>
+      <div class="card-cta">View PDP</div>
+    </a>
+    <a class="card" href="/paleohacks/pdp.html#why">
+      <div class="card-tag">Why this PDP, not the live one</div>
+      <h3>The current PaleoHacks PDP is dead weight</h3>
+      <p>Their live shop pages are sold-out screens with no bundle logic, no upsell stack, no real review proof, no guarantee block, no urgency, no cart drawer. The champ PDP at left is the version of that page that earns its slot in the funnel and lifts AOV by stacking $19.99 → $97 → $255.</p>
+      <div class="card-stack"><span class="chip">AOV stacking</span><span class="chip">Real review proof</span><span class="chip">Champ pattern</span></div>
+      <div class="card-cta">Compare</div>
+    </a>
+  </div>
+
+  <!-- 4. Checkout + post-purchase -->
+  <div class="sec-title">④ Sticky.io checkout and post-purchase</div>
+  <div class="grid">
+    <a class="card" href="/paleohacks/checkout.html">
+      <div class="card-tag">Sticky.io · Single-page</div>
+      <h3>Hyper-optimised digital checkout</h3>
+      <p>Express row (Shop / Apple / Google Pay), email-only contact (no shipping for digital), payment + order bump on the same screen, real SVG payment wordmarks, instant-delivery promise, FAQ above CTA, sticky mobile pay bar, live ticker.</p>
+      <div class="card-stack"><span class="chip">Single-page</span><span class="chip">No-shipping flow</span><span class="chip">Order bump</span></div>
+      <div class="card-cta">View checkout</div>
+    </a>
+    <a class="card" href="/paleohacks/oto1.html">
+      <div class="card-tag">Sticky.io · OTO 1</div>
+      <h3>1-click upgrade to the 3-cookbook bundle</h3>
+      <p>Order-confirmed strip, countdown urgency, "$32 more for 3 cookbooks" headline, value stack with strikethroughs, big YES button, weak-link decline ("pass on saving $52"), 3-pack reviews below.</p>
+      <div class="card-stack"><span class="chip">1-click</span><span class="chip">Card on file</span><span class="chip">Weak-link decline</span></div>
+      <div class="card-cta">View OTO 1</div>
+    </a>
+    <a class="card" href="/paleohacks/oto2.html">
+      <div class="card-tag">Sticky.io · OTO 2</div>
+      <h3>Final upsell — Keto Fat Loss Accelerator</h3>
+      <p>Members-only price ($147 vs. $255 retail). Stacks 9 cookbooks, 30-day meal plan, video walk-throughs, members-only Slack. Last upsell in the chain, strongest urgency.</p>
+      <div class="card-stack"><span class="chip">Flagship</span><span class="chip">Members-only</span><span class="chip">Stacked offer</span></div>
+      <div class="card-cta">View OTO 2</div>
+    </a>
+    <a class="card" href="/paleohacks/thankyou.html">
+      <div class="card-tag">Next.js · Confirmation</div>
+      <h3>Thank-you with PDF download links</h3>
+      <p>Order summary card with download links, three-step "what happens next" walk-through, community CTA. Built as a Next.js page in production (server-fetched order from Sticky.io webhook); the static template you see here renders identically.</p>
+      <div class="card-stack"><span class="chip">Next.js</span><span class="chip">Server fetch</span><span class="chip">Download links</span></div>
+      <div class="card-cta">View thank-you</div>
+    </a>
+  </div>
+
+  <!-- Stack-range proofs -->
+  <div class="stack-row">
+    <h3 class="serif">Stack-range proofs (the JD bait)</h3>
+    <p>The role calls for full-stack work across PHP, custom CMS, headless systems, Next.js, and AI-assisted development. Here's the proof of each.</p>
+    <div class="stack-grid">
+      <div class="sg"><div class="sg-tag">Next.js</div><h4>Thank-you route</h4><p>App-router page, server component fetches order from Sticky.io webhook.</p></div>
+      <div class="sg"><div class="sg-tag">PHP</div><h4>Legacy header snippet</h4><p>Drop-in <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px;color:var(--green)">header.php</code> for hosting on legacy virtual servers — no plugin chain.</p></div>
+      <div class="sg"><div class="sg-tag">Split test</div><h4>?variant=B toggle</h4><p>Sales page reads URL param, swaps hero copy. Drop-in for Intelligems / VWO / Optimize.</p></div>
+      <div class="sg"><div class="sg-tag">AI workflow</div><h4>Claude-paired build</h4><p>README documents the prompts used and what Claude scaffolded vs. what I edited. Honest log, not a black box.</p></div>
+    </div>
+  </div>
+
+  <!-- Pitch -->
+  <section class="pitch">
+    <h2 class="serif">Why this instead of a CV?</h2>
+    <p>The role asks for someone who can slice Figma to clean code, build sales funnels in Sticky.io and headless systems, work across legacy PHP and modern Next.js, and use AI as a paired editor. Talking about it is cheap. Building the funnel in your brand on a public URL felt like the only honest way to say I can do the job.</p>
+    <div class="pitch-features">
+      <div class="feat">
+        <div class="feat-num">01</div>
+        <h4>Full funnel, not just landing pages</h4>
+        <p>Squeeze → sales → checkout → 2 OTOs → confirmation. End-to-end, with real PaleoHacks SKUs throughout.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">02</div>
+        <h4>Built for AOV stacking</h4>
+        <p>Tripwire $19.99 → bump $7 → OTO1 $97 → OTO2 $147. Max-stack reaches $270.99 from a $20 entry.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">03</div>
+        <h4>Stack range demonstrated</h4>
+        <p>Next.js confirmation route, PHP legacy header, split-test toggle, AI-paired workflow documented. Not just promises.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built by Nkosi Ndwandwe · <a href="mailto:freelance.nkosi@gmail.com">freelance.nkosi@gmail.com</a> · Spec build for the PaleoHacks Full-Stack eCommerce Developer role
+  </footer>
+
+</div>
+</body>
+</html>

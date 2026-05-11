@@ -14,6 +14,13 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  async rewrites() {
+    return [
+      { source: '/kion-shopify', destination: '/kion-shopify/index.html' },
+      { source: '/brida', destination: '/brida/index.html' },
+      { source: '/paleohacks', destination: '/paleohacks/index.html' },
+    ];
+  },
 };
 
 module.exports = nextConfig;

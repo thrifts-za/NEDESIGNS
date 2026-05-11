@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paleo Breakfast Cookbook — 60 fast paleo breakfasts you can make in 15 min | PaleoHacks</title>
+<meta name="description" content="60 paleo breakfasts that take under 15 minutes. Real ingredients, no grains, no refined sugar. Instant digital download. 60-day money-back guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#63BD27;--green-2:#56A622;--green-deep:#3F7D17;
+  --orange:#FF9601;--orange-2:#E58400;
+  --navy:#222C49;--navy-soft:#33406A;
+  --cream:#FBF8F1;--cream-2:#F2EBDB;--paper:#fff;
+  --ink:#1A1F2E;--muted:#5C6478;
+  --line:#E5DFCC;--line-2:#D9D2BD;
+  --gold:#F0B90B;--red:#D9342B;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:15px}
+.serif{font-family:'Source Serif 4',Georgia,serif}
+
+/* Top urgency */
+.top{background:var(--navy);color:#fff;text-align:center;font-size:13px;padding:9px 16px;letter-spacing:.2px;font-weight:600}
+.top b{color:var(--orange)}
+
+/* Header */
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
+.logo-mark{width:38px;height:38px;background:var(--green);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;font-family:'Source Serif 4',serif}
+.logo-text{font-weight:900;font-size:22px;letter-spacing:-.7px}
+.logo-text span{color:var(--green)}
+nav{display:flex;gap:26px;font-size:14px;font-weight:600}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--green-2)}
+.head-r{display:flex;align-items:center;gap:18px;font-size:13px;color:var(--muted)}
+.head-r .stars{color:var(--gold);letter-spacing:1.5px;font-size:13px}
+
+/* Buy box */
+.buy{max-width:1280px;margin:24px auto 50px;display:grid;grid-template-columns:1.05fr 1fr;gap:36px;padding:0 28px}
+
+/* Gallery */
+.gallery{position:sticky;top:80px;align-self:start}
+.main-img{width:100%;aspect-ratio:1/1;background:var(--cream-2) center/cover no-repeat;background-image:url('/paleohacks/Gallery/paleo-breakfast-hero.webp');border-radius:18px;border:1px solid var(--line);position:relative;overflow:hidden}
+.main-img .badge{position:absolute;top:14px;left:14px;background:var(--orange);color:#fff;font-weight:900;font-size:11px;padding:6px 12px;border-radius:6px;letter-spacing:1px;text-transform:uppercase}
+.main-img .stamp{position:absolute;bottom:18px;right:18px;background:var(--red);color:#fff;font-weight:900;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:11px;letter-spacing:1px;text-transform:uppercase;line-height:1.1;transform:rotate(-10deg);box-shadow:0 8px 22px rgba(217,52,43,.4);border:2px dashed rgba(255,255,255,.6);padding:6px}
+.main-img .stamp strong{display:block;font-size:26px;line-height:1;margin-bottom:2px}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+.thumbs div{aspect-ratio:1/1;border-radius:10px;border:1.5px solid var(--line);background:var(--cream-2) center/cover;cursor:pointer;transition:all .15s}
+.thumbs div.active,.thumbs div:hover{border-color:var(--green)}
+
+/* Box right side */
+.box{padding:6px 0}
+.flag{display:inline-flex;align-items:center;gap:6px;background:#FEF3D8;color:#8A6308;font-size:11px;font-weight:900;padding:4px 10px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
+.flag::before{content:"";width:8px;height:8px;border-radius:50%;background:#E0A800;display:inline-block}
+h1{font-family:'Source Serif 4',serif;font-size:38px;font-weight:700;color:var(--navy);letter-spacing:-1.2px;line-height:1.05;margin-bottom:8px}
+.tagline{font-size:16px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.tagline b{color:var(--ink);font-weight:700}
+.rev{display:flex;align-items:center;gap:10px;margin-bottom:18px;font-size:13px;color:var(--muted)}
+.rev .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.rev b{color:var(--ink);font-weight:700}
+
+/* Helps with */
+.helps{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:18px}
+.helps h4{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.helps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.help{text-align:center;padding:6px 4px;border-radius:8px}
+.help svg{width:28px;height:28px;color:var(--green-2);margin-bottom:5px}
+.help span{display:block;font-size:11px;color:var(--ink);font-weight:700;line-height:1.2}
+
+/* Bundle ladder */
+.tiers{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.tier{display:grid;grid-template-columns:22px 1fr auto auto;gap:14px;align-items:center;padding:14px 16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;position:relative;transition:all .15s}
+.tier:hover{border-color:var(--green)}
+.tier.active{border-color:var(--green);background:linear-gradient(180deg,#F4FBED,#fff);box-shadow:0 6px 18px rgba(99,189,39,.08)}
+.tier .rad{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);position:relative}
+.tier.active .rad{border-color:var(--green)}
+.tier.active .rad::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
+.tier .top-flag{position:absolute;top:-9px;left:14px;background:var(--orange);color:#fff;font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.tier-info strong{display:block;font-size:14px;font-weight:800;color:var(--navy)}
+.tier-info span{font-size:12px;color:var(--muted)}
+.save-pill{background:var(--red);color:#fff;font-size:10px;font-weight:900;padding:3px 7px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.tier-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.tier-price .now{font-size:18px;font-weight:900;color:var(--navy);letter-spacing:-.4px}
+.tier-price .was{font-size:12px;color:var(--muted);text-decoration:line-through;font-weight:600}
+
+/* Gift panel inside tier */
+.gift-panel{display:flex;align-items:center;gap:10px;padding:10px;background:#FFF8E3;border:1px dashed var(--gold);border-radius:10px;margin-top:6px}
+.gp-thumb{width:48px;height:48px;border-radius:8px;background:#fff center/cover;background-image:url('/paleohacks/Gallery/recipe-pancakes.webp');flex-shrink:0;border:1px solid var(--line);position:relative;overflow:hidden}
+.gp-thumb .ft{position:absolute;top:-2px;left:-2px;background:var(--red);color:#fff;font-size:8px;font-weight:900;padding:1px 4px;border-radius:0 0 4px 0}
+.gp-body{flex:1;font-size:12px}
+.gp-body strong{display:block;color:var(--navy);font-weight:800;margin-bottom:1px}
+.gp-body span{color:var(--muted)}
+.gp-price{text-align:right;font-size:13px;font-weight:900;color:var(--green-2)}
+.gp-price small{display:block;font-size:10px;color:var(--muted);text-decoration:line-through;font-weight:500}
+
+/* CTA */
+.cta{width:100%;background:var(--green);color:#fff;border:none;padding:18px;border-radius:12px;font-size:17px;font-weight:900;letter-spacing:.3px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;font-family:inherit;margin:8px 0;box-shadow:0 10px 24px rgba(99,189,39,.32);transition:all .15s}
+.cta:hover{background:var(--green-2);transform:translateY(-1px)}
+.cta svg{width:18px;height:18px}
+.cta .pp{background:rgba(255,255,255,.22);padding:3px 10px;border-radius:5px;font-size:14px;font-weight:800}
+
+/* Trust mini */
+.trust-mini{display:flex;justify-content:space-between;margin-top:10px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.3px}
+.trust-mini div{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;flex:1}
+.trust-mini svg{width:18px;height:18px;color:var(--green-2)}
+
+/* Tabs */
+.tabs{max-width:1280px;margin:0 auto 60px;padding:0 28px}
+.tabs-wrap{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tabs-head{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tab-btn{padding:18px;font-size:14px;font-weight:800;color:var(--muted);background:transparent;border:none;cursor:pointer;font-family:inherit;border-bottom:3px solid transparent}
+.tab-btn.active{color:var(--navy);background:#fff;border-bottom-color:var(--green)}
+.tab-body{padding:38px;display:none}
+.tab-body.active{display:block}
+.tab-body h3{font-family:'Source Serif 4',serif;font-size:24px;color:var(--navy);font-weight:700;margin-bottom:14px;letter-spacing:-.4px}
+.tab-body p{font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:14px}
+
+/* Inside grid */
+.inside{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.inside-card{padding:20px;background:var(--cream);border-radius:12px;border:1px solid var(--line)}
+.inside-card .num{font-family:'Source Serif 4',serif;font-size:28px;font-weight:700;color:var(--green-2);line-height:1;margin-bottom:8px}
+.inside-card h4{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.inside-card p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+
+/* Sample recipe gallery */
+.recipes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.recipe-card{background:var(--cream);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.recipe-card .img{aspect-ratio:4/3;background:var(--cream-2) center/cover}
+.recipe-card .body{padding:14px}
+.recipe-card h4{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.recipe-card span{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+
+/* Comparison */
+.compare{max-width:1100px;margin:0 auto 60px;padding:0 28px}
+.compare h2{text-align:center;font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;color:var(--navy);letter-spacing:-.8px;margin-bottom:30px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.col{background:#fff;border-radius:14px;padding:26px;border:1px solid var(--line)}
+.col.bad{border-top:4px solid var(--muted)}
+.col.good{border-top:4px solid var(--green)}
+.col h3{font-size:18px;font-weight:900;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.col.bad h3{color:var(--muted)}
+.col.good h3{color:var(--green-2)}
+.col ul{list-style:none}
+.col li{padding:9px 0;font-size:14px;display:flex;gap:10px;border-bottom:1px solid var(--line);line-height:1.5}
+.col li:last-child{border-bottom:0}
+.col.bad li::before{content:"✕";color:var(--muted);font-weight:900;flex-shrink:0;width:18px}
+.col.good li::before{content:"✓";color:var(--green-2);font-weight:900;flex-shrink:0;width:18px}
+
+/* Reviews marquee */
+.reviews{max-width:100%;margin:0 0 60px;padding:50px 0;background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reviews h2{text-align:center;font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;color:var(--navy);letter-spacing:-.8px;margin-bottom:6px}
+.reviews .sub{text-align:center;color:var(--muted);font-size:14px;margin-bottom:30px}
+.reviews .sub b{color:var(--green-2);font-weight:900}
+.r-mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);padding:6px 0}
+.r-track{display:flex;gap:18px;width:max-content;animation:r-scroll 70s linear infinite}
+.r-mq:hover .r-track{animation-play-state:paused}
+@keyframes r-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.r-card{flex:0 0 340px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.r-card .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px;font-size:14px}
+.r-card h4{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.r-card p{font-size:13px;color:var(--ink);line-height:1.55;margin-bottom:10px}
+.r-card cite{font-size:12px;color:var(--muted);font-style:normal;font-weight:700;display:flex;align-items:center;gap:5px}
+.r-card cite::before{content:"✓";color:var(--green-2);font-weight:900}
+
+/* Guarantee */
+.guarantee{max-width:1100px;margin:0 auto 60px;padding:0 28px}
+.g-card{background:var(--navy);color:#fff;border-radius:18px;padding:40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background-image:radial-gradient(circle at 90% 0%,rgba(99,189,39,.16),transparent 50%)}
+.gseal{width:120px;height:120px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:13px;font-weight:900;line-height:1.1;text-align:center;color:#fff;box-shadow:0 8px 0 #B26A00;font-family:'Source Serif 4',serif}
+.g-card h3{font-family:'Source Serif 4',serif;font-size:28px;font-weight:700;letter-spacing:-.7px;margin-bottom:10px}
+.g-card p{color:#D8D2C2;font-size:15px;line-height:1.6}
+
+/* FAQ */
+.faq{max-width:880px;margin:0 auto 60px;padding:0 28px}
+.faq h2{text-align:center;font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--navy);letter-spacing:-.7px;margin-bottom:24px}
+.faq-list{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 24px}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq details:last-child{border-bottom:0}
+.faq summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;color:var(--green-2);font-weight:900}
+.faq details[open] summary::after{content:"−"}
+.faq p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:10px;margin:0}
+
+footer{background:var(--navy);color:#A8AEC2;padding:48px 28px;text-align:center;font-size:13px}
+footer a{color:var(--green);text-decoration:none;font-weight:700;margin:0 10px}
+
+/* Cart drawer */
+.backdrop{position:fixed;inset:0;background:rgba(34,44,73,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90}
+.backdrop.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100%;background:#fff;transform:translateX(100%);transition:transform .3s ease;z-index:100;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-h{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer-h strong{font-size:16px;font-weight:900;color:var(--navy)}
+.drawer-h .x{background:none;border:none;cursor:pointer;font-size:22px;color:var(--muted);padding:0;width:32px;height:32px;border-radius:50%}
+.drawer-h .x:hover{background:var(--cream-2)}
+.ship-bar{padding:14px 22px;background:#F4FBED;border-bottom:1px solid var(--line);font-size:13px;color:var(--green-deep);font-weight:700}
+.ship-bar .ftext{margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ship-bar .ftrack{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.ship-bar .ffill{height:100%;background:var(--green);transition:width .3s}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
+.cart-line{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cl-img{width:60px;height:60px;border-radius:10px;background:var(--cream-2) center/cover;background-image:url('/paleohacks/Gallery/paleo-breakfast-hero.webp');flex-shrink:0;border:1px solid var(--line)}
+.cl-b{flex:1}
+.cl-b strong{display:block;font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.cl-b span{font-size:11px;color:var(--muted)}
+.cl-p{font-weight:900;font-size:14px;color:var(--navy);text-align:right}
+.upsell-row{margin-top:14px;padding:14px;background:var(--cream);border-radius:10px;display:flex;align-items:center;gap:10px;font-size:12px}
+.upsell-row .uimg{width:44px;height:44px;border-radius:8px;background:var(--cream-2) center/cover;background-image:url('/paleohacks/Gallery/prc-bundle.webp');flex-shrink:0}
+.upsell-row .ub{flex:1}
+.upsell-row .ub strong{display:block;font-size:12px;font-weight:800;color:var(--navy)}
+.upsell-row .ub span{font-size:11px;color:var(--muted)}
+.upsell-row button{background:var(--orange);color:#fff;border:none;padding:7px 12px;border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;font-family:inherit;letter-spacing:.5px;text-transform:uppercase}
+.upsell-row button.added{background:var(--green-2)}
+.drawer-f{padding:18px 22px;border-top:1px solid var(--line);background:#fff}
+.df-tot{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;color:var(--muted)}
+.df-tot.grand{font-size:18px;font-weight:900;color:var(--navy);margin-bottom:14px}
+.checkout-btn{width:100%;background:var(--green);color:#fff;padding:16px;border:none;border-radius:12px;font-weight:900;font-size:15px;cursor:pointer;font-family:inherit;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.checkout-btn svg{width:14px;height:14px}
+
+@media(max-width:920px){
+  .buy{grid-template-columns:1fr;gap:24px}
+  .gallery{position:static}
+  h1{font-size:30px;letter-spacing:-1px}
+  .helps-grid{grid-template-columns:repeat(5,1fr);gap:4px}
+  .help span{font-size:10px}
+  .tabs-head{grid-template-columns:repeat(2,1fr)}
+  .inside,.recipes{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .g-card{grid-template-columns:1fr;text-align:center}
+  .gseal{margin:0 auto}
+  .drawer{width:100%}
+  .trust-mini{flex-wrap:wrap;gap:10px}
+  .trust-mini div{flex-basis:30%}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><b>Limited time:</b> Save 60% · Instant download · 60-day money-back guarantee</div>
+
+<header>
+  <div class="head-in">
+    <a href="/paleohacks/index.html" class="logo">
+      <img src="/paleohacks/Gallery/logo-dark.png" alt="PaleoHacks" style="height:28px;width:auto;display:block">
+    </a>
+    <nav>
+      <a href="/paleohacks/sales.html">Cookbooks</a>
+      <a href="/paleohacks/index.html">All products</a>
+      <a href="#">Free recipes</a>
+      <a href="#">Login</a>
+    </nav>
+    <div class="head-r">
+      <span class="stars">★★★★★</span> 124,000+
+    </div>
+  </div>
+</header>
+
+<!-- BUY BOX -->
+<section class="buy">
+  <div class="gallery">
+    <div class="main-img" id="mainImg">
+      <span class="badge">Bestseller</span>
+      <span class="stamp"><strong>60</strong>RECIPES<br>UNDER 15 MIN</span>
+    </div>
+    <div class="thumbs">
+      <div class="active" data-img="/paleohacks/Gallery/paleo-breakfast-hero.webp"></div>
+      <div data-img="/paleohacks/Gallery/recipe-pancakes.webp" style="background-image:url('/paleohacks/Gallery/recipe-pancakes.webp')"></div>
+      <div data-img="/paleohacks/Gallery/recipe-smoothie.webp" style="background-image:url('/paleohacks/Gallery/recipe-smoothie.webp')"></div>
+      <div data-img="/paleohacks/Gallery/recipe-bacon.webp" style="background-image:url('/paleohacks/Gallery/recipe-bacon.webp')"></div>
+      <div data-img="/paleohacks/Gallery/recipe-frittata.webp" style="background-image:url('/paleohacks/Gallery/recipe-frittata.webp')"></div>
+      <div data-img="/paleohacks/Gallery/recipe-waffles.webp" style="background-image:url('/paleohacks/Gallery/recipe-waffles.webp')"></div>
+    </div>
+  </div>
+
+  <div class="box">
+    <span class="flag">Sale ends midnight</span>
+    <h1 class="serif">The Paleo Breakfast Cookbook</h1>
+    <p class="tagline"><b>60 fast paleo breakfasts</b> you can make in under 15 minutes. Pancakes, frittatas, smoothie bowls, bacon-weave sandwiches. Real ingredients. No grains, no refined sugar. <b>Instant digital download.</b></p>
+    <div class="rev">
+      <span class="stars">★★★★★</span>
+      <b>4.9</b> · 12,438 verified reviews
+    </div>
+
+    <!-- Helps with -->
+    <div class="helps">
+      <h4>Made for people who want to</h4>
+      <div class="helps-grid">
+        <div class="help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21l-7-4V8l7-4 7 4v9z"/><path d="M12 4v17"/></svg>
+          <span>Lose<br>weight</span>
+        </div>
+        <div class="help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+          <span>All-day<br>energy</span>
+        </div>
+        <div class="help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+          <span>Save<br>time</span>
+        </div>
+        <div class="help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c0-4 4-8 9-8s9 4 9 8c0 3-2 5-5 5h-1l-2 4-2-4H8c-3 0-5-2-5-5z"/></svg>
+          <span>Beat<br>cravings</span>
+        </div>
+        <div class="help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c2 0 4 .8 5.5 2"/><path d="M16 5l5 1-1 5"/></svg>
+          <span>Heal<br>gut</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bundle ladder -->
+    <div class="tiers" id="tiers">
+      <label class="tier" data-price="19.99" data-label="1 Cookbook">
+        <span class="rad"></span>
+        <div class="tier-info">
+          <strong>Just the breakfast cookbook</strong>
+          <span>60 recipes · 142 pages · PDF</span>
+        </div>
+        <span></span>
+        <div class="tier-price"><span class="now">$19.99</span><span class="was">$49.95</span></div>
+      </label>
+
+      <label class="tier active" data-price="97" data-label="3-Pack Bundle">
+        <span class="top-flag">Most popular</span>
+        <span class="rad"></span>
+        <div class="tier-info">
+          <strong>Paleo Recipe Collection (3 cookbooks)</strong>
+          <span>135 recipes across breakfast, dinner, muffins</span>
+        </div>
+        <span class="save-pill">SAVE $52</span>
+        <div class="tier-price"><span class="now">$97</span><span class="was">$149.85</span></div>
+      </label>
+
+      <label class="tier" data-price="255" data-label="Fat Loss Accelerator">
+        <span class="rad"></span>
+        <div class="tier-info">
+          <strong>Keto Fat Loss Accelerator + free gift</strong>
+          <span>Full 9-cookbook program · meal plans · video</span>
+        </div>
+        <span class="save-pill">SAVE $244</span>
+        <div class="tier-price"><span class="now">$255</span><span class="was">$499</span></div>
+      </label>
+
+      <!-- Gift visualization shown only on top tier (toggle on click) -->
+      <div class="gift-panel" id="giftPanel" style="display:none">
+        <div class="gp-thumb"><span class="ft">FREE</span></div>
+        <div class="gp-body"><strong>30-day Paleo Quick-Start Guide</strong><span>Printable PDF · meal plan · grocery list</span></div>
+        <div class="gp-price">$0.00<small>$27</small></div>
+      </div>
+    </div>
+
+    <button class="cta" onclick="openCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11V7a3 3 0 016 0v4"/><path d="M5 9h14l-1 12H6z"/></svg>
+      Add to Cart · Instant Download
+      <span class="pp" id="ctaPrice">$97</span>
+    </button>
+
+    <div class="trust-mini">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        Instant<br>download
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        60-day<br>refund
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        Lifetime<br>access
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3"/><path d="M3 21c1-5 5-8 9-8s8 3 9 8"/></svg>
+        Family<br>tested
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="tabs">
+  <div class="tabs-wrap">
+    <div class="tabs-head">
+      <button class="tab-btn active" data-tab="inside">What's inside</button>
+      <button class="tab-btn" data-tab="samples">Sample recipes</button>
+      <button class="tab-btn" data-tab="philosophy">Ingredients philosophy</button>
+      <button class="tab-btn" data-tab="who">Who it's for</button>
+    </div>
+
+    <div class="tab-body active" id="tab-inside">
+      <h3 class="serif">60 recipes, organized for the way you actually eat breakfast</h3>
+      <div class="inside">
+        <div class="inside-card"><div class="num">15</div><h4>Quick smoothies & bowls</h4><p>5-minute blender recipes that hold you for 4 hours, no crash. Great for school-run mornings.</p></div>
+        <div class="inside-card"><div class="num">12</div><h4>Egg-free options</h4><p>For sensitive guts and Whole30 first-timers. Bacon-weave sandwiches, sweet-potato hash, more.</p></div>
+        <div class="inside-card"><div class="num">10</div><h4>Pancakes, waffles, French toast</h4><p>Almond-flour and coconut-flour bases. Kid-tested, no white flour, no refined sugar.</p></div>
+        <div class="inside-card"><div class="num">8</div><h4>Make-ahead muffins</h4><p>Bake on Sunday, breakfast solved through Wednesday. Freezer-friendly.</p></div>
+        <div class="inside-card"><div class="num">9</div><h4>Skillets & frittatas</h4><p>One-pan, 12-minute meals. Great for clearing the fridge before the next grocery run.</p></div>
+        <div class="inside-card"><div class="num">6</div><h4>Saturday slow mornings</h4><p>The treats: churro waffles, crepes, breakfast pizzas. For when you have 30 extra minutes.</p></div>
+      </div>
+    </div>
+
+    <div class="tab-body" id="tab-samples">
+      <h3 class="serif">Six recipes you'll find inside</h3>
+      <div class="recipes">
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-pancakes.webp')"></div><div class="body"><span>5 MIN</span><h4>Almond Flour Pancakes</h4></div></div>
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-smoothie.webp')"></div><div class="body"><span>3 MIN</span><h4>Green Smoothie Bowl</h4></div></div>
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-bacon.webp')"></div><div class="body"><span>10 MIN</span><h4>Bacon Weave Sandwich</h4></div></div>
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-frittata.webp')"></div><div class="body"><span>12 MIN</span><h4>Summer Veggie Frittata</h4></div></div>
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-waffles.webp')"></div><div class="body"><span>8 MIN</span><h4>Churro Waffles</h4></div></div>
+        <div class="recipe-card"><div class="img" style="background-image:url('/paleohacks/Gallery/recipe-strawberry.webp')"></div><div class="body"><span>4 MIN</span><h4>Strawberry-Kiwi Smoothie</h4></div></div>
+      </div>
+    </div>
+
+    <div class="tab-body" id="tab-philosophy">
+      <h3 class="serif">Real food, no shortcuts</h3>
+      <p>Every recipe is grain-free, refined-sugar-free, and seed-oil-free by default. Most are dairy-free. We test recipes in real kitchens with real grocery budgets, not test kitchens with $80 bottles of olive oil.</p>
+      <p>If a recipe needs an obscure ingredient (it rarely does), we name a trader-joe's-tier substitute right next to it. We're not trying to make you spend $40 on monk fruit shipped from Kyoto.</p>
+      <p>For ingredients we trust most often: pasture-raised eggs, grass-fed butter or coconut oil, almond and coconut flours, wild-caught fish, and seasonal produce. Brand names are noted where it actually matters.</p>
+    </div>
+
+    <div class="tab-body" id="tab-who">
+      <h3 class="serif">This cookbook is for you if</h3>
+      <ul style="font-size:15px;line-height:1.85;color:var(--ink);padding-left:24px">
+        <li>You wake up at 6:45 and need to feed yourself or your family by 7:15.</li>
+        <li>You've tried paleo before but couldn't make it past breakfast without grabbing toast.</li>
+        <li>You're sensitive to gluten, dairy, or refined sugars and "skip breakfast" isn't a real plan.</li>
+        <li>You want recipes your kids will actually eat without negotiation.</li>
+        <li>You've been doing keto and want gentler, broader paleo with more fruit and starch.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare">
+  <h2 class="serif">Standard breakfast vs. paleo breakfast</h2>
+  <div class="compare-grid">
+    <div class="col bad">
+      <h3>Standard breakfast</h3>
+      <ul>
+        <li>Cereal + skim milk = sugar crash by 10:30</li>
+        <li>Bagel + cream cheese = bloat + brain fog</li>
+        <li>Drive-thru muffin = seed oils + refined flour</li>
+        <li>Skipping = ravenous by lunch, overeats</li>
+        <li>Energy plateaus mid-morning, every day</li>
+      </ul>
+    </div>
+    <div class="col good">
+      <h3>Paleo breakfast (this book)</h3>
+      <ul>
+        <li>Real protein + healthy fat = steady fuel till lunch</li>
+        <li>No bloat, no brain fog, no afternoon crash</li>
+        <li>Ingredients you can pronounce, no seed oils</li>
+        <li>Most recipes ready in 12 minutes flat</li>
+        <li>Energy steady all morning into afternoon</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS marquee -->
+<section class="reviews">
+  <h2 class="serif">Real moms, real mornings</h2>
+  <div class="sub"><b>12,438 verified reviews</b> · 4.9 average</div>
+  <div class="r-mq">
+    <div class="r-track">
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"My 8-year-old asks for the pancakes"</h4><p>"Got the bundle Saturday. Made the almond pancakes Sunday. My picky 8-year-old asked for them 3 days in a row. I'm done."</p><cite>Megan D., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"No 10am crash"</h4><p>"I used to nap by 11. Did the smoothie bowls for a week, no crash, no nap. Down 4 pounds without trying."</p><cite>Karen P., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Worth it for the bacon weave alone"</h4><p>"My husband doesn't eat 'health food.' Now he asks for the bacon-weave sandwich every Saturday. Sneaky win."</p><cite>Lauren R., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Celiac-safe and actually good"</h4><p>"Three years of bland gluten-free recipes. This was the first cookbook where every page didn't taste like cardboard. Bought all three."</p><cite>Hannah W., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Down 11 lbs in 6 weeks"</h4><p>"Just by changing breakfast. Didn't touch lunch or dinner. Down 11 pounds. The frittata recipes are unreal."</p><cite>Diane S., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"I cancelled my meal-kit subscription"</h4><p>"$220/month on HelloFresh. This cookbook plus a Costco run replaced it. My grocery bill dropped 40%."</p><cite>Jessica M., verified buyer</cite></div>
+      <!-- duplicates -->
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"My 8-year-old asks for the pancakes"</h4><p>"Got the bundle Saturday. Made the almond pancakes Sunday. My picky 8-year-old asked for them 3 days in a row. I'm done."</p><cite>Megan D., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"No 10am crash"</h4><p>"I used to nap by 11. Did the smoothie bowls for a week, no crash, no nap. Down 4 pounds without trying."</p><cite>Karen P., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Worth it for the bacon weave alone"</h4><p>"My husband doesn't eat 'health food.' Now he asks for the bacon-weave sandwich every Saturday. Sneaky win."</p><cite>Lauren R., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Celiac-safe and actually good"</h4><p>"Three years of bland gluten-free recipes. This was the first cookbook where every page didn't taste like cardboard. Bought all three."</p><cite>Hannah W., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"Down 11 lbs in 6 weeks"</h4><p>"Just by changing breakfast. Didn't touch lunch or dinner. Down 11 pounds. The frittata recipes are unreal."</p><cite>Diane S., verified buyer</cite></div>
+      <div class="r-card"><div class="stars">★★★★★</div><h4>"I cancelled my meal-kit subscription"</h4><p>"$220/month on HelloFresh. This cookbook plus a Costco run replaced it. My grocery bill dropped 40%."</p><cite>Jessica M., verified buyer</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="g-card">
+    <div class="gseal">60<br>DAY<br>IRON-CLAD<br>REFUND</div>
+    <div>
+      <h3 class="serif">If you don't make a recipe you love in 60 days, we refund every penny.</h3>
+      <p>Cook from the cookbook for 60 days. Make as many recipes as you want, keep the PDFs, eat the food. If by day 60 you don't have at least 5 recipes in your weekly rotation, email us. Full refund, no questions, no return shipping (it's a digital download). We've honored 100% of refund requests since 2014.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="serif">Quick answers</h2>
+  <div class="faq-list">
+    <details open>
+      <summary>How fast do I get the cookbook?</summary>
+      <p>Instant. The download link arrives in your email within 60 seconds of checkout. PDFs work on phone, tablet, laptop, Kindle, anything that opens a PDF.</p>
+    </details>
+    <details>
+      <summary>Is this Whole30 / keto / dairy-free compatible?</summary>
+      <p>About 70% of the recipes are Whole30-compliant out of the box. Keto-friendly options are flagged. Dairy-free swaps are noted on every dairy recipe (almond milk for cream, coconut oil for butter, etc.).</p>
+    </details>
+    <details>
+      <summary>Do I need fancy kitchen equipment?</summary>
+      <p>A blender and a non-stick pan cover 80% of the recipes. The remaining 20% need a sheet pan, a muffin tin, or a waffle iron. No InstantPot, no air fryer, no $400 stand mixer.</p>
+    </details>
+    <details>
+      <summary>What if my family doesn't eat paleo?</summary>
+      <p>Most recipes work as crowd food without needing to mention they're paleo. The bacon-weave sandwich, the churro waffles, the smoothie bowls. Your kids and skeptical spouse won't notice the lack of grain.</p>
+    </details>
+    <details>
+      <summary>What if I don't like it?</summary>
+      <p>60-day money-back guarantee. Email refunds@paleohacks.com, we refund every penny. No questions, no return shipping.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  © 2026 PaleoHacks ·
+  <a href="/paleohacks/sales.html">Sales page</a> ·
+  <a href="/paleohacks/checkout.html">Checkout</a> ·
+  <a href="/paleohacks/oto1.html">Upsell</a> ·
+  <a href="/paleohacks/index.html">Hub</a>
+</footer>
+
+<!-- Cart drawer -->
+<div class="backdrop" id="bd" onclick="closeCart()"></div>
+<aside class="drawer" id="dr">
+  <div class="drawer-h">
+    <strong>Your cart</strong>
+    <button class="x" onclick="closeCart()">×</button>
+  </div>
+  <div class="ship-bar">
+    <div class="ftext" id="ftext">You're <strong>$50.00</strong> away from a free 30-day Paleo Quick-Start guide</div>
+    <div class="ftrack"><div class="ffill" id="ffill" style="width:0"></div></div>
+  </div>
+  <div class="drawer-body">
+    <div class="cart-line">
+      <div class="cl-img" id="clImg"></div>
+      <div class="cl-b">
+        <strong id="clName">Paleo Recipe Collection</strong>
+        <span>Instant PDF download</span>
+      </div>
+      <div class="cl-p" id="clPrice">$97.00</div>
+    </div>
+    <div class="upsell-row" id="up1">
+      <div class="uimg"></div>
+      <div class="ub"><strong>+ Add Quick-Start Guide</strong><span>30-day meal plan PDF</span></div>
+      <button onclick="toggleUp(this,'up1',7)">+ $7</button>
+    </div>
+    <div class="upsell-row" id="up2">
+      <div class="uimg" style="background-image:url('/paleohacks/Gallery/kfla-bundle.webp')"></div>
+      <div class="ub"><strong>+ Keto Fat Loss Accelerator</strong><span>9-cookbook program · save $244</span></div>
+      <button onclick="toggleUp(this,'up2',158)">+ $158</button>
+    </div>
+  </div>
+  <div class="drawer-f">
+    <div class="df-tot"><span>Subtotal</span><span id="dfSub">$97.00</span></div>
+    <div class="df-tot grand"><span>Total</span><span id="dfTot">$97.00</span></div>
+    <a href="/paleohacks/checkout.html" class="checkout-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 11V7a7 7 0 0114 0v4"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+      Secure checkout →
+    </a>
+  </div>
+</aside>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab-body').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+}));
+
+// Thumbs
+document.querySelectorAll('.thumbs div').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.thumbs div').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('mainImg').style.backgroundImage=`url('${t.dataset.img}')`;
+}));
+
+// Tier select + gift panel toggle on max tier
+document.querySelectorAll('.tier').forEach(t=>t.addEventListener('click',e=>{
+  e.preventDefault();
+  document.querySelectorAll('.tier').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const p=parseFloat(t.dataset.price);
+  document.getElementById('ctaPrice').textContent='$'+(Number.isInteger(p)?p:p.toFixed(2));
+  document.getElementById('clPrice').textContent='$'+p.toFixed(2);
+  document.getElementById('clName').textContent=t.dataset.label;
+  // Show gift panel only on $255 tier
+  document.getElementById('giftPanel').style.display = (p===255?'flex':'none');
+  syncCart();
+}));
+
+// Cart
+const cart={base:97,up1:false,up2:false};
+function syncCart(){
+  const tier=document.querySelector('.tier.active');
+  cart.base=parseFloat(tier.dataset.price);
+  let tot=cart.base;
+  if(cart.up1) tot+=7;
+  if(cart.up2) tot+=158;
+  document.getElementById('dfSub').textContent='$'+tot.toFixed(2);
+  document.getElementById('dfTot').textContent='$'+tot.toFixed(2);
+  // Free-shipping unlock at $50 (digital, but treated as gift threshold)
+  const target=50;
+  const ft=document.getElementById('ftext'),ff=document.getElementById('ffill');
+  if(tot>=target){
+    ft.innerHTML='✓ <strong>You unlocked your free 30-day Quick-Start guide</strong>';
+    ff.style.width='100%';
+  } else {
+    ft.innerHTML=`You're <strong>$${(target-tot).toFixed(2)}</strong> away from a free 30-day Paleo Quick-Start guide`;
+    ff.style.width=(tot/target*100)+'%';
+  }
+}
+function openCart(){document.getElementById('dr').classList.add('open');document.getElementById('bd').classList.add('open');syncCart()}
+function closeCart(){document.getElementById('dr').classList.remove('open');document.getElementById('bd').classList.remove('open')}
+function toggleUp(btn,key,val){
+  cart[key]=!cart[key];
+  if(cart[key]){btn.classList.add('added');btn.textContent='✓ Added'}
+  else{btn.classList.remove('added');btn.textContent='+ $'+val}
+  syncCart();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart()});
+</script>
+</body>
+</html>

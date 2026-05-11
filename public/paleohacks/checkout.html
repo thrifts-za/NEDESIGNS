@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Checkout — Paleo Breakfast Cookbook | PaleoHacks</title>
+<meta name="description" content="Secure single-page checkout. Instant PDF delivery. 60-day money-back guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#63BD27;--green-2:#56A622;--green-deep:#3F7D17;
+  --orange:#FF9601;--navy:#222C49;
+  --cream:#FBF8F1;--cream-2:#F2EBDB;
+  --ink:#1A1F2E;--muted:#5C6478;
+  --line:#E5DFCC;--gold:#F0B90B;--red:#D9342B;
+  --bump:#FFF8E3;--bump-line:#E8C97B;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-size:15px}
+.serif{font-family:'Source Serif 4',serif}
+
+.urgency{background:var(--red);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:9px 16px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.urgency .timer{background:rgba(255,255,255,.18);padding:3px 10px;border-radius:4px;font-variant-numeric:tabular-nums;font-weight:800}
+
+header{background:#fff;border-bottom:1px solid var(--line)}
+.head-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
+.logo-mark{width:34px;height:34px;background:var(--green);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:16px;font-family:'Source Serif 4',serif}
+.logo-text{font-weight:900;font-size:20px;letter-spacing:-.6px}
+.logo-text span{color:var(--green)}
+.head-trust{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600}
+.head-trust svg{width:16px;height:16px;color:var(--green-2)}
+
+/* Live ticker */
+.ticker{background:#fff;border-bottom:1px solid var(--line);padding:10px 0;overflow:hidden;font-size:13px;color:var(--muted)}
+.ticker-track{display:flex;gap:48px;width:max-content;animation:tk 38s linear infinite;padding-left:32px}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker b{color:var(--ink);font-weight:600}
+.ticker .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:8px;vertical-align:middle}
+
+/* Sticky.io flavor banner */
+.sticky-banner{background:#F4FBED;border-bottom:1px solid #C9E5BC;text-align:center;padding:8px 16px;font-size:12px;color:var(--green-deep);font-weight:700;letter-spacing:.3px}
+.sticky-banner svg{width:13px;height:13px;vertical-align:middle;margin-right:5px;color:var(--green-2)}
+
+.grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;padding:30px 28px 90px;align-items:start}
+
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px}
+.step-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sn{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center}
+.step-h h3{font-size:16px;font-weight:800;color:var(--navy)}
+.step-h .small{font-size:12px;color:var(--muted);margin-left:auto;font-weight:500}
+
+.express{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.express button{height:48px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-weight:800;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit}
+.express .shop{background:#5A31F4;border-color:#5A31F4;color:#fff}
+.express .apay{background:#000;border-color:#000;color:#fff}
+.express .gpay{background:#fff}
+.or-div{text-align:center;font-size:11px;color:var(--muted);margin:16px 0 4px;letter-spacing:1.5px;text-transform:uppercase;position:relative;font-weight:700}
+.or-div::before,.or-div::after{content:"";position:absolute;top:50%;width:42%;height:1px;background:var(--line)}
+.or-div::before{left:0}.or-div::after{right:0}
+
+.field{margin-bottom:11px}
+.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+.field input,.field select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:15px;font-family:inherit}
+.field input:focus,.field select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(34,44,73,.1)}
+.row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+.check{display:flex;align-items:flex-start;gap:9px;margin-top:8px;font-size:13px;color:var(--muted);cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--green)}
+
+/* BUMP */
+.bump{background:var(--bump);border:2px dashed var(--bump-line);border-radius:14px;padding:18px;margin-top:14px;display:flex;gap:14px;align-items:center;position:relative}
+.bump-flag{position:absolute;top:-11px;left:14px;background:var(--orange);color:#fff;font-size:11px;font-weight:900;padding:3px 9px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.bump-l{display:flex;align-items:flex-start;gap:10px;flex:1;cursor:pointer}
+.bump-l input{margin-top:3px;width:18px;height:18px;cursor:pointer;accent-color:var(--green)}
+.bump-img{width:60px;height:60px;border-radius:10px;background:#fff center/cover;background-image:url('/paleohacks/Gallery/recipe-pancakes.webp');flex-shrink:0;border:1px solid var(--line)}
+.bump-b strong{display:block;font-size:14px;color:var(--navy);font-weight:800;margin-bottom:3px}
+.bump-b p{font-size:12px;color:var(--muted);line-height:1.4}
+.bump-p{font-weight:900;color:var(--navy);font-size:18px;flex-shrink:0;text-align:right}
+.bump-p small{font-size:11px;color:var(--muted);text-decoration:line-through;display:block;font-weight:500}
+
+.pay-tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--cream-2);padding:4px;border-radius:10px}
+.pay-tab{flex:1;padding:10px;border-radius:8px;text-align:center;font-size:13px;font-weight:800;cursor:pointer;color:var(--muted);border:none;background:transparent;font-family:inherit}
+.pay-tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cards{display:flex;gap:6px;margin-bottom:12px;align-items:center}
+.cards svg{height:22px;width:auto;border:1px solid var(--line);border-radius:4px;background:#fff;padding:2px 4px}
+
+/* Right summary */
+.sum-wrap{position:sticky;top:14px}
+.sum{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.sum h3{font-size:18px;color:var(--navy);margin-bottom:16px;font-weight:900;letter-spacing:-.3px;display:flex;align-items:center;justify-content:space-between}
+.sum h3 .edit{font-size:12px;color:var(--green-2);font-weight:700;cursor:pointer}
+.li{display:flex;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.li-img{width:60px;height:60px;border-radius:10px;background:var(--cream-2) center/cover;background-image:url('/paleohacks/Gallery/paleo-breakfast-hero.webp');flex-shrink:0;position:relative;border:1px solid var(--line)}
+.li-img.bump{background-image:url('/paleohacks/Gallery/recipe-pancakes.webp')}
+.li-b{flex:1}
+.li-b strong{display:block;font-size:14px;margin-bottom:2px;font-weight:800;color:var(--navy)}
+.li-b span{font-size:12px;color:var(--muted)}
+.li-p{font-weight:900;font-size:15px;text-align:right;color:var(--navy)}
+.li-p small{display:block;font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:500}
+
+.delivery{display:flex;align-items:center;gap:8px;background:#F4FBED;border:1px solid #C9E5BC;border-radius:10px;padding:10px 12px;font-size:13px;color:var(--green-deep);font-weight:700;margin-bottom:14px}
+.delivery svg{width:16px;height:16px;flex-shrink:0;color:var(--green-2)}
+
+.disc-row{display:flex;gap:8px;margin-bottom:14px}
+.disc-row input{flex:1;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:13px;font-family:inherit}
+.disc-row button{padding:0 16px;border:1.5px solid var(--navy);background:#fff;border-radius:8px;font-weight:800;font-size:13px;cursor:pointer;color:var(--navy);font-family:inherit}
+
+.tot{margin-bottom:18px}
+.tr{display:flex;justify-content:space-between;font-size:14px;padding:6px 0}
+.tr.muted{color:var(--muted)}
+.tr.save{color:var(--green-2);font-weight:800}
+.tr.grand{font-size:22px;color:var(--navy);font-weight:900;padding-top:12px;margin-top:6px;border-top:1px solid var(--line);letter-spacing:-.5px;font-family:'Source Serif 4',serif}
+.tr.grand small{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;font-family:'Inter',sans-serif}
+
+.cta{width:100%;background:var(--green);color:#fff;border:none;padding:18px;border-radius:12px;font-size:17px;font-weight:900;letter-spacing:.3px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 24px rgba(99,189,39,.34);font-family:inherit}
+.cta:hover{background:var(--green-2);transform:translateY(-1px)}
+.cta svg{width:18px;height:18px}
+.cta .price-tag{background:rgba(255,255,255,.22);padding:3px 9px;border-radius:6px;font-size:14px;font-weight:800}
+
+.guard{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.guard div{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:4px}
+.guard svg{width:22px;height:22px;color:var(--green-2)}
+
+.risk{margin-top:18px;background:var(--cream-2);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.risk-icon{width:42px;height:42px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:11px;font-weight:900;line-height:1.05;text-align:center;font-family:'Source Serif 4',serif}
+.risk h4{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:3px}
+.risk p{font-size:12px;color:var(--muted);line-height:1.5}
+
+.rev-c{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.rev-stars{color:var(--gold);letter-spacing:2px;margin-bottom:6px;font-size:14px}
+.rev-c p{font-size:14px;line-height:1.5;margin-bottom:8px;color:var(--ink)}
+.rev-c cite{font-size:12px;color:var(--muted);font-style:normal;font-weight:700;display:flex;align-items:center;gap:5px}
+.rev-c cite::before{content:"✓";color:var(--green-2);font-weight:900}
+
+.faq{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:14px}
+.faq h3{font-size:16px;font-weight:900;color:var(--navy);margin-bottom:12px;font-family:'Source Serif 4',serif}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq details:last-child{border-bottom:0;padding-bottom:0}
+.faq summary{cursor:pointer;font-weight:800;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:18px;color:var(--green-2);font-weight:900}
+.faq details[open] summary::after{content:"−"}
+.faq p{font-size:13px;color:var(--muted);line-height:1.55;padding-top:8px}
+
+.sticky-mob{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;box-shadow:0 -8px 22px rgba(0,0,0,.08);z-index:50}
+.sticky-mob .sm-inner{display:flex;gap:10px;align-items:center}
+.sticky-mob .sm-info{flex:1;font-size:12px;color:var(--muted)}
+.sticky-mob .sm-info b{display:block;font-size:16px;color:var(--navy);font-weight:900}
+.sticky-mob .sm-cta{background:var(--green);color:#fff;border:none;padding:13px 18px;border-radius:10px;font-weight:900;font-size:14px;cursor:pointer;font-family:inherit}
+
+@media(max-width:920px){
+  .grid{grid-template-columns:1fr;padding:20px 16px 110px;gap:18px}
+  .sum-wrap{position:static}
+  .row-3{grid-template-columns:1fr 1fr 1fr}
+  .express{grid-template-columns:1fr}
+  .sticky-mob{display:block}
+}
+</style>
+</head>
+<body>
+
+<div class="urgency">
+  <span>Your bundle is reserved for</span>
+  <span class="timer" id="timer">09:48</span>
+  <span>· Instant PDF delivery · 60-day refund</span>
+</div>
+
+<header>
+  <div class="head-in">
+    <a href="/paleohacks/index.html" class="logo">
+      <img src="/paleohacks/Gallery/logo-dark.png" alt="PaleoHacks" style="height:26px;width:auto;display:block">
+    </a>
+    <div class="head-trust">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      256-bit SSL · Sticky.io secured
+    </div>
+  </div>
+</header>
+
+<div class="sticky-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+  Powered by Sticky.io · Card-on-file for 1-click upgrades · No card re-entry on upsells
+</div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span class="dot"></span><b>Sarah J.</b> in Austin, TX just downloaded the bundle</span>
+    <span><span class="dot"></span><b>Marcus T.</b> in Chicago, IL just upgraded to the 3-pack</span>
+    <span><span class="dot"></span><b>Linda K.</b> in Phoenix, AZ just added the Quick-Start guide</span>
+    <span><span class="dot"></span><b>Diane P.</b> in Tampa, FL just downloaded the cookbook</span>
+    <span><span class="dot"></span><b>Robert S.</b> in Denver, CO just bought the Accelerator</span>
+    <span><span class="dot"></span><b>Eileen R.</b> "Cried at the smoothie bowl recipe"</span>
+    <!-- duplicate -->
+    <span><span class="dot"></span><b>Sarah J.</b> in Austin, TX just downloaded the bundle</span>
+    <span><span class="dot"></span><b>Marcus T.</b> in Chicago, IL just upgraded to the 3-pack</span>
+    <span><span class="dot"></span><b>Linda K.</b> in Phoenix, AZ just added the Quick-Start guide</span>
+    <span><span class="dot"></span><b>Diane P.</b> in Tampa, FL just downloaded the cookbook</span>
+    <span><span class="dot"></span><b>Robert S.</b> in Denver, CO just bought the Accelerator</span>
+    <span><span class="dot"></span><b>Eileen R.</b> "Cried at the smoothie bowl recipe"</span>
+  </div>
+</div>
+
+<div class="grid">
+  <div>
+
+    <!-- 1. Express -->
+    <div class="step">
+      <div class="step-h"><div class="sn">1</div><h3>Express checkout</h3><span class="small">Skip the form</span></div>
+      <div class="express">
+        <button class="shop">
+          <svg width="60" height="14" viewBox="0 0 60 14" fill="#fff"><text x="0" y="11" font-family="Inter" font-weight="800" font-size="12">shop</text><text x="26" y="11" font-family="Inter" font-weight="800" font-size="12">Pay</text></svg>
+        </button>
+        <button class="apay"> Pay</button>
+        <button class="gpay">
+          <svg width="42" height="16" viewBox="0 0 42 16"><text x="0" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#4285F4">G</text><text x="9" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#EA4335">o</text><text x="18" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#FBBC04">o</text><text x="27" y="13" font-family="Arial" font-weight="700" font-size="13" fill="#34A853">Pay</text></svg>
+        </button>
+      </div>
+      <div class="or-div">Or pay with card</div>
+    </div>
+
+    <!-- 2. Email (digital — no shipping) -->
+    <div class="step">
+      <div class="step-h"><div class="sn">2</div><h3>Where should we send your PDF?</h3><span class="small">Delivered in 60 seconds</span></div>
+      <div class="field"><label>Email address</label><input type="email" placeholder="you@email.com" autocomplete="email"></div>
+      <div class="field"><label>First name</label><input autocomplete="given-name"></div>
+      <label class="check"><input type="checkbox" checked> Email me weekly paleo recipes and member offers</label>
+    </div>
+
+    <!-- 3. Payment + bump -->
+    <div class="step">
+      <div class="step-h"><div class="sn">3</div><h3>Payment</h3><span class="small">All transactions encrypted</span></div>
+      <div class="pay-tabs">
+        <button class="pay-tab active">Credit card</button>
+        <button class="pay-tab">PayPal</button>
+        <button class="pay-tab">Klarna · 4 payments</button>
+      </div>
+      <div class="cards">
+        <svg viewBox="0 0 36 14" width="38" height="22"><text x="0" y="11" font-family="Arial" font-weight="900" font-size="11" fill="#1A1F71" font-style="italic">VISA</text></svg>
+        <svg viewBox="0 0 36 22" width="36" height="22"><circle cx="14" cy="11" r="8" fill="#EB001B"/><circle cx="22" cy="11" r="8" fill="#F79E1B" fill-opacity=".85"/></svg>
+        <svg viewBox="0 0 38 22" width="38" height="22"><rect width="38" height="22" rx="2" fill="#1F72CD"/><text x="3" y="14" font-family="Arial" font-weight="900" font-size="9" fill="#fff">AMEX</text></svg>
+        <svg viewBox="0 0 50 22" width="50" height="22"><text x="0" y="14" font-family="Arial" font-weight="800" font-size="10" fill="#FF6000">DISC</text><circle cx="40" cy="11" r="6" fill="#FF6000"/></svg>
+      </div>
+      <div class="field"><label>Card number</label><input placeholder="1234 1234 1234 1234"></div>
+      <div class="row-3">
+        <div class="field"><label>Name on card</label><input autocomplete="cc-name"></div>
+        <div class="field"><label>Expiry</label><input placeholder="MM/YY"></div>
+        <div class="field"><label>CVC</label><input placeholder="123"></div>
+      </div>
+
+      <!-- BUMP -->
+      <div class="bump">
+        <span class="bump-flag">One-Time Offer</span>
+        <label class="bump-l">
+          <input type="checkbox" id="bumpCheck" checked>
+          <div class="bump-img"></div>
+          <div class="bump-b">
+            <strong>+ Add 30-day Quick-Start Meal Plan ($7)</strong>
+            <p>Printable PDF. Day-by-day meal plan + grocery list. Pairs with the cookbook. Reg. $27.</p>
+          </div>
+        </label>
+        <div class="bump-p">+$7<small>+$27</small></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq">
+      <h3 class="serif">Quick answers before you order</h3>
+      <details open>
+        <summary>How fast do I get the cookbook?</summary>
+        <p>Instant. The download link arrives in your inbox within 60 seconds of checkout. PDFs work on phone, tablet, laptop, Kindle, anything that opens a PDF.</p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for me?</summary>
+        <p>60-day money-back guarantee. Email refunds@paleohacks.com. We refund every penny. No return shipping (it's digital).</p>
+      </details>
+      <details>
+        <summary>Will I get charged for upgrades later?</summary>
+        <p>No surprise charges. Your card is on file via Sticky.io for the 1-click upsell on the next page, but nothing is charged until you click Yes.</p>
+      </details>
+      <details>
+        <summary>Is this Whole30 / keto / dairy-free compatible?</summary>
+        <p>About 70% of the recipes are Whole30-compliant. Keto-friendly options are flagged. Dairy-free swaps are noted on every dairy recipe.</p>
+      </details>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="sum-wrap">
+    <div class="sum">
+      <h3 class="serif">Your order <span class="edit">Edit cart</span></h3>
+
+      <div class="li">
+        <div class="li-img"></div>
+        <div class="li-b"><strong>Paleo Breakfast Cookbook</strong><span>60 recipes · 142 pages · PDF</span></div>
+        <div class="li-p">$19.99<small>$49.95</small></div>
+      </div>
+
+      <div class="li" id="bumpLine">
+        <div class="li-img bump"></div>
+        <div class="li-b"><strong>30-Day Quick-Start Meal Plan</strong><span>Order bump · save $20</span></div>
+        <div class="li-p">$7.00<small>$27</small></div>
+      </div>
+
+      <div class="delivery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Delivered <b>instantly</b> · PDF in your inbox in 60 seconds
+      </div>
+
+      <div class="disc-row">
+        <input placeholder="Discount code">
+        <button>Apply</button>
+      </div>
+
+      <div class="tot">
+        <div class="tr"><span>Subtotal</span><span id="sub">$26.99</span></div>
+        <div class="tr save"><span>Bundle savings</span><span>−$49.96</span></div>
+        <div class="tr muted"><span>Shipping</span><span>FREE (digital)</span></div>
+        <div class="tr muted"><span>Estimated tax</span><span>$0.00</span></div>
+        <div class="tr grand"><span>Total <small>USD</small></span><span id="grand">$26.99</span></div>
+      </div>
+
+      <button class="cta" id="payBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 11V7a7 7 0 0114 0v4"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+        Get Instant Access
+        <span class="price-tag" id="payTag">$26.99</span>
+      </button>
+
+      <div class="guard">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>Instant<br>delivery</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>60-day<br>refund</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Lifetime<br>access</div>
+      </div>
+
+      <div class="risk">
+        <div class="risk-icon">60<br>DAY</div>
+        <div>
+          <h4>Try the cookbook risk-free</h4>
+          <p>Cook from it for 60 days. If you don't have at least 5 recipes in your weekly rotation, email us. Full refund, no questions, no return needed (it's a download).</p>
+        </div>
+      </div>
+
+      <div class="rev-c">
+        <div class="rev-stars">★★★★★</div>
+        <p>"My picky 8-year-old asked for the almond pancakes 3 days in a row. I'm done shopping for paleo cookbooks."</p>
+        <cite>Megan D. — verified buyer (Apr 2026)</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-mob">
+  <div class="sm-inner">
+    <div class="sm-info">Total · cookbook + bump<br><b id="smTot">$26.99</b></div>
+    <button class="sm-cta" onclick="document.getElementById('payBtn').click()">Pay Now →</button>
+  </div>
+</div>
+
+<script>
+let mins=9, secs=48;
+const tEl=document.getElementById('timer');
+setInterval(()=>{
+  if(secs===0){if(mins===0){mins=9;secs=59}else{mins--;secs=59}}else secs--;
+  tEl.textContent=`${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+},1000);
+
+const bumpCheck=document.getElementById('bumpCheck');
+const bumpLine=document.getElementById('bumpLine');
+const sub=document.getElementById('sub');
+const grand=document.getElementById('grand');
+const payTag=document.getElementById('payTag');
+const smTot=document.getElementById('smTot');
+function recalc(){
+  const base=19.99;
+  const bump=bumpCheck.checked?7:0;
+  const tot=base+bump;
+  sub.textContent=`$${tot.toFixed(2)}`;
+  grand.textContent=`$${tot.toFixed(2)}`;
+  payTag.textContent=`$${tot.toFixed(2)}`;
+  smTot.textContent=`$${tot.toFixed(2)}`;
+  bumpLine.style.display=bumpCheck.checked?'':'none';
+}
+bumpCheck.addEventListener('change',recalc);
+
+document.querySelectorAll('.pay-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.pay-tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+}));
+
+document.getElementById('payBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  const b=e.currentTarget;
+  b.style.opacity='.7';
+  b.innerHTML='Processing your secure order…';
+  setTimeout(()=>window.location.href='/paleohacks/oto1.html',900);
+});
+</script>
+</body>
+</html>

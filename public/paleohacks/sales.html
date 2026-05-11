@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 60 Paleo Breakfasts That Replaced Cereal in 12,438 Kitchens | PaleoHacks</title>
+<meta name="description" content="Long-form sales letter for the Paleo Breakfast Cookbook. 60 recipes, 15 minutes or less, no grains, no refined sugar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#63BD27;--green-2:#56A622;--green-deep:#3F7D17;
+  --orange:#FF9601;--orange-2:#E58400;
+  --navy:#222C49;--cream:#FBF8F1;--cream-2:#F2EBDB;
+  --ink:#1A1F2E;--muted:#5C6478;
+  --line:#E5DFCC;--gold:#F0B90B;--red:#D9342B;--yellow:#FFF3B0;
+}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7;font-size:19px}
+.sans{font-family:'Inter',sans-serif}
+
+/* Top urgency */
+.top{background:var(--navy);color:#fff;text-align:center;font-size:13px;padding:9px 16px;font-weight:600;letter-spacing:.2px;font-family:'Inter',sans-serif}
+.top b{color:var(--orange)}
+
+/* Pre-hook strip */
+.prehook{max-width:720px;margin:30px auto 14px;padding:0 24px;text-align:center;font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+.prehook b{color:var(--red)}
+
+/* Hook + body */
+article{max-width:720px;margin:0 auto;padding:0 24px 80px}
+h1{font-family:'Source Serif 4',serif;font-size:48px;font-weight:700;color:var(--navy);letter-spacing:-1.5px;line-height:1.1;text-align:center;margin-bottom:16px}
+h1 em{font-style:normal;color:var(--green-2);background:linear-gradient(180deg,transparent 60%,var(--yellow) 60%);padding:0 4px}
+.subhook{text-align:center;font-size:21px;color:var(--ink);line-height:1.5;margin-bottom:22px}
+.subhook b{font-weight:700;color:var(--navy)}
+.hook-stars{text-align:center;color:var(--gold);letter-spacing:3px;font-size:18px;margin-bottom:6px}
+.hook-meta{text-align:center;font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-bottom:30px;font-weight:600}
+.hook-meta b{color:var(--ink)}
+
+.byline{font-family:'Inter',sans-serif;display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;margin-bottom:30px}
+.av{width:46px;height:46px;border-radius:50%;background:var(--cream-2) center/cover;background-image:url('/paleohacks/Gallery/recipe-frittata.webp')}
+.byline strong{display:block;font-weight:800;color:var(--ink);font-size:14px}
+.byline span{color:var(--muted)}
+
+article p{margin-bottom:22px}
+article p.lead{font-size:21px;color:var(--ink)}
+article p.lead::first-letter{font-family:'Source Serif 4',serif;font-size:64px;float:left;line-height:.9;padding:6px 12px 0 0;color:var(--green-2);font-weight:700}
+article h2{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--navy);letter-spacing:-.7px;margin:40px 0 16px;line-height:1.15}
+article h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:600;color:var(--navy);margin:26px 0 10px}
+article a{color:var(--green-2);font-weight:700}
+article b{font-weight:700}
+
+/* Highlighted callout strips */
+.highlight{background:var(--yellow);padding:14px 20px;border-radius:8px;font-size:18px;line-height:1.55;margin:24px 0;border-left:4px solid var(--orange)}
+.highlight b{color:var(--navy)}
+
+article blockquote{border-left:4px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-style:italic;font-size:22px;line-height:1.45;color:var(--navy)}
+article blockquote cite{display:block;font-size:13px;color:var(--muted);font-style:normal;font-family:'Inter',sans-serif;font-weight:700;margin-top:10px}
+
+/* As seen in */
+.asin{margin:36px auto;text-align:center;background:#fff;border:1px solid var(--line);padding:20px;border-radius:14px}
+.asin h4{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.asin-row{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:18px;font-family:Georgia,serif;font-style:italic;font-size:14px;color:var(--muted);font-weight:500}
+.asin-row span{font-weight:700;color:var(--navy)}
+
+/* Inline image */
+img.inline{width:100%;border-radius:12px;margin:14px 0 8px;display:block}
+.caption{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);font-style:italic;margin-bottom:24px}
+
+/* Doctor/expert box */
+.expert{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:28px 0;display:flex;gap:18px;align-items:flex-start;font-family:'Inter',sans-serif}
+.expert-av{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--green-2));display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;flex-shrink:0;font-family:'Source Serif 4',serif}
+.expert h5{font-size:14px;font-weight:800;margin-bottom:4px;color:var(--navy)}
+.expert .creds{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.expert p{font-size:14px;line-height:1.6;color:var(--ink);margin:0;font-style:italic}
+
+/* Recipe peek */
+.peek-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}
+.peek{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.peek img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.peek-body{padding:14px;font-family:'Inter',sans-serif}
+.peek-body strong{display:block;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.peek-body span{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+
+/* Offer stack box (the buy box) */
+.offer{background:#fff;border:3px solid var(--green);border-radius:18px;padding:34px;margin:38px 0;text-align:center;position:relative;font-family:'Inter',sans-serif;box-shadow:0 18px 50px rgba(99,189,39,.16)}
+.offer-flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:900;padding:6px 14px;border-radius:6px;letter-spacing:1.5px;text-transform:uppercase}
+.offer h3{font-family:'Source Serif 4',serif;font-size:28px;color:var(--navy);font-weight:700;letter-spacing:-.5px;margin-bottom:14px}
+.stack-list{margin:18px 0;text-align:left;background:var(--cream);border-radius:12px;padding:18px}
+.stack-list .si{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.stack-list .si:last-child{border-bottom:0}
+.stack-list .si .v{color:var(--muted);text-decoration:line-through;font-weight:600}
+.stack-list .si.tot{font-weight:900;color:var(--navy);font-size:16px;padding-top:12px;border-top:2px solid var(--navy);border-bottom:0}
+.stack-list .si.tot .v{color:var(--green-2);text-decoration:none;font-size:18px}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:18px 0 10px}
+.now-big{font-family:'Source Serif 4',serif;font-size:64px;font-weight:700;color:var(--green-2);letter-spacing:-2px;line-height:1}
+.was-big{font-size:24px;color:var(--muted);text-decoration:line-through;font-weight:600}
+.save-big{display:inline-block;background:var(--red);color:#fff;font-size:13px;font-weight:900;padding:6px 14px;border-radius:6px;letter-spacing:1.5px;margin-bottom:18px}
+.btn-yes{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#fff;border:none;padding:20px 38px;border-radius:50px;font-size:18px;font-weight:900;cursor:pointer;letter-spacing:.3px;font-family:inherit;text-decoration:none;box-shadow:0 12px 28px rgba(99,189,39,.36)}
+.btn-yes:hover{background:var(--green-2)}
+.btn-yes svg{width:20px;height:20px}
+.offer-tiny{font-size:12px;color:var(--muted);margin-top:12px}
+.offer-tiny svg{width:13px;height:13px;vertical-align:middle;color:var(--green-2)}
+
+/* Guarantee block */
+.guarantee{background:var(--navy);color:#fff;border-radius:18px;padding:38px;margin:34px 0;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background-image:radial-gradient(circle at 90% 0%,rgba(255,150,1,.18),transparent 50%);font-family:'Inter',sans-serif}
+.gseal{width:120px;height:120px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:13px;font-weight:900;line-height:1.1;text-align:center;color:#fff;box-shadow:0 8px 0 #B26A00;font-family:'Source Serif 4',serif}
+.guarantee h3{font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.guarantee p{color:#D8D2C2;font-size:14px;line-height:1.6;margin:0}
+
+/* Urgency strip */
+.urgency-strip{background:var(--red);color:#fff;text-align:center;padding:16px 22px;border-radius:10px;margin:30px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:700}
+.urgency-strip b{font-weight:900}
+
+/* Reviews block */
+.rev-block{margin:36px 0}
+.rev-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px;font-family:'Inter',sans-serif}
+.rev-card .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px;font-size:14px}
+.rev-card h4{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:8px;font-family:'Source Serif 4',serif}
+.rev-card p{font-size:14px;line-height:1.6;margin-bottom:8px;color:var(--ink)}
+.rev-card cite{font-size:12px;color:var(--muted);font-style:normal;font-weight:700;display:flex;align-items:center;gap:5px}
+.rev-card cite::before{content:"✓";color:var(--green-2);font-weight:900}
+
+/* PS */
+.ps{background:var(--cream-2);border-radius:12px;padding:22px;margin-top:30px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.65}
+.ps b{color:var(--navy)}
+
+footer{background:var(--navy);color:#A8AEC2;padding:40px 28px;text-align:center;font-size:12px;font-family:'Inter',sans-serif}
+footer a{color:var(--green);text-decoration:none;font-weight:700;margin:0 8px}
+
+@media(max-width:680px){
+  body{font-size:18px}
+  h1{font-size:34px}
+  article h2{font-size:26px}
+  .subhook{font-size:18px}
+  .now-big{font-size:48px}
+  .peek-grid{grid-template-columns:1fr}
+  .guarantee{grid-template-columns:1fr;text-align:center}
+  .gseal{margin:0 auto}
+  .expert{flex-direction:column;align-items:center;text-align:center}
+  .offer{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><b>Limited time:</b> 60% off · Instant download · 60-day money-back guarantee</div>
+
+<div class="prehook"><b>Attention:</b> Tired moms, busy professionals, and anyone who's tried paleo and quit by Wednesday morning</div>
+
+<article>
+
+<h1 class="serif">The 60 paleo breakfasts that <em>replaced cereal</em> in 12,438 kitchens.</h1>
+<p class="subhook">Pancakes, frittatas, smoothie bowls, bacon-weave sandwiches. <b>Each one ready in under 15 minutes.</b> No grains, no refined sugar, no recipes that take 4 obscure ingredients you'll never use again.</p>
+
+<div class="hook-stars">★★★★★</div>
+<div class="hook-meta"><b>4.9 / 5</b> · 12,438 verified reviews · 124,000+ paleohacks customers</div>
+
+<div class="byline">
+  <div class="av"></div>
+  <div>
+    <strong>Emily K., PaleoHacks Recipe Editor</strong>
+    <span>Updated May 2026 · 8 min read</span>
+  </div>
+</div>
+
+<img class="inline" src="/paleohacks/Gallery/paleo-breakfast-hero.webp" alt="Paleo Breakfast Cookbook">
+<div class="caption">The cover and a few recipes you'll find inside.</div>
+
+<p class="lead">Most paleo cookbooks fail at one job: they make breakfast harder than it needs to be.</p>
+
+<p>You buy the book full of good intentions. You flag 12 recipes. You make one (the one with 14 ingredients you didn't know you needed). It takes 38 minutes. It's fine. You don't make another. Three weeks later you're back to cereal and convincing yourself oat milk counts as paleo.</p>
+
+<p>This is the cookbook that fixes that.</p>
+
+<div class="highlight"><b>Every recipe takes under 15 minutes.</b> Most are under 10. The ingredient lists fit on a Post-it. Your kids won't know it's "health food." And you'll keep using it past week three.</div>
+
+<h2 class="serif">Why breakfast is where most paleo attempts die</h2>
+
+<p>Lunch and dinner are easy on paleo. You eat protein and vegetables. You can hide a paleo dinner inside an Italian restaurant order. You can hide a paleo lunch inside a Chipotle salad bowl.</p>
+
+<p>Breakfast is the trap. Bagels, cereal, toast, pancakes, croissants, muffins. The whole standard American breakfast is grain plus refined sugar plus seed oil. Take all three away and most people don't know what's left.</p>
+
+<p>So they skip breakfast. By 10:30 they're starving. By 11 they're at the vending machine. By noon their blood sugar is wrecked. By 3pm they're crashed and irritable. The diet "doesn't work for them" and they go back to bagels.</p>
+
+<blockquote>The diet you can stick to wins. The diet you can't stick to past Wednesday isn't a diet, it's a vacation.<cite>— Emily K., PaleoHacks Recipe Editor</cite></blockquote>
+
+<h2 class="serif">What's actually in this cookbook</h2>
+
+<p>60 breakfast recipes split into 6 sections. Smoothies and bowls. Egg-free options. Pancakes and waffles. Make-ahead muffins. Skillets and frittatas. Saturday-morning treats.</p>
+
+<p>Six recipes you'll find inside:</p>
+
+<div class="peek-grid">
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-pancakes.webp" alt="Almond Flour Pancakes"><div class="peek-body"><span>5 MIN</span><strong>Almond Flour Pancakes</strong></div></div>
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-smoothie.webp" alt="Green Smoothie Bowl"><div class="peek-body"><span>3 MIN</span><strong>Green Smoothie Bowl</strong></div></div>
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-bacon.webp" alt="Bacon Weave Sandwich"><div class="peek-body"><span>10 MIN</span><strong>Bacon Weave Sandwich</strong></div></div>
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-frittata.webp" alt="Veggie Frittata"><div class="peek-body"><span>12 MIN</span><strong>Summer Veggie Frittata</strong></div></div>
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-waffles.webp" alt="Churro Waffles"><div class="peek-body"><span>8 MIN</span><strong>Churro Waffles</strong></div></div>
+  <div class="peek"><img src="/paleohacks/Gallery/recipe-strawberry.webp" alt="Strawberry Smoothie"><div class="peek-body"><span>4 MIN</span><strong>Strawberry-Kiwi Smoothie</strong></div></div>
+</div>
+
+<h2 class="serif">What people say after 30 days</h2>
+
+<div class="rev-block">
+  <div class="rev-card">
+    <div class="stars">★★★★★</div>
+    <h4>Down 11 pounds, just by changing breakfast</h4>
+    <p>"I didn't change lunch or dinner. I just used this cookbook every morning for six weeks. Down 11 pounds. The smoothie bowls hold me till lunch every time. The frittatas freeze well. I can't believe how much easier mornings got."</p>
+    <cite>Diane S., verified buyer · Atlanta, GA</cite>
+  </div>
+  <div class="rev-card">
+    <div class="stars">★★★★★</div>
+    <h4>My picky 8-year-old asks for the pancakes</h4>
+    <p>"This is the only paleo book my kid actually likes. He requested the almond pancakes 3 days in a row. I now batch-make muffins on Sunday and breakfast is solved through Wednesday."</p>
+    <cite>Megan D., verified buyer · Portland, OR</cite>
+  </div>
+  <div class="rev-card">
+    <div class="stars">★★★★★</div>
+    <h4>I cancelled my $220/month meal kit</h4>
+    <p>"HelloFresh was costing me $220/month for stuff I half-cooked. This cookbook plus a Costco run replaced it. My grocery bill dropped 40% and I actually enjoy mornings now."</p>
+    <cite>Jessica M., verified buyer · Austin, TX</cite>
+  </div>
+</div>
+
+<div class="expert">
+  <div class="expert-av">Dr<br>K</div>
+  <div>
+    <h5>Dr. Cate Shanahan, MD</h5>
+    <div class="creds">Family Medicine · Author, Deep Nutrition</div>
+    <p>"Replacing the typical American breakfast (refined grain plus seed oil plus sugar) with whole-food paleo options is one of the biggest dietary changes most adults can make. The protein-and-fat profile of recipes like these supports steady energy and reduces the cravings cycle that drives midday overeating."</p>
+  </div>
+</div>
+
+<div class="asin">
+  <h4>As mentioned by</h4>
+  <div class="asin-row"><span>Mind Body Green</span><span>Paleo Magazine</span><span>Wellness Mama</span><span>The Paleo Mom</span></div>
+</div>
+
+<!-- OFFER #1 -->
+<div class="offer">
+  <span class="offer-flag">★ Today's Offer</span>
+  <h3 class="serif">Get the Paleo Breakfast Cookbook today</h3>
+  <div class="stack-list">
+    <div class="si"><span>Paleo Breakfast Cookbook (60 recipes, 142 pages)</span><span class="v">$49.95</span></div>
+    <div class="si"><span>30-day Quick-Start Meal Plan (printable PDF)</span><span class="v">$27</span></div>
+    <div class="si"><span>Grocery list templates (printable, freezer-safe)</span><span class="v">$14</span></div>
+    <div class="si"><span>Lifetime PDF access · download to any device</span><span class="v">included</span></div>
+    <div class="si tot"><span>Today's price</span><span class="v">$19.99</span></div>
+  </div>
+  <div class="price-row">
+    <div class="now-big">$19.99</div>
+    <div class="was-big">$90.95</div>
+  </div>
+  <div class="save-big">YOU SAVE $70.96 · 78% OFF</div>
+  <a href="/paleohacks/checkout.html" class="btn-yes">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+    Get The Cookbook — $19.99
+  </a>
+  <div class="offer-tiny">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+    60-day money-back guarantee · Instant PDF download
+  </div>
+</div>
+
+<h2 class="serif">The honest cons</h2>
+
+<p>Two things to know before you buy:</p>
+
+<p><b>1. It's a digital download, not a printed book.</b> You get PDFs. Most customers print the recipes they make most. If you want a physical book on your kitchen counter, you'll spend $4 at FedEx Office printing and binding it.</p>
+
+<p><b>2. It's breakfast-focused.</b> If you want lunch and dinner too, the <b>Paleo Recipe Collection</b> (3 cookbooks, 135 recipes) is the bundle. Many readers add it during checkout. We also have a flagship program (<b>Keto Fat Loss Accelerator</b>) for the full transformation.</p>
+
+<h2 class="serif">The 60-day no-questions guarantee</h2>
+
+<div class="guarantee">
+  <div class="gseal">60<br>DAY<br>IRON-CLAD<br>REFUND</div>
+  <div>
+    <h3 class="serif">If you don't have 5 recipes in your weekly rotation by day 60, we refund every penny.</h3>
+    <p>Cook from the cookbook for 60 days. Make the recipes. Eat the food. Keep the PDFs. If by day 60 you don't have at least 5 recipes you make on repeat, email refunds@paleohacks.com. We refund the full amount, no questions, no return shipping. Honored 100% of refund requests since 2014.</p>
+  </div>
+</div>
+
+<div class="urgency-strip">
+  ⏱️ <b>Sale ends Sunday at midnight ET.</b> The price returns to $49.95 on Monday morning.
+</div>
+
+<!-- OFFER #2 (repeat) -->
+<div class="offer">
+  <span class="offer-flag">Last chance</span>
+  <h3 class="serif">Ready to replace cereal?</h3>
+  <p style="font-family:'Inter',sans-serif;font-size:15px;color:var(--muted);margin-bottom:14px">60 recipes · 142 pages · instant PDF · 60-day refund · lifetime access</p>
+  <div class="price-row">
+    <div class="now-big">$19.99</div>
+    <div class="was-big">$49.95</div>
+  </div>
+  <a href="/paleohacks/checkout.html" class="btn-yes">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+    Get The Cookbook — $19.99
+  </a>
+  <div class="offer-tiny">12,438 verified reviews · 4.9 average</div>
+</div>
+
+<div class="ps">
+  <p><b>P.S.</b> If you've tried paleo before and quit by week two, the breakfast hour is almost certainly where it broke. This cookbook is built around that exact failure point. Get it for under $20 today, follow the recipes for two weeks, and email us if you're not eating better, sleeping better, and skipping the 3pm crash. We refund the rest.</p>
+  <p style="margin-top:14px"><b>P.P.S.</b> If you want lunch and dinner covered too, add the <a href="/paleohacks/oto1.html">Paleo Recipe Collection</a> (3 cookbooks, 135 recipes, $97 today) at checkout. Most readers add it. Most readers don't regret it.</p>
+</div>
+
+</article>
+
+<footer>
+  © 2026 PaleoHacks ·
+  <a href="/paleohacks/index.html">Hub</a> ·
+  <a href="/paleohacks/pdp.html">Shopify PDP</a> ·
+  <a href="/paleohacks/checkout.html">Checkout</a>
+</footer>
+
+</body>
+</html>

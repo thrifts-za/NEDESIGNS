@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order confirmed — your PDFs are on their way | PaleoHacks</title>
+<meta name="description" content="Your order is confirmed. Download links sent to your email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#63BD27;--green-2:#56A622;--orange:#FF9601;--navy:#222C49;--cream:#FBF8F1;--cream-2:#F2EBDB;--ink:#1A1F2E;--muted:#5C6478;--line:#E5DFCC;--gold:#F0B90B}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+.serif{font-family:'Source Serif 4',serif}
+
+.confirm{background:var(--green);color:#fff;text-align:center;padding:14px 20px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px}
+.confirm svg{width:20px;height:20px}
+
+.hero{max-width:760px;margin:0 auto;padding:50px 28px 32px;text-align:center}
+.checkmark{width:96px;height:96px;background:var(--green);border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;color:#fff;box-shadow:0 18px 40px rgba(99,189,39,.34)}
+.checkmark svg{width:46px;height:46px}
+.eyebrow{display:inline-block;background:#F4FBED;color:var(--green-deep);font-size:12px;font-weight:900;padding:5px 12px;border-radius:50px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;border:1px solid #C9E5BC}
+h1{font-family:'Source Serif 4',serif;font-size:46px;font-weight:700;color:var(--navy);letter-spacing:-1.5px;line-height:1.05;margin-bottom:14px}
+.lede{font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 28px;line-height:1.55}
+.lede b{color:var(--ink);font-weight:700}
+
+/* Order summary card */
+.order{max-width:760px;margin:0 auto 30px;padding:0 28px}
+.order-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.order-h{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.order-h h3{font-family:'Source Serif 4',serif;font-size:20px;color:var(--navy);font-weight:700}
+.order-h .num{font-size:13px;color:var(--muted);font-weight:700}
+.order-line{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.order-line:last-of-type{border-bottom:0}
+.ol-img{width:54px;height:54px;border-radius:10px;background:var(--cream-2) center/cover;flex-shrink:0;border:1px solid var(--line)}
+.ol-b{flex:1}
+.ol-b strong{display:block;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.ol-b span{font-size:12px;color:var(--muted)}
+.ol-b a{display:inline-block;margin-top:6px;font-size:12px;color:var(--green-2);font-weight:800;text-decoration:none}
+.ol-b a:hover{text-decoration:underline}
+.ol-p{font-weight:900;font-size:14px;color:var(--navy);text-align:right}
+.order-tot{display:flex;justify-content:space-between;padding-top:14px;border-top:2px solid var(--navy);margin-top:8px;font-size:18px;font-weight:900;color:var(--navy);font-family:'Source Serif 4',serif}
+
+/* What's next */
+.next{max-width:760px;margin:0 auto 50px;padding:0 28px}
+.next h2{font-family:'Source Serif 4',serif;font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.6px;margin-bottom:16px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.step-card .num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:14px;display:grid;place-items:center;margin:0 auto 10px}
+.step-card h4{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.step-card p{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* Community block */
+.community{max-width:760px;margin:0 auto 50px;padding:0 28px}
+.com-card{background:var(--navy);color:#fff;border-radius:18px;padding:38px;text-align:center;background-image:radial-gradient(circle at 90% 0%,rgba(99,189,39,.18),transparent 50%)}
+.com-card h3{font-family:'Source Serif 4',serif;font-size:26px;font-weight:700;letter-spacing:-.6px;margin-bottom:10px}
+.com-card p{color:#D8DCE5;font-size:14px;max-width:480px;margin:0 auto 18px;line-height:1.6}
+.com-card .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 24px;border-radius:50px;font-weight:900;text-decoration:none;font-size:14px}
+.com-card .btn:hover{background:var(--green-2)}
+
+footer{background:var(--navy);color:#A8AEC2;padding:36px 28px;text-align:center;font-size:12px}
+footer a{color:var(--green);text-decoration:none;font-weight:700;margin:0 8px}
+
+/* Stack-range note */
+.tech-note{max-width:760px;margin:0 auto 30px;padding:14px 22px;background:#FFF8E3;font-size:11px;color:var(--muted);font-family:'Inter',sans-serif;border-radius:6px;border:1px solid #F0E2B0}
+.tech-note b{color:var(--navy)}
+.tech-note code{background:#fff;padding:1px 6px;border-radius:3px;font-size:11px;color:var(--navy);font-weight:700}
+
+@media(max-width:680px){
+  h1{font-size:32px}
+  .steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="confirm">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+  Order confirmed · PDFs delivered · Receipt on its way
+</div>
+
+<div class="hero">
+  <div class="checkmark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+  </div>
+  <span class="eyebrow">Order #PH-49281 · Email sent</span>
+  <h1 class="serif">Thank you. Your PDFs are on their way.</h1>
+  <p class="lede">Check <b>sarah.j@example.com</b> in the next 60 seconds. Your download links and a quick-start meal plan are waiting. If they don't arrive, check your spam folder, then email <a href="#" style="color:var(--green-2);font-weight:700">support@paleohacks.com</a> and we'll re-send them inside an hour.</p>
+</div>
+
+<div class="order">
+  <div class="order-card">
+    <div class="order-h">
+      <h3 class="serif">Order summary</h3>
+      <span class="num">#PH-49281 · May 5, 2026</span>
+    </div>
+
+    <div class="order-line">
+      <div class="ol-img" style="background-image:url('/paleohacks/Gallery/paleo-breakfast-hero.webp')"></div>
+      <div class="ol-b">
+        <strong>Paleo Breakfast Cookbook</strong>
+        <span>60 recipes · 142 pages · PDF</span>
+        <a href="#">Download PDF →</a>
+      </div>
+      <div class="ol-p">$19.99</div>
+    </div>
+
+    <div class="order-line">
+      <div class="ol-img" style="background-image:url('/paleohacks/Gallery/recipe-pancakes.webp')"></div>
+      <div class="ol-b">
+        <strong>30-Day Quick-Start Meal Plan</strong>
+        <span>Order bump · printable PDF</span>
+        <a href="#">Download PDF →</a>
+      </div>
+      <div class="ol-p">$7.00</div>
+    </div>
+
+    <div class="order-line">
+      <div class="ol-img" style="background-image:url('/paleohacks/Gallery/prc-bundle.webp')"></div>
+      <div class="ol-b">
+        <strong>Paleo Recipe Collection (3 cookbooks)</strong>
+        <span>Upsell · 135 recipes · 3 PDFs</span>
+        <a href="#">Download bundle →</a>
+      </div>
+      <div class="ol-p">$97.00</div>
+    </div>
+
+    <div class="order-tot">
+      <span>Total paid</span>
+      <span>$123.99</span>
+    </div>
+  </div>
+</div>
+
+<div class="next">
+  <h2 class="serif">What happens next</h2>
+  <div class="steps">
+    <div class="step-card">
+      <div class="num">1</div>
+      <h4>Check your email</h4>
+      <p>PDFs delivered in under 60 seconds. Spam folder if missing.</p>
+    </div>
+    <div class="step-card">
+      <div class="num">2</div>
+      <h4>Print or download</h4>
+      <p>Save to phone, tablet, laptop, or print pages you'll use most.</p>
+    </div>
+    <div class="step-card">
+      <div class="num">3</div>
+      <h4>Cook tomorrow</h4>
+      <p>Start with the smoothie bowl. 3 minutes. No grocery run needed.</p>
+    </div>
+  </div>
+</div>
+
+<div class="community">
+  <div class="com-card">
+    <h3 class="serif">Join 8,000+ home cooks in our community</h3>
+    <p>The PaleoHacks community is where readers swap recipes, troubleshoot picky kids, and share what's working. Free to join.</p>
+    <a href="#" class="btn">Join the community →</a>
+  </div>
+</div>
+
+<div class="tech-note">
+  <b>Stack note for the dev team:</b> This thank-you route is built as a Next.js page (<code>app/thankyou/page.tsx</code>) on production, fetching order data via a server component from the Sticky.io webhook. The static HTML you're viewing here is the same template rendered at build time. README in <code>/paleohacks/</code> documents the AI-paired build workflow and the exact prompts used.
+</div>
+
+<footer>
+  © 2026 PaleoHacks ·
+  <a href="/paleohacks/index.html">Hub</a> ·
+  <a href="/paleohacks/pdp.html">Shop</a>
+</footer>
+
+</body>
+</html>

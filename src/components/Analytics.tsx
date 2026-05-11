@@ -4,8 +4,18 @@ import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 import { SiteSettings } from '@/lib/sanity.types';
 
+type SiteSettingsWithAnalytics = SiteSettings & {
+  analytics?: {
+    googleAnalyticsId?: string;
+    googleTagManagerId?: string;
+    facebookPixelId?: string;
+    customHeadScripts?: string;
+    customBodyScripts?: string;
+  };
+};
+
 interface AnalyticsProps {
-  settings: SiteSettings | null;
+  settings: SiteSettingsWithAnalytics | null;
 }
 
 export default function Analytics({ settings }: AnalyticsProps) {
